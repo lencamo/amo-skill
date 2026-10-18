@@ -28,6 +28,14 @@
       "category": "workflow",
       "source": "./skills/amo-fix",
       "homepage": "https://github.com/lencamo/amo-skill"
+    },
+    {
+      "name": "amo-refactor",
+      "description": "Use when the user asks how to refactor, split modules, clarify architecture, move ownership, reduce coupling, or fix unclear state, data-flow, or component boundaries before coding. Do not use for ordinary feature work, bug fixes, or second-pass solution challenges.",
+      "version": "0.2.0",
+      "category": "workflow",
+      "source": "./skills/amo-refactor",
+      "homepage": "https://github.com/lencamo/amo-skill"
     }
   ]
 }
