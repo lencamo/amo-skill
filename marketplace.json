@@ -44,6 +44,14 @@
       "category": "workflow",
       "source": "./skills/amo-best",
       "homepage": "https://github.com/lencamo/amo-skill"
+    },
+    {
+      "name": "amo-research",
+      "description": "Use when the user asks to research how competitor products, communities, or open-source projects implement a feature, find mature reusable approaches, or verify implementation alternatives with external evidence to support solution decisions. Do not use for general market analysis or solution design without external implementation research.",
+      "version": "0.2.0",
+      "category": "workflow",
+      "source": "./skills/amo-research",
+      "homepage": "https://github.com/lencamo/amo-skill"
     }
   ]
 }

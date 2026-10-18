@@ -20,6 +20,7 @@ All `amo-*` workflow skills prefix the first output line inline with their skill
 | `amo-fix` | `🛠️ [amo-fix]` |
 | `amo-refactor` | `🧱 [amo-refactor]` |
 | `amo-best` | `🏆 [amo-best]` |
+| `amo-research` | `🔬 [amo-research]` |
 
 Keep the marker inline with the first line, not as a standalone paragraph.
 
@@ -32,6 +33,7 @@ Keep the marker inline with the first line, not as a standalone paragraph.
 | Explain and fix broken, wrong, flaky, regressed, or failing existing behavior | `amo-fix` |
 | Change structure, ownership, coupling, state/data flow, module boundaries, or component boundaries | `amo-refactor` |
 | Challenge an existing proposal: "is this best?", "better way?", "tradeoff right?", "scope right?" | `amo-best` |
+| Research competitor products, community practices, or open-source implementations for mature, reusable approaches | `amo-research` |
 
 ## Maintenance Rule
 
