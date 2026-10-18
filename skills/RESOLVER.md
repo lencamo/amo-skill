@@ -23,6 +23,7 @@ All `amo-*` workflow skills prefix the first output line inline with their skill
 | `amo-research` | `🔬 [amo-research]` |
 | `amo-detail` | `🔎 [amo-detail]` |
 | `amo-implement` | `🔨 [amo-implement]` |
+| `amo-review` | `🔍 [amo-review]` |
 | `amo-check` | `🧹 [amo-check]` |
 | `amo-draft` | `📝 [amo-draft]` |
 
@@ -40,13 +41,13 @@ Keep the marker inline with the first line, not as a standalone paragraph.
 | Research competitor products, community practices, or open-source implementations for mature, reusable approaches | `amo-research` |
 | Understand an existing proposal's overall flow, impact, and frontend/backend changes | `amo-detail` |
 | Implement an already defined proposal and verify the result | `amo-implement` |
-| Review implemented functionality against requirements and find logic errors or bugs | `amo-review` (placeholder; not implemented; do not invoke for review) |
+| Review functional correctness and potential bugs across workspace changes, specified commits, or a feature branch | `amo-review` |
 | Review implemented code for redundancy, unnecessary abstractions, TypeScript type noise, or composable usage clarity | `amo-check` |
 | Write or edit target-focused page copy, requirement notes, implementation docs, version notes, release notes, or temporary project documentation | `amo-draft` |
 
 ## Best Standard Routing
 
-Design-oriented `amo-*` skills must choose one primary best standard before recommending a solution. `amo-research`, `amo-detail`, and `amo-implement` follow existing decisions without choosing a new best standard. `amo-check` and `amo-draft` do not choose a best standard.
+Design-oriented `amo-*` skills must choose one primary best standard before recommending a solution. `amo-research`, `amo-detail`, and `amo-implement` follow existing decisions without choosing a new best standard. `amo-review`, `amo-check`, and `amo-draft` do not choose a best standard.
 
 | User signal | Standard |
 | :---------- | :------- |
@@ -67,6 +68,7 @@ Default to target-state best when no constraint is stated. Do not invent compati
 6. Implemented code exists and the user asks for redundancy, style, or TypeScript type review: use `amo-check`.
 7. The user asks to write clean target content from context, reference style, examples, or implementation history: use `amo-draft`.
 8. Implementing an already defined proposal: use `amo-implement`; direct small edits, assets, and commit messages do not require the amo design workflow.
+9. Check implemented functionality for correctness or latent bugs: use `amo-review`; use `amo-fix` to diagnose a known failure and choose a fix.
 
 ## Chaining
 
@@ -80,7 +82,7 @@ amo-feature / amo-improve / amo-fix / amo-refactor (usually choose one)
 → amo-best (optional proposal review)
 → amo-detail (optional explanation)
 → amo-implement (implementation and verification)
-→ amo-review (functional review; placeholder, not implemented)
+→ amo-review (functional review)
 
 amo-research: research independently or supply external evidence for design and review as needed
 amo-check: review code style, redundancy, abstractions, and type clarity as needed
@@ -93,7 +95,7 @@ Use `amo-best` only as a second-pass pressure test after a concrete proposal exi
 Use `amo-research` independently or as optional external implementation research to support decisions in `amo-feature`, `amo-improve`, `amo-fix`, `amo-refactor`, and `amo-best`; it provides evidence and reuse advice without automatically invoking other skills.
 Use `amo-detail` to present an existing proposal's flow, impact, and frontend/backend changes; the proposal may come from the user or a primary design skill, optionally reviewed by `amo-best`.
 Use `amo-implement` to code and verify an existing proposal while controlling comment noise, frontend content pollution, and scope creep.
-Use `amo-check` only after code exists.
+Use `amo-review` for implemented functionality and `amo-check` for code style as needed.
 Use `amo-draft` when the next artifact is content, not code.
 
 ## Maintenance Rule
