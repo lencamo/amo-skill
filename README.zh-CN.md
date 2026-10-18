@@ -15,6 +15,7 @@
 | [`amo-fix`](skills/amo-fix/docs/SKILL.zh-CN.md)             | Bug 根因分析，并选择修复标准              | “这个 bug 为什么出现？”“怎么修才对？”        |
 | [`amo-refactor`](skills/amo-refactor/docs/SKILL.zh-CN.md)   | 按标准规划重构、模块边界、职责归属        | “这块是不是该重构？”“边界怎么拆？”           |
 | [`amo-best`](skills/amo-best/docs/SKILL.zh-CN.md)           | 复核最佳标准，并对已有方案做压力测试      | “这是最佳方案吗？”“有没有更优方案？”         |
+| [`amo-research`](skills/amo-research/docs/SKILL.zh-CN.md)   | 调研实现证据与可复用方案，辅助方案判断 | “竞品或开源项目是怎么实现这个功能的？”     |
 
 工作流路由规则见 [`skills/RESOLVER.zh-CN.md`](skills/RESOLVER.zh-CN.md)。
 
@@ -50,6 +51,7 @@ npx skills add lencamo/amo-skill -a codex -g -y -s amo-improve
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-fix
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-refactor
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-best
+npx skills add lencamo/amo-skill -a codex -g -y -s amo-research
 ```
 
 本地开发时使用当前仓库：
