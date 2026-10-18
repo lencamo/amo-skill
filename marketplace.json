@@ -71,10 +71,18 @@
     },
     {
       "name": "amo-review",
-      "description": "Use when the user asks to review implemented code for code style, redundancy, unnecessary abstractions, wrappers, helpers, adapters, parsers, type guards, TypeScript type noise, or composable usage clarity.",
+      "description": "Placeholder for future functional correctness reviews of implemented code: requirement coverage, logic errors, missed cases, and potential bugs. Not implemented; do not use this placeholder to perform a review.",
       "version": "0.1.0",
       "category": "workflow",
       "source": "./skills/amo-review",
+      "homepage": "https://github.com/lencamo/amo-skill"
+    },
+    {
+      "name": "amo-check",
+      "description": "Use when the user asks to review implemented code for code style, redundancy, unnecessary abstractions, wrappers, helpers, adapters, parsers, type guards, TypeScript type noise, or composable usage clarity.",
+      "version": "0.1.0",
+      "category": "workflow",
+      "source": "./skills/amo-check",
       "homepage": "https://github.com/lencamo/amo-skill"
     },
     {

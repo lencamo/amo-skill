@@ -23,7 +23,7 @@ Prefix the first output line inline with `📝 [amo-draft]`. Do not put the mark
 
 - For solution design before coding; use `amo-feature`, `amo-improve`, `amo-fix`, or `amo-refactor`.
 - For second-pass solution pressure testing; use `amo-best`.
-- For implemented-code style review; use `amo-review`.
+- For implemented-code style review; use `amo-check`.
 - For generated user-facing docs based on real implementation; use `doc-feat-desc`.
 - For commit messages; use `git-smart-commit`.
 
