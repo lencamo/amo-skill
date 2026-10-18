@@ -4,5 +4,14 @@
   "owner": {
     "name": "lencamo"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "amo-feature",
+      "description": "Use when the user asks how to design or implement a new feature, capability, workflow, page, API, or behavior before coding. Do not use for bug fixes, intentional changes to existing behavior, pure refactors, or second-pass solution challenges.",
+      "version": "0.2.0",
+      "category": "workflow",
+      "source": "./skills/amo-feature",
+      "homepage": "https://github.com/lencamo/amo-skill"
+    }
+  ]
 }

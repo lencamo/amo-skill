@@ -6,6 +6,14 @@ Agent workflow skills for design, implementation, review, and documentation.
 
 Repository: `https://github.com/lencamo/amo-skill`
 
+## Workflow Skills
+
+| Skill                                                    | Goal                                                       | Trigger                                                                      |
+| :------------------------------------------------------- | :--------------------------------------------------------- | :--------------------------------------------------------------------------- |
+| [`amo-feature`](skills/amo-feature/SKILL.md)             | Design a new feature and choose the right best-standard     | "How should we implement this new feature?"                                  |
+
+Workflow routing rules live in [`skills/RESOLVER.md`](skills/RESOLVER.md).
+
 Each skill lives in its own folder instead of a single markdown file. A skill can include bundled references and helper resources when needed.
 
 ## Install
@@ -28,6 +36,12 @@ Install all skills for Claude Code:
 
 ```bash
 npx skills add lencamo/amo-skill -a claude-code -g -y
+```
+
+Install selected skills for a specific agent:
+
+```bash
+npx skills add lencamo/amo-skill -a codex -g -y -s amo-feature
 ```
 
 Use the local repository during development:
