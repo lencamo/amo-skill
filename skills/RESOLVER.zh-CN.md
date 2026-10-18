@@ -18,6 +18,7 @@ README 是公开目录：列出所有 skill、安装命令和简短说明。
 | `amo-feature` | `🧩 [amo-feature]` |
 | `amo-improve` | `🧰 [amo-improve]` |
 | `amo-fix` | `🛠️ [amo-fix]` |
+| `amo-refactor` | `🧱 [amo-refactor]` |
 
 标记必须和第一行内容放在同一行，不要单独成段。
 
@@ -28,6 +29,7 @@ README 是公开目录：列出所有 skill、安装命令和简短说明。
 | 构建当前不存在的新行为 | `amo-feature` |
 | 有意改变、扩展、优化或重新设计已有行为 | `amo-improve` |
 | 解释并修复错误、异常、不稳定、回归或失败的已有行为 | `amo-fix` |
+| 调整结构、职责归属、耦合、状态/数据流、模块边界或组件边界 | `amo-refactor` |
 
 ## 维护规则
 

@@ -13,6 +13,7 @@
 | [`amo-feature`](skills/amo-feature/docs/SKILL.zh-CN.md)     | 新功能方案设计，并选择最佳标准            | “新增一个功能怎么做？”“这个需求怎么实现？”   |
 | [`amo-improve`](skills/amo-improve/docs/SKILL.zh-CN.md)     | 已有功能改造，并选择最佳标准              | “现有功能要改成这样，怎么改最好？”           |
 | [`amo-fix`](skills/amo-fix/docs/SKILL.zh-CN.md)             | Bug 根因分析，并选择修复标准              | “这个 bug 为什么出现？”“怎么修才对？”        |
+| [`amo-refactor`](skills/amo-refactor/docs/SKILL.zh-CN.md)   | 按标准规划重构、模块边界、职责归属        | “这块是不是该重构？”“边界怎么拆？”           |
 
 工作流路由规则见 [`skills/RESOLVER.zh-CN.md`](skills/RESOLVER.zh-CN.md)。
 
@@ -46,6 +47,7 @@ npx skills add lencamo/amo-skill -a claude-code -g -y
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-feature
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-improve
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-fix
+npx skills add lencamo/amo-skill -a codex -g -y -s amo-refactor
 ```
 
 本地开发时使用当前仓库：
