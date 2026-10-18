@@ -74,13 +74,18 @@ Skill 不会自动串联。
 典型手动链路：
 
 ```text
-amo-feature / amo-improve / amo-fix / amo-refactor
--> amo-best
--> amo-detail
--> amo-implement
--> amo-review
--> amo-draft
+amo-feature / amo-improve / amo-fix / amo-refactor（通常选一个）
+→ 形成候选方案
+→ amo-best（按需复核方案）
+→ amo-detail（按需解释详情）
+→ amo-implement（实施与验证）
+→ amo-review（按需审查代码）
+
+amo-research：按需独立调研，或为方案设计与复核补充外部证据
+amo-draft：任意阶段按需编写文档和文案
 ```
+
+这是一种手动组合示例，不是必经流程。已有明确方案可以直接实施，已有代码可以直接审查，各 skill 不会自动串联。
 
 只有在已有具体方案后，才把 `amo-best` 作为二次压力测试使用。
 `amo-research` 可以独立使用，也可按需开展外部实现调研，支持 `amo-feature`、`amo-improve`、`amo-fix`、`amo-refactor` 和 `amo-best` 做方案判断；它提供证据及复用建议，不会自动调用其他 skill。

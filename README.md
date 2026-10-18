@@ -2,70 +2,41 @@
 
 English | [中文](./README.zh-CN.md)
 
-Agent workflow skills for design, implementation, review, and documentation.
-
-Repository: `https://github.com/lencamo/amo-skill`
+Amo skills for engineering work: planning, implementation, verification, and writing, used as needed.
 
 ## Skills
 
-| Skill                                                    | Goal                                                       | Trigger                                                                      |
-| :------------------------------------------------------- | :--------------------------------------------------------- | :--------------------------------------------------------------------------- |
-| [`amo-feature`](skills/amo-feature/SKILL.md)             | Design a new feature and choose the right best-standard     | "How should we implement this new feature?"                                  |
-| [`amo-improve`](skills/amo-improve/SKILL.md)             | Plan existing-feature changes with the right best-standard  | "How should we improve or change this existing behavior?"                    |
-| [`amo-fix`](skills/amo-fix/SKILL.md)                     | Diagnose a bug and choose the right fix standard            | "Why is this bug happening, and what is the right fix?"                      |
-| [`amo-refactor`](skills/amo-refactor/SKILL.md)           | Plan refactors and architecture boundaries by standard      | "Should this be refactored, and where should the boundary be?"              |
-| [`amo-best`](skills/amo-best/SKILL.md)                   | Re-check the chosen best-standard and pressure-test a plan  | "Is this the best solution, or is there a better approach?"                 |
-| [`amo-research`](skills/amo-research/SKILL.md)           | Research implementation evidence and reusable approaches for solution decisions | "How do competitors or open-source projects implement this feature?" |
-| [`amo-detail`](skills/amo-detail/SKILL.md)               | Present proposal flow, impact, and frontend/backend changes | "Explain this proposal's flow and frontend/backend changes."                 |
-| [`amo-implement`](skills/amo-implement/SKILL.md)         | Implement and verify a proposal while controlling comment noise, frontend content, and scope | "Implement this proposal and verify the result."                        |
-| [`amo-review`](skills/amo-review/SKILL.md)               | Review implemented code style, redundancy, and TS typing    | "Review this code for redundancy, style, and type issues."                  |
-| [`amo-draft`](skills/amo-draft/SKILL.md)                 | Write target-focused docs and copy without context pollution | "Write clean page copy or requirement docs from this context."             |
+| Skill | Responsibility |
+| :--- | :--- |
+| [`amo-feature`](skills/amo-feature/SKILL.md) | Design new features |
+| [`amo-improve`](skills/amo-improve/SKILL.md) | Plan intentional changes to existing behavior |
+| [`amo-fix`](skills/amo-fix/SKILL.md) | Diagnose bugs and plan fixes |
+| [`amo-refactor`](skills/amo-refactor/SKILL.md) | Reshape structure, ownership, and module boundaries |
+| [`amo-research`](skills/amo-research/SKILL.md) | Research external implementations and reusable approaches |
+| [`amo-best`](skills/amo-best/SKILL.md) | Reassess existing proposals and tradeoffs |
+| [`amo-detail`](skills/amo-detail/SKILL.md) | Explain proposal flow, impact, and frontend/backend changes |
+| [`amo-implement`](skills/amo-implement/SKILL.md) | Implement defined proposals and verify results |
+| [`amo-review`](skills/amo-review/SKILL.md) | Review code style, redundancy, abstractions, and type clarity |
+| [`amo-draft`](skills/amo-draft/SKILL.md) | Write focused documentation and copy |
 
-Typical workflow:
+## Workflow
 
 ```text
-amo-feature / amo-improve / amo-fix / amo-refactor
-→ amo-best
-→ amo-detail
+amo-feature / amo-improve / amo-fix / amo-refactor (choose one)
+→ amo-best (optional)
+→ amo-detail (optional)
 → amo-implement
-→ amo-review
-→ amo-draft
+→ amo-review (optional)
+
+amo-research: support design and proposal review as needed
+amo-draft: use at any stage as needed
 ```
 
-The primary design workflow skills choose a best-standard first: target-state, constraint, evolutionary, or lowest-risk. `amo-best` is only for second-pass review of an existing proposal. `amo-review` is for implemented-code style review. `amo-draft` is for target-focused content drafting.
-
-`amo-research` researches competitor products, community practices, and open-source implementations to provide evidence and reuse advice for `amo-feature`, `amo-improve`, `amo-fix`, `amo-refactor`, and `amo-best`. It can run independently and is optional, not a mandatory design step.
-
-`amo-detail` presents an existing proposal's overall flow, impact, frontend changes, backend data flow, storage, and scheduled tasks. The proposal can come from the user or a primary design skill, optionally reviewed by `amo-best`.
-
-`amo-implement` implements and verifies an already defined proposal, keeping comments useful, frontend content focused on product behavior, and changes within the agreed scope.
-
-Detailed `amo-*` workflow routing and ambiguous-case rules live in [`skills/RESOLVER.md`](skills/RESOLVER.md).
-
-Each skill lives in its own folder instead of a single markdown file. A skill can include bundled references and helper resources when needed.
+See [RESOLVER](skills/RESOLVER.md) for routing rules.
 
 ## License
 
-This repository is released under the MIT License. See [LICENSE](./LICENSE) for the full text.
-
-## Structure
-
-```text
-.
-├── AGENTS.md
-├── CLAUDE.md
-├── LICENSE
-├── marketplace.json
-├── README.md
-├── README.zh-CN.md
-└── skills
-    └── example-skill
-        ├── SKILL.md
-        ├── agents
-        ├── references
-        ├── scripts
-        └── templates
-```
+[MIT](./LICENSE)
 
 ## References
 
