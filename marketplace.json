@@ -36,6 +36,14 @@
       "category": "workflow",
       "source": "./skills/amo-refactor",
       "homepage": "https://github.com/lencamo/amo-skill"
+    },
+    {
+      "name": "amo-best",
+      "description": "Use when the user challenges an existing proposal, asks whether it is the best solution, asks for a better approach, or wants second-pass review of the chosen best-standard, tradeoffs, scope, compatibility, risk, or refactor depth before implementation.",
+      "version": "0.2.0",
+      "category": "workflow",
+      "source": "./skills/amo-best",
+      "homepage": "https://github.com/lencamo/amo-skill"
     }
   ]
 }
