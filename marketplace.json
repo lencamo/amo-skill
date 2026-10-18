@@ -12,6 +12,14 @@
       "category": "workflow",
       "source": "./skills/amo-feature",
       "homepage": "https://github.com/lencamo/amo-skill"
+    },
+    {
+      "name": "amo-improve",
+      "description": "Use when the user asks how to improve, extend, adjust, or redesign an existing feature or behavior before coding. Do not use for brand-new features, broken behavior, pure refactors, or second-pass solution challenges.",
+      "version": "0.2.0",
+      "category": "workflow",
+      "source": "./skills/amo-improve",
+      "homepage": "https://github.com/lencamo/amo-skill"
     }
   ]
 }

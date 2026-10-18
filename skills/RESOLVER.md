@@ -16,6 +16,7 @@ All `amo-*` workflow skills prefix the first output line inline with their skill
 | Skill | Marker |
 | :---- | :----- |
 | `amo-feature` | `🧩 [amo-feature]` |
+| `amo-improve` | `🧰 [amo-improve]` |
 
 Keep the marker inline with the first line, not as a standalone paragraph.
 
@@ -24,6 +25,7 @@ Keep the marker inline with the first line, not as a standalone paragraph.
 | User intent | Use |
 | :---------- | :-- |
 | Build behavior that does not exist yet | `amo-feature` |
+| Intentionally change, extend, improve, or redesign existing behavior | `amo-improve` |
 
 ## Maintenance Rule
 
