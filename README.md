@@ -14,6 +14,7 @@ Repository: `https://github.com/lencamo/amo-skill`
 | [`amo-improve`](skills/amo-improve/SKILL.md)             | Plan existing-feature changes with the right best-standard  | "How should we improve or change this existing behavior?"                    |
 | [`amo-fix`](skills/amo-fix/SKILL.md)                     | Diagnose a bug and choose the right fix standard            | "Why is this bug happening, and what is the right fix?"                      |
 | [`amo-refactor`](skills/amo-refactor/SKILL.md)           | Plan refactors and architecture boundaries by standard      | "Should this be refactored, and where should the boundary be?"              |
+| [`amo-best`](skills/amo-best/SKILL.md)                   | Re-check the chosen best-standard and pressure-test a plan  | "Is this the best solution, or is there a better approach?"                 |
 
 Workflow routing rules live in [`skills/RESOLVER.md`](skills/RESOLVER.md).
 
@@ -48,6 +49,7 @@ npx skills add lencamo/amo-skill -a codex -g -y -s amo-feature
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-improve
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-fix
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-refactor
+npx skills add lencamo/amo-skill -a codex -g -y -s amo-best
 ```
 
 Use the local repository during development:
