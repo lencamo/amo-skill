@@ -23,6 +23,7 @@ README 是公开目录：列出所有 skill、安装命令和简短说明。
 | `amo-research` | `🔬 [amo-research]` |
 | `amo-detail` | `🔎 [amo-detail]` |
 | `amo-implement` | `🔨 [amo-implement]` |
+| `amo-review` | `🧹 [amo-review]` |
 
 标记必须和第一行内容放在同一行，不要单独成段。
 
@@ -38,6 +39,7 @@ README 是公开目录：列出所有 skill、安装命令和简短说明。
 | 调研竞品、社区实践或开源实现，寻找成熟、可复用的方案 | `amo-research` |
 | 了解已有方案的整体链路、影响范围及前后端变化 | `amo-detail` |
 | 实施已明确的方案并验证结果 | `amo-implement` |
+| 审查已实现代码是否存在冗余、不必要抽象、TypeScript 类型噪音或 composable 行为来源不清晰 | `amo-review` |
 
 ## 维护规则
 
