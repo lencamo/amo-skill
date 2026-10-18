@@ -6,7 +6,7 @@
 
 仓库地址：`https://github.com/lencamo/amo-skill`
 
-## 工作流类 Skills
+## Skills
 
 | Skill                                            | 目标                                      | 触发方式                                      |
 | :----------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
@@ -44,51 +44,6 @@ amo-feature / amo-improve / amo-fix / amo-refactor
 
 每个 skill 都是一个独立目录，不只是单个 Markdown 文件。按需可以携带 `references/` 等辅助资源。
 
-## 安装
-
-本仓库遵循标准 `skills` 目录结构，可通过 `skills` CLI 安装到多个 agent。`-a <agent>` 的常见取值包括 `codex`、`claude-code`、`cursor`、`opencode`、`gemini-cli`、`continue`、`windsurf`、`trae` 等；完整支持列表请以当前 `skills` CLI 文档或 `npx skills --help` 为准。
-
-查看可安装列表：
-
-```bash
-npx skills add lencamo/amo-skill --list
-```
-
-为 Codex 安装全部 skills：
-
-```bash
-npx skills add lencamo/amo-skill -a codex -g -y
-```
-
-为 Claude Code 安装全部 skills：
-
-```bash
-npx skills add lencamo/amo-skill -a claude-code -g -y
-```
-
-按需为指定 agent 安装指定 skill：
-
-```bash
-npx skills add lencamo/amo-skill -a codex -g -y -s amo-feature
-npx skills add lencamo/amo-skill -a codex -g -y -s amo-improve
-npx skills add lencamo/amo-skill -a codex -g -y -s amo-fix
-npx skills add lencamo/amo-skill -a codex -g -y -s amo-refactor
-npx skills add lencamo/amo-skill -a codex -g -y -s amo-best
-npx skills add lencamo/amo-skill -a codex -g -y -s amo-research
-npx skills add lencamo/amo-skill -a codex -g -y -s amo-detail
-npx skills add lencamo/amo-skill -a codex -g -y -s amo-implement
-npx skills add lencamo/amo-skill -a codex -g -y -s amo-review
-npx skills add lencamo/amo-skill -a codex -g -y -s amo-draft
-```
-
-本地开发时使用当前仓库：
-
-```bash
-git clone git@github.com:lencamo/amo-skill.git
-cd amo-skill
-npx skills add . -a codex -g -y
-```
-
 ## 许可证
 
 本仓库采用 MIT License。完整条款见 [LICENSE](./LICENSE)。
@@ -118,6 +73,5 @@ npx skills add . -a codex -g -y
 
 - [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)
 - [tw93/Waza](https://github.com/tw93/Waza)
-- [Animated SVG Logo](https://antfu.me/posts/animated-svg-logo)
 - [antislop-code](https://github.com/miqdadbadjuber/anti-slop/blob/main/skills/antislop-code/SKILL.md)
 - [Claude 提示词最佳实践：过度积极与过度设计](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#overeagerness)
