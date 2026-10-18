@@ -18,6 +18,7 @@
 | [`amo-research`](skills/amo-research/docs/SKILL.zh-CN.md)   | 调研实现证据与可复用方案，辅助方案判断 | “竞品或开源项目是怎么实现这个功能的？”     |
 | [`amo-detail`](skills/amo-detail/docs/SKILL.zh-CN.md)       | 呈现方案链路、影响范围和前后端变化        | “讲清楚这个方案的整体链路和前后端变化。”     |
 | [`amo-implement`](skills/amo-implement/docs/SKILL.zh-CN.md) | 实施并验证方案，约束注释噪音、前端内容污染和范围蔓延 | “按这个方案实施并验证结果。”               |
+| [`amo-review`](skills/amo-review/docs/SKILL.zh-CN.md)       | 审查已实现代码的风格、冗余和 TS 类型表达  | “帮我看看这段代码是否冗余、风格是否合理？”   |
 
 工作流路由规则见 [`skills/RESOLVER.zh-CN.md`](skills/RESOLVER.zh-CN.md)。
 
@@ -56,6 +57,7 @@ npx skills add lencamo/amo-skill -a codex -g -y -s amo-best
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-research
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-detail
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-implement
+npx skills add lencamo/amo-skill -a codex -g -y -s amo-review
 ```
 
 本地开发时使用当前仓库：

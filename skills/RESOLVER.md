@@ -23,6 +23,7 @@ All `amo-*` workflow skills prefix the first output line inline with their skill
 | `amo-research` | `🔬 [amo-research]` |
 | `amo-detail` | `🔎 [amo-detail]` |
 | `amo-implement` | `🔨 [amo-implement]` |
+| `amo-review` | `🧹 [amo-review]` |
 
 Keep the marker inline with the first line, not as a standalone paragraph.
 
@@ -38,6 +39,7 @@ Keep the marker inline with the first line, not as a standalone paragraph.
 | Research competitor products, community practices, or open-source implementations for mature, reusable approaches | `amo-research` |
 | Understand an existing proposal's overall flow, impact, and frontend/backend changes | `amo-detail` |
 | Implement an already defined proposal and verify the result | `amo-implement` |
+| Review implemented code for redundancy, unnecessary abstractions, TypeScript type noise, or composable usage clarity | `amo-review` |
 
 ## Maintenance Rule
 

@@ -68,6 +68,14 @@
       "category": "workflow",
       "source": "./skills/amo-implement",
       "homepage": "https://github.com/lencamo/amo-skill"
+    },
+    {
+      "name": "amo-review",
+      "description": "Use when the user asks to review implemented code for code style, redundancy, unnecessary abstractions, wrappers, helpers, adapters, parsers, type guards, TypeScript type noise, or composable usage clarity.",
+      "version": "0.1.0",
+      "category": "workflow",
+      "source": "./skills/amo-review",
+      "homepage": "https://github.com/lencamo/amo-skill"
     }
   ]
 }

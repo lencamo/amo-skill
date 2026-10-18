@@ -18,6 +18,7 @@ Repository: `https://github.com/lencamo/amo-skill`
 | [`amo-research`](skills/amo-research/SKILL.md)           | Research implementation evidence and reusable approaches for solution decisions | "How do competitors or open-source projects implement this feature?" |
 | [`amo-detail`](skills/amo-detail/SKILL.md)               | Present proposal flow, impact, and frontend/backend changes | "Explain this proposal's flow and frontend/backend changes."                 |
 | [`amo-implement`](skills/amo-implement/SKILL.md)         | Implement and verify a proposal while controlling comment noise, frontend content, and scope | "Implement this proposal and verify the result."                        |
+| [`amo-review`](skills/amo-review/SKILL.md)               | Review implemented code style, redundancy, and TS typing    | "Review this code for redundancy, style, and type issues."                  |
 
 Workflow routing rules live in [`skills/RESOLVER.md`](skills/RESOLVER.md).
 
@@ -56,6 +57,7 @@ npx skills add lencamo/amo-skill -a codex -g -y -s amo-best
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-research
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-detail
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-implement
+npx skills add lencamo/amo-skill -a codex -g -y -s amo-review
 ```
 
 Use the local repository during development:
