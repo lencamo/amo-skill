@@ -1,0 +1,8 @@
+{
+  "name": "amo-skill",
+  "description": "Agent workflow skills for design, implementation, review, and documentation.",
+  "owner": {
+    "name": "lencamo"
+  },
+  "plugins": []
+}
