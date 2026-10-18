@@ -60,6 +60,14 @@
       "category": "workflow",
       "source": "./skills/amo-detail",
       "homepage": "https://github.com/lencamo/amo-skill"
+    },
+    {
+      "name": "amo-implement",
+      "description": "Use when the user asks to implement an already defined proposal and verify the result, keeping changes focused, comments useful, and frontend content free of conversation or implementation notes. Do not use for solution design, proposal explanation, or standalone code review.",
+      "version": "0.2.0",
+      "category": "workflow",
+      "source": "./skills/amo-implement",
+      "homepage": "https://github.com/lencamo/amo-skill"
     }
   ]
 }
