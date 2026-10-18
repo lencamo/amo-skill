@@ -74,13 +74,18 @@ Skills do not automatically chain.
 Typical manual chain:
 
 ```text
-amo-feature / amo-improve / amo-fix / amo-refactor
--> amo-best
--> amo-detail
--> amo-implement
--> amo-review
--> amo-draft
+amo-feature / amo-improve / amo-fix / amo-refactor (usually choose one)
+→ Form a candidate proposal
+→ amo-best (optional proposal review)
+→ amo-detail (optional explanation)
+→ amo-implement (implementation and verification)
+→ amo-review (optional code review)
+
+amo-research: research independently or supply external evidence for design and review as needed
+amo-draft: write documentation and copy at any stage as needed
 ```
+
+This is one manual workflow, not a required sequence. A defined proposal can go straight to implementation, and existing code can go straight to review. Skills do not automatically chain.
 
 Use `amo-best` only as a second-pass pressure test after a concrete proposal exists.
 Use `amo-research` independently or as optional external implementation research to support decisions in `amo-feature`, `amo-improve`, `amo-fix`, `amo-refactor`, and `amo-best`; it provides evidence and reuse advice without automatically invoking other skills.
