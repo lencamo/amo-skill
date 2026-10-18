@@ -20,6 +20,14 @@
       "category": "workflow",
       "source": "./skills/amo-improve",
       "homepage": "https://github.com/lencamo/amo-skill"
+    },
+    {
+      "name": "amo-fix",
+      "description": "Use when the user asks why existing behavior is broken, incorrect, flaky, regressed, unexpected, or runtime/build behavior is failing and wants a bug-fix approach before coding. Do not use for planned feature changes, pure refactors, or second-pass solution challenges.",
+      "version": "0.2.0",
+      "category": "workflow",
+      "source": "./skills/amo-fix",
+      "homepage": "https://github.com/lencamo/amo-skill"
     }
   ]
 }
