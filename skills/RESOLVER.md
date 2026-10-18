@@ -22,6 +22,7 @@ All `amo-*` workflow skills prefix the first output line inline with their skill
 | `amo-best` | `🏆 [amo-best]` |
 | `amo-research` | `🔬 [amo-research]` |
 | `amo-detail` | `🔎 [amo-detail]` |
+| `amo-implement` | `🔨 [amo-implement]` |
 
 Keep the marker inline with the first line, not as a standalone paragraph.
 
@@ -36,6 +37,7 @@ Keep the marker inline with the first line, not as a standalone paragraph.
 | Challenge an existing proposal: "is this best?", "better way?", "tradeoff right?", "scope right?" | `amo-best` |
 | Research competitor products, community practices, or open-source implementations for mature, reusable approaches | `amo-research` |
 | Understand an existing proposal's overall flow, impact, and frontend/backend changes | `amo-detail` |
+| Implement an already defined proposal and verify the result | `amo-implement` |
 
 ## Maintenance Rule
 
