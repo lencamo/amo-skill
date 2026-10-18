@@ -21,6 +21,7 @@ All `amo-*` workflow skills prefix the first output line inline with their skill
 | `amo-refactor` | `🧱 [amo-refactor]` |
 | `amo-best` | `🏆 [amo-best]` |
 | `amo-research` | `🔬 [amo-research]` |
+| `amo-detail` | `🔎 [amo-detail]` |
 
 Keep the marker inline with the first line, not as a standalone paragraph.
 
@@ -34,6 +35,7 @@ Keep the marker inline with the first line, not as a standalone paragraph.
 | Change structure, ownership, coupling, state/data flow, module boundaries, or component boundaries | `amo-refactor` |
 | Challenge an existing proposal: "is this best?", "better way?", "tradeoff right?", "scope right?" | `amo-best` |
 | Research competitor products, community practices, or open-source implementations for mature, reusable approaches | `amo-research` |
+| Understand an existing proposal's overall flow, impact, and frontend/backend changes | `amo-detail` |
 
 ## Maintenance Rule
 

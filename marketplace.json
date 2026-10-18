@@ -52,6 +52,14 @@
       "category": "workflow",
       "source": "./skills/amo-research",
       "homepage": "https://github.com/lencamo/amo-skill"
+    },
+    {
+      "name": "amo-detail",
+      "description": "Use when the user asks to understand an existing proposal's overall flow, impact scope, frontend changes, backend data flow, storage, or scheduled tasks. Focus on presenting proposal details, not initial solution design, challenges to the chosen approach, direct implementation, or code review.",
+      "version": "0.3.0",
+      "category": "workflow",
+      "source": "./skills/amo-detail",
+      "homepage": "https://github.com/lencamo/amo-skill"
     }
   ]
 }
