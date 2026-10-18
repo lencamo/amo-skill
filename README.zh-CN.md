@@ -16,7 +16,7 @@
 | [`amo-best`](skills/amo-best/docs/SKILL.zh-CN.md) | 复核已有方案与取舍 |
 | [`amo-detail`](skills/amo-detail/docs/SKILL.zh-CN.md) | 呈现方案链路、影响与前后端变化 |
 | [`amo-implement`](skills/amo-implement/docs/SKILL.zh-CN.md) | 按明确方案实施并验证 |
-| [`amo-review`](skills/amo-review/docs/SKILL.zh-CN.md) | 功能正确性与潜在 Bug 审查（占位，待实现） |
+| [`amo-review`](skills/amo-review/docs/SKILL.zh-CN.md) | 功能正确性与潜在 Bug 审查 |
 | [`amo-check`](skills/amo-check/docs/SKILL.zh-CN.md) | 审查代码风格、冗余、抽象与类型表达 |
 | [`amo-draft`](skills/amo-draft/docs/SKILL.zh-CN.md) | 编写聚焦目标的文档与文案 |
 
@@ -27,7 +27,7 @@ amo-feature / amo-improve / amo-fix / amo-refactor（选一个）
 → amo-best（按需）
 → amo-detail（按需）
 → amo-implement
-→ amo-review（占位，待实现）
+→ amo-review（功能审查）
 
 amo-research：按需辅助方案设计与复核
 amo-check：按需审查代码风格
@@ -46,3 +46,5 @@ amo-draft：任意阶段按需使用
 - [tw93/Waza](https://github.com/tw93/Waza)
 - [antislop-code](https://github.com/miqdadbadjuber/anti-slop/blob/main/skills/antislop-code/SKILL.md)
 - [Claude 提示词最佳实践：过度积极与过度设计](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#overeagerness)
+- [Ponytail Review](https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail-review/SKILL.md)
+- [Open Code Review Delegate](https://github.com/alibaba/open-code-review/blob/main/skills/open-code-review-delegate/SKILL.md)

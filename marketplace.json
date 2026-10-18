@@ -71,8 +71,8 @@
     },
     {
       "name": "amo-review",
-      "description": "Placeholder for future functional correctness reviews of implemented code: requirement coverage, logic errors, missed cases, and potential bugs. Not implemented; do not use this placeholder to perform a review.",
-      "version": "0.1.0",
+      "description": "Review implemented functionality for requirement gaps, logic errors, and bugs across workspace changes, specified commits, or an entire feature branch. Use when the user asks whether an implementation is correct or ready to merge. Not for code-style-only reviews, solution design, or diagnosing a known failure to choose a fix.",
+      "version": "0.2.0",
       "category": "workflow",
       "source": "./skills/amo-review",
       "homepage": "https://github.com/lencamo/amo-skill"
