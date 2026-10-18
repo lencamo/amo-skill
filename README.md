@@ -19,8 +19,28 @@ Repository: `https://github.com/lencamo/amo-skill`
 | [`amo-detail`](skills/amo-detail/SKILL.md)               | Present proposal flow, impact, and frontend/backend changes | "Explain this proposal's flow and frontend/backend changes."                 |
 | [`amo-implement`](skills/amo-implement/SKILL.md)         | Implement and verify a proposal while controlling comment noise, frontend content, and scope | "Implement this proposal and verify the result."                        |
 | [`amo-review`](skills/amo-review/SKILL.md)               | Review implemented code style, redundancy, and TS typing    | "Review this code for redundancy, style, and type issues."                  |
+| [`amo-draft`](skills/amo-draft/SKILL.md)                 | Write target-focused docs and copy without context pollution | "Write clean page copy or requirement docs from this context."             |
 
-Workflow routing rules live in [`skills/RESOLVER.md`](skills/RESOLVER.md).
+Typical workflow:
+
+```text
+amo-feature / amo-improve / amo-fix / amo-refactor
+→ amo-best
+→ amo-detail
+→ amo-implement
+→ amo-review
+→ amo-draft
+```
+
+The primary design workflow skills choose a best-standard first: target-state, constraint, evolutionary, or lowest-risk. `amo-best` is only for second-pass review of an existing proposal. `amo-review` is for implemented-code style review. `amo-draft` is for target-focused content drafting.
+
+`amo-research` researches competitor products, community practices, and open-source implementations to provide evidence and reuse advice for `amo-feature`, `amo-improve`, `amo-fix`, `amo-refactor`, and `amo-best`. It can run independently and is optional, not a mandatory design step.
+
+`amo-detail` presents an existing proposal's overall flow, impact, frontend changes, backend data flow, storage, and scheduled tasks. The proposal can come from the user or a primary design skill, optionally reviewed by `amo-best`.
+
+`amo-implement` implements and verifies an already defined proposal, keeping comments useful, frontend content focused on product behavior, and changes within the agreed scope.
+
+Detailed `amo-*` workflow routing and ambiguous-case rules live in [`skills/RESOLVER.md`](skills/RESOLVER.md).
 
 Each skill lives in its own folder instead of a single markdown file. A skill can include bundled references and helper resources when needed.
 
@@ -58,6 +78,7 @@ npx skills add lencamo/amo-skill -a codex -g -y -s amo-research
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-detail
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-implement
 npx skills add lencamo/amo-skill -a codex -g -y -s amo-review
+npx skills add lencamo/amo-skill -a codex -g -y -s amo-draft
 ```
 
 Use the local repository during development:

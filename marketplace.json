@@ -76,6 +76,14 @@
       "category": "workflow",
       "source": "./skills/amo-review",
       "homepage": "https://github.com/lencamo/amo-skill"
+    },
+    {
+      "name": "amo-draft",
+      "description": "Use when the user asks to write or edit development-time content, website or page copy, requirement notes, implementation docs, version notes, release notes, or temporary project documentation, especially when reference material, examples, chat history, or implementation process could pollute the target artifact.",
+      "version": "0.1.0",
+      "category": "workflow",
+      "source": "./skills/amo-draft",
+      "homepage": "https://github.com/lencamo/amo-skill"
     }
   ]
 }
