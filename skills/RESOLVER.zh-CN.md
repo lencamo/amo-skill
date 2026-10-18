@@ -21,6 +21,7 @@ README 是公开目录：列出所有 skill、安装命令和简短说明。
 | `amo-refactor` | `🧱 [amo-refactor]` |
 | `amo-best` | `🏆 [amo-best]` |
 | `amo-research` | `🔬 [amo-research]` |
+| `amo-detail` | `🔎 [amo-detail]` |
 
 标记必须和第一行内容放在同一行，不要单独成段。
 
@@ -34,6 +35,7 @@ README 是公开目录：列出所有 skill、安装命令和简短说明。
 | 调整结构、职责归属、耦合、状态/数据流、模块边界或组件边界 | `amo-refactor` |
 | 挑战已有方案：“这是最佳方案吗？”“有没有更好方案？”“取舍/范围是否正确？” | `amo-best` |
 | 调研竞品、社区实践或开源实现，寻找成熟、可复用的方案 | `amo-research` |
+| 了解已有方案的整体链路、影响范围及前后端变化 | `amo-detail` |
 
 ## 维护规则
 
