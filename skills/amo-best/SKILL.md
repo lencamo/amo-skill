@@ -51,6 +51,7 @@ If the proposal used the wrong standard, say so before judging the implementatio
 - Do not accept a workaround as best unless the selected standard is explicitly constraint best.
 - Do not bias toward backward compatibility unless compatibility is part of the selected standard.
 - Reject speculative compatibility paths, fallback branches, or legacy handling unless backed by code evidence or explicit user requirements.
+- For complex proposals involving queries, batch processing, multi-step data flows, or concurrent operations, check for overlooked query costs, resource use, and concurrency risks that could change the verdict. Assess optimization necessity and evidence against relevant implementation and known workload; state unknown conditions and reject unsupported architectural expansion.
 - Recommend one final approach.
 
 ## Output
