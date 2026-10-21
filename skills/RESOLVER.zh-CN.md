@@ -39,7 +39,7 @@ README 是公开目录：列出所有 skill、安装命令和简短说明。
 | 调整结构、职责归属、耦合、状态/数据流、模块边界或组件边界 | `amo-refactor` |
 | 挑战已有方案：“这是最佳方案吗？”“有没有更好方案？”“取舍/范围是否正确？” | `amo-best` |
 | 调研竞品、社区实践或开源实现，寻找成熟、可复用的方案 | `amo-research` |
-| 了解已有方案的整体链路、影响范围及前后端变化 | `amo-detail` |
+| 了解已讨论方案准备怎样实施，以及实施后的流程、前端、后端和数据变化 | `amo-detail` |
 | 实施已明确的方案并验证结果 | `amo-implement` |
 | 审查工作区、指定提交或整个功能分支的功能正确性和潜在 Bug | `amo-review` |
 | 审查已实现代码是否存在冗余、不必要抽象、TypeScript 类型噪音或 composable 行为来源不清晰 | `amo-check` |
@@ -80,7 +80,7 @@ Skill 不会自动串联。
 amo-feature / amo-improve / amo-fix / amo-refactor（通常选一个）
 → 形成候选方案
 → amo-best（按需复核方案）
-→ amo-detail（按需解释详情）
+→ amo-detail（按需解释具体实施）
 → amo-implement（实施与验证）
 → amo-review（功能审查）
 
@@ -93,7 +93,7 @@ amo-draft：任意阶段按需编写文档和文案
 
 只有在已有具体方案后，才把 `amo-best` 作为二次压力测试使用。
 `amo-research` 可以独立使用，也可按需开展外部实现调研，支持 `amo-feature`、`amo-improve`、`amo-fix`、`amo-refactor` 和 `amo-best` 做方案判断；它提供证据及复用建议，不会自动调用其他 skill。
-`amo-detail` 呈现已有方案的链路、影响范围和前后端变化；方案可以由用户提供，也可以来自主方案类 skill，并按需经过 `amo-best` 复核。
+`amo-detail` 将已讨论的方案展开为具体实施安排，以及实施后的流程、前端、后端和数据变化。方案可以由用户提供，也可以来自 `amo-feature`、`amo-improve`、`amo-fix`、`amo-refactor` 或 `amo-best`；方案是主要依据，代码仅按需用于核实。
 `amo-implement` 对已有方案进行编码与验证，同时约束注释噪音、前端内容污染和范围蔓延。
 使用 `amo-review` 审查已实现功能，按需使用 `amo-check` 审查代码风格。
 当下一步产物是内容而不是代码时，使用 `amo-draft`。

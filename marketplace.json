@@ -55,8 +55,8 @@
     },
     {
       "name": "amo-detail",
-      "description": "Use when the user asks to understand an existing proposal's overall flow, impact scope, frontend changes, backend data flow, storage, or scheduled tasks. Focus on presenting proposal details, not initial solution design, challenges to the chosen approach, direct implementation, or code review.",
-      "version": "0.3.0",
+      "description": "Use when the user wants an existing discussed proposal expanded into how the agent plans to implement it and how workflows, frontend behavior, backend processing, and data will change afterward. Not for initial solution design, challenging the chosen approach, coding, or code review.",
+      "version": "0.4.0",
       "category": "workflow",
       "source": "./skills/amo-detail",
       "homepage": "https://github.com/lencamo/amo-skill"
