@@ -39,7 +39,7 @@ Keep the marker inline with the first line, not as a standalone paragraph.
 | Change structure, ownership, coupling, state/data flow, module boundaries, or component boundaries | `amo-refactor` |
 | Challenge an existing proposal: "is this best?", "better way?", "tradeoff right?", "scope right?" | `amo-best` |
 | Research competitor products, community practices, or open-source implementations for mature, reusable approaches | `amo-research` |
-| Understand an existing proposal's overall flow, impact, and frontend/backend changes | `amo-detail` |
+| Understand how a discussed proposal will be implemented and how workflows, frontend, backend, and data will change | `amo-detail` |
 | Implement an already defined proposal and verify the result | `amo-implement` |
 | Review functional correctness and potential bugs across workspace changes, specified commits, or a feature branch | `amo-review` |
 | Review implemented code for redundancy, unnecessary abstractions, TypeScript type noise, or composable usage clarity | `amo-check` |
@@ -80,7 +80,7 @@ Typical manual chain:
 amo-feature / amo-improve / amo-fix / amo-refactor (usually choose one)
 → Form a candidate proposal
 → amo-best (optional proposal review)
-→ amo-detail (optional explanation)
+→ amo-detail (optional implementation explanation)
 → amo-implement (implementation and verification)
 → amo-review (functional review)
 
@@ -93,7 +93,7 @@ This is one manual workflow, not a required sequence. A defined proposal can go 
 
 Use `amo-best` only as a second-pass pressure test after a concrete proposal exists.
 Use `amo-research` independently or as optional external implementation research to support decisions in `amo-feature`, `amo-improve`, `amo-fix`, `amo-refactor`, and `amo-best`; it provides evidence and reuse advice without automatically invoking other skills.
-Use `amo-detail` to present an existing proposal's flow, impact, and frontend/backend changes; the proposal may come from the user or a primary design skill, optionally reviewed by `amo-best`.
+Use `amo-detail` to expand a discussed proposal into concrete implementation intentions and resulting workflow, frontend, backend, and data changes. The proposal may come from the user or `amo-feature`, `amo-improve`, `amo-fix`, `amo-refactor`, or `amo-best`; it is the primary source, with code used only as needed for verification.
 Use `amo-implement` to code and verify an existing proposal while controlling comment noise, frontend content pollution, and scope creep.
 Use `amo-review` for implemented functionality and `amo-check` for code style as needed.
 Use `amo-draft` when the next artifact is content, not code.
