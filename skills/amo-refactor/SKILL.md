@@ -49,6 +49,7 @@ Select and state one before recommending a refactor:
 - Ownership boundary before patch.
 - Preserve behavior unless the user explicitly asks to change it.
 - Do not add speculative compatibility paths, fallback branches, or legacy handling without evidence from the codebase or explicit user requirements.
+- For complex scenarios involving queries, batch processing, multi-step data flows, or concurrent operations, assess query costs, resource use, and concurrency risks against relevant implementation and known workload. Include material issues in design tradeoffs or verification, state unknown conditions, and avoid unsupported optimization or architectural expansion.
 - If implementation reveals a better approach, pause and explain before switching.
 
 ## Output

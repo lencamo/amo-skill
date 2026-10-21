@@ -49,6 +49,7 @@ Select and state one before recommending a fix:
 - Do not present a workaround as the best fix.
 - Do not add speculative compatibility paths, fallback branches, or legacy handling without evidence from the codebase or explicit user requirements.
 - If the real fix requires refactoring, say so explicitly.
+- For complex scenarios involving queries, batch processing, multi-step data flows, or concurrent operations, assess query costs, resource use, and concurrency risks against relevant implementation and known workload. Include material issues in design tradeoffs or verification, state unknown conditions, and avoid unsupported optimization or architectural expansion.
 - If implementation reveals a better approach, pause and explain before switching.
 
 ## Output
