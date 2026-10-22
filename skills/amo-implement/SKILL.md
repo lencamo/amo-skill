@@ -1,13 +1,13 @@
 ---
 name: amo-implement
-description: Use when the user asks to implement an already defined proposal and verify the result, keeping changes focused, comments useful, and frontend content free of conversation or implementation notes. Do not use for solution design, proposal explanation, or standalone code review.
+description: Use when the user asks to implement an already defined proposal and verify the result, balancing code efficiency, concision, readability, and maintainability while keeping changes focused, comments useful, and frontend content free of conversation or implementation notes. Do not use for solution design, proposal explanation, or standalone code review.
 metadata:
-  version: '0.2.0'
+  version: '0.3.0'
 ---
 
 # Amo Implement
 
-Implement a defined proposal while preventing comment noise, frontend content pollution, and scope creep.
+Implement and verify a defined proposal, balancing code efficiency, concision, readability, and maintainability while preventing comment noise, frontend content pollution, and scope creep.
 
 ## Shared Output Marker
 
@@ -28,12 +28,23 @@ Prefix the first output line inline with `🔨 [amo-implement]`. Do not put the 
 ## Workflow
 
 1. Identify the existing proposal and implementation scope.
-2. Inspect relevant code and project conventions.
+2. Inspect relevant code, project conventions, and existing type contracts.
 3. Make the changes needed to complete the proposal.
-4. Run relevant verification and check the diff for comment noise, frontend content pollution, and scope creep.
-5. Report actual changes, verification results, and unfinished work.
+4. Check proposal completion, scope, and code quality in the diff; correct issues introduced by this task.
+5. Run relevant checks on the final implementation against the proposal and its acceptance criteria.
+6. Report actual changes, verification results, and unfinished work.
 
 ## Key Rules
+
+### Code Expression
+
+- Follow project conventions and reuse existing patterns.
+- Meet actual performance needs; remove redundancy without sacrificing clarity or maintainability.
+- Prefer direct expressions for simple logic. Extract abstractions for current benefits in reuse, readability, error isolation, or testability; do not judge necessity by call count alone.
+- In TypeScript, prefer inference for local variables, internal functions, and return values; avoid redundant annotations and reliably inferable complex return types.
+- Use explicit types at public boundaries: DTOs, component props, exported function parameters, request payloads, and response structures. Reuse existing contracts.
+- Prefer simple types, existing data structures, and ordinary narrowing. Avoid type indirection without a current benefit in clarity, contracts, or reuse.
+- For composables, follow project conventions. Otherwise, destructure display-only ref/computed values as needed and keep state-changing or side-effect functions under the composable namespace so their source stays clear.
 
 ### Comments
 
@@ -48,7 +59,7 @@ Prefix the first output line inline with `🔨 [amo-implement]`. Do not put the 
 ### Implementation Scope
 
 - Make only changes required by the proposal or necessary to complete it; do not add unrelated features, cleanup, or refactors.
-- Reuse existing patterns; do not add abstractions, dependencies, configuration, or defensive branches for hypothetical needs.
+- Do not add abstractions, dependencies, configuration, or defensive branches for hypothetical needs.
 - Keep debugging within scope; report unrelated issues separately and obtain approval before expanding the agreed scope.
 
 ## Output
