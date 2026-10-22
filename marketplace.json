@@ -79,8 +79,8 @@
     },
     {
       "name": "amo-check",
-      "description": "Use when the user asks to review implemented code for code style, redundancy, unnecessary abstractions, wrappers, helpers, adapters, parsers, type guards, TypeScript type noise, or composable usage clarity.",
-      "version": "0.1.0",
+      "description": "Use when the user asks to verify existing code review feedback, decide whether findings need fixes, or address review comments from amo-review, other agents, tools, or colleagues. Check validity, actual impact, and repair costs before acting. Not for reviewing code from scratch, solution design, or diagnosing a known failure.",
+      "version": "0.2.0",
       "category": "workflow",
       "source": "./skills/amo-check",
       "homepage": "https://github.com/lencamo/amo-skill"

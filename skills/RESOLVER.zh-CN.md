@@ -42,7 +42,7 @@ README 是公开目录：列出所有 skill、安装命令和简短说明。
 | 了解已讨论方案准备怎样实施，以及实施后的流程、前端、后端和数据变化 | `amo-detail` |
 | 实施已明确的方案并验证结果 | `amo-implement` |
 | 审查工作区、指定提交或整个功能分支的功能正确性和潜在 Bug | `amo-review` |
-| 审查已实现代码是否存在冗余、不必要抽象、TypeScript 类型噪音或 composable 行为来源不清晰 | `amo-check` |
+| 核实已有代码审查意见、评估影响或判断处理方式 | `amo-check` |
 | 编写或编辑目标聚焦的页面文案、需求说明、实施记录、版本说明、发布说明或临时项目文档 | `amo-draft` |
 
 ## 最佳标准路由
@@ -65,7 +65,7 @@ README 是公开目录：列出所有 skill、安装命令和简短说明。
 3. 已有行为错误或失败：使用 `amo-fix`；只有根因需要边界调整时才在修复方案里说明重构。
 4. 没有行为变化，只有结构问题：使用 `amo-refactor`。
 5. 已经有候选方案，用户询问是否最佳：使用 `amo-best`。
-6. 已有实现代码，用户要求审查冗余、风格或 TypeScript 类型表达：使用 `amo-check`。
+6. 已有代码审查反馈，用户要求判断意见是否成立、是否需要修复或如何处理：使用 `amo-check`。从头审查代码风格不在其范围内，直接处理该请求。
 7. 用户要求基于上下文、参考风格、示例或实施过程写出干净的目标内容：使用 `amo-draft`。
 8. 实施已明确的方案：使用 `amo-implement`；直接小改、生成资产和 commit message 不要求经过 amo 方案设计链路。
 9. 检查已实现功能是否正确或存在潜在 Bug：使用 `amo-review`；针对已知异常分析根因和修复方案使用 `amo-fix`。
@@ -85,7 +85,7 @@ amo-feature / amo-improve / amo-fix / amo-refactor（通常选一个）
 → amo-review（功能审查）
 
 amo-research：按需独立调研，或为方案设计与复核补充外部证据
-amo-check：按需审查代码风格、冗余、抽象与类型表达
+amo-check：按需核实已有审查意见并判断处理方式
 amo-draft：任意阶段按需编写文档和文案
 ```
 
@@ -95,7 +95,7 @@ amo-draft：任意阶段按需编写文档和文案
 `amo-research` 可以独立使用，也可按需开展外部实现调研，支持 `amo-feature`、`amo-improve`、`amo-fix`、`amo-refactor` 和 `amo-best` 做方案判断；它提供证据及复用建议，不会自动调用其他 skill。
 `amo-detail` 将已讨论的方案展开为具体实施安排，以及实施后的流程、前端、后端和数据变化。方案可以由用户提供，也可以来自 `amo-feature`、`amo-improve`、`amo-fix`、`amo-refactor` 或 `amo-best`；方案是主要依据，代码仅按需用于核实。
 `amo-implement` 对已有方案进行编码与验证，包含任务范围内的代码质量自查，同时约束注释噪音、前端内容污染和范围蔓延。
-使用 `amo-review` 审查已实现功能，按需使用 `amo-check` 审查代码风格。
+使用 `amo-review` 审查已实现功能。已有审查反馈需要独立核实和处理判断时，使用 `amo-check`；它不是每次审查后的必经步骤。
 当下一步产物是内容而不是代码时，使用 `amo-draft`。
 
 ## 维护规则

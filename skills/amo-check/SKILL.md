@@ -1,13 +1,13 @@
 ---
 name: amo-check
-description: Use when the user asks to review implemented code for code style, redundancy, unnecessary abstractions, wrappers, helpers, adapters, parsers, type guards, TypeScript type noise, or composable usage clarity. Do not use for solution design, bug diagnosis, refactor planning, or commit messages.
+description: Use when the user asks to verify existing code review feedback, decide whether findings need fixes, or address review comments from amo-review, other agents, tools, or colleagues. Check validity, actual impact, and repair costs before acting. Not for reviewing code from scratch, solution design, or diagnosing a known failure.
 metadata:
-  version: '0.1.0'
+  version: '0.2.0'
 ---
 
 # Amo Check
 
-Review implemented code for style, redundancy, unnecessary abstraction, and TypeScript type clarity.
+Independently evaluate code review feedback and decide what to address. Default to reporting decisions without changing code.
 
 ## Shared Output Marker
 
@@ -15,57 +15,47 @@ Prefix the first output line inline with `🧹 [amo-check]`. Do not put the mark
 
 ## Use When
 
-- The user asks for code style review, redundancy review, or cleanup suggestions.
-- The code has already been implemented or a diff/file is available to review.
-- The review should focus on unnecessary abstractions, TypeScript type noise, composable usage clarity, or maintainability issues.
+- Code review feedback already exists, from `amo-review`, another agent, a tool, or a colleague.
+- The user wants to verify findings, decide which changes are warranted, or address review feedback.
 
 ## Do Not Use
 
-- No implementation exists yet; use `amo-feature`, `amo-improve`, `amo-fix`, or `amo-refactor`.
-- A proposal needs best-solution pressure testing; use `amo-best`.
-- The user asks for bug root-cause analysis; use `amo-fix`.
-- The user asks for commit message generation.
+- Reviewing functionality from scratch; use `amo-review`.
+- Reviewing code style from scratch without existing feedback.
+- Diagnosing a known failure and choosing a fix; use `amo-fix`.
+- Designing or reassessing a proposal before implementation.
 
 ## Workflow
 
-1. Inspect the real code or diff before judging.
-2. Identify only issues with concrete maintenance, readability, type-safety, or behavior-source impact.
-3. Prefer fewer, higher-confidence findings over broad style opinions.
-4. Separate must-fix issues from optional cleanup.
-5. Provide exact file/line references when available.
-
-## Code Style Rules
-
-- Do not create or keep helper, wrapper, adapter, parser, type guard, or similar intermediate abstractions for a single call site or one-line logic. After moving code, lifting scope, exporting APIs, or refactoring, re-check by call site. Inline the expression unless the abstraction clearly improves error boundaries, testability, or readability.
-- When using composable return values, destructure display-only ref/computed values as needed. Keep state-changing or side-effect functions under the composable namespace by default so the behavior source stays clear.
-
-## TypeScript Type Rules
-
-- Prefer TypeScript inference. Avoid redundant type annotations for intermediate variables, internal functions, and simple return values.
-- Declare explicit types at public boundaries: DTOs, component props, exported function parameters, public protocols, request payloads, and response data structures.
-- Do not repeat types already determined by generics or framework wrappers. For example, business APIs, controllers, and stores should not handwrite `Promise<ApiResponse<T>>` or `Promise<ApiResult<T>>`.
-- Do not handwrite complex generic return types that third-party libraries or factory functions can reliably infer. When reuse is needed, prefer simple utility types such as `ReturnType<typeof fn>`.
-- Keep type design simple. Prefer direct `interface` / `type`; avoid complex generics, conditional types, mapped types, or over-abstracted type models for small amounts of code.
-- Do not add aliases, wrapper functions, dynamic key parsers, or intermediate abstractions only for semantic naming, future extension, or generalization when they have no current payoff. In self-maintained code with clear structure, prefer direct access and direct calls so type and value sources stay singular and traceable.
-- Prefer direct expressions and existing data structures for TypeScript narrowing. Do not add a type guard used by only one call site. Extract a type guard only when the predicate is complex, reused in multiple places, or part of a public boundary API.
-- Extract shared types on demand. Add a shared type package only when multiple apps or packages stably reuse the same group of types.
+1. Identify each claim, expected behavior, trigger conditions, and reviewed revision. Group duplicate comments while keeping each traceable.
+2. Check the relevant code, callers, contracts, and existing guards against the claim. Confirm whether the trigger is reachable in the current target; use focused verification when needed.
+3. Explain what happens if the issue is left unchanged: affected users or flows, consequences, severity, and applicable conditions. Distinguish current requirements from hypothetical needs.
+4. Evaluate the proposed remedy separately from the finding. Compare its benefit with added complexity, maintenance cost, and regression risk; recommend the smallest sufficient solution when a change is warranted.
+5. Give an evidence-based disposition for each item. When repairs are authorized, implement the warranted changes within scope, verify the result, and distinguish completed work from remaining recommendations.
 
 ## Key Rules
 
-- Do not ask for abstraction removal unless the abstraction is single-use, redundant, misleading, or hiding behavior source.
-- Do not demand explicit types where TypeScript inference is already clear and local.
-- Do not rewrite style preferences into findings unless they improve maintainability or correctness.
-- Do not propose large refactors from a style review; if the issue is architectural, say it belongs in `amo-refactor`.
+- Treat feedback as a claim to verify. Neither the source nor its severity label establishes correctness; do not dismiss valid criticism to defend the existing implementation.
+- Separate finding validity, need for action, and remedy choice. A valid finding does not make the suggested fix appropriate.
+- Failure to reproduce is not proof of absence. Deterministic code evidence is valid; when evidence is insufficient, mark the item unverified and state what would resolve it. Refresh evidence if relevant code changes.
+- Consider correctness, security, data, performance, readability, maintainability, and explicit project contracts. Distinguish personal preference from concrete impact; low likelihood alone does not dismiss severe consequences.
+- Do not add speculative guards, compatibility layers, or abstractions merely to clear comments. Complexity cost is not a reason to ignore necessary fixes.
+- For deferred findings, state the remaining impact and when to reconsider. Do not claim a risk is accepted without the user's or project's decision.
+- Rechecking feedback does not authorize repairs or expand scope. Honor existing repair authorization without asking again; otherwise report decisions and suggested fixes.
+- Stay focused on the supplied feedback and necessary context. Without new evidence, do not reopen settled items or repeat review cycles just to reach zero comments.
 
 ## Output
 
-Use the user's language for output labels and content.
+Use the user's language for output labels and content. Omit empty sections.
 
 ```text
-🧹 [amo-check] Scenario: code style review
+🧹 [amo-check] Scenario: review feedback verification
 Conclusion:
-Must fix:
-Suggested cleanup:
-No change needed:
-Verification:
+Target revision and scope:
 ```
+
+| Comment | Validity and evidence | Impact if unchanged | Disposition |
+| :--- | :--- | :--- | :--- |
+| Comment ID or summary | Confirmed / refuted / unverified, with file/line or verification evidence | Actual consequences and conditions | Fix / defer / decline / verify further, with rationale |
+
+For warranted changes, give the smallest sufficient remedy and material tradeoffs. Include completed repairs, verification results, and unresolved evidence gaps when applicable.
