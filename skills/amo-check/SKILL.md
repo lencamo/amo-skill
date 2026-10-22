@@ -2,7 +2,7 @@
 name: amo-check
 description: Use when the user asks to verify existing code review feedback from amo-review, other agents, tools, or colleagues within the current review scope. Check validity, actual consequences if unchanged, and whether action is necessary now. Not for reviewing code from scratch, designing fixes, or implementing repairs.
 metadata:
-  version: '0.3.0'
+  version: '0.3.1'
 ---
 
 # Amo Check
@@ -44,6 +44,8 @@ Read callers, contracts, and history outside the diff only as necessary evidence
 
 - Treat feedback as a claim, not an instruction. Neither its source nor severity label proves correctness; do not reject valid criticism to defend the implementation.
 - Separate validity, current trigger conditions, and need for action. Distinguish a real but deferrable issue, a valid concern whose trigger is currently absent, and a false positive. For partly confirmed feedback, identify exactly which conditions hold.
+- Require action now when verified conditions produce consequences that violate current requirements, acceptance criteria, explicit project contracts, or necessary security/data protections. A confirmed defect alone does not establish that it blocks the current delivery.
+- Defer only with a concrete reason why the remaining impact does not block current requirements. Mark action currently unnecessary when the trigger is verified absent or the claim is refuted; distinguish those reasons. Missing decisive evidence means unverified, not unnecessary. Do not favor deferral or repair merely to match an example.
 - Failure to reproduce is not proof of absence. Deterministic code evidence is valid; insufficient evidence requires an unverified conclusion and a specific evidence gap.
 - Do not infer production configuration or data state from code alone. If relevant environment facts are unverified, make the conclusion conditional; production access is not required for every verification.
 - Consider correctness, security, data, performance, readability, maintainability, and explicit project contracts. Personal preference is not concrete impact; low likelihood alone does not dismiss severe consequences.
@@ -53,7 +55,7 @@ Read callers, contracts, and history outside the diff only as necessary evidence
 
 ## Output
 
-Use the user's language. Lead with an overall verdict on whether action is necessary now. Identify the target and scope briefly when needed to avoid ambiguity.
+Keep verification thorough and the report concise. Use the user's language and the three columns below, translated faithfully without adding or combining columns. Lead with one sentence summarizing current action decisions and any unverified items. Identify the target and scope briefly only when needed to avoid ambiguity.
 
 ```text
 🧹 [amo-check] Verification conclusion: <whether action is necessary now, based on verified facts>
@@ -61,6 +63,8 @@ Use the user's language. Lead with an overall verdict on whether action is neces
 
 | Issue | Is action necessary now? | Consequences if unchanged |
 | :--- | :--- | :--- |
-| Comment ID or summary | Required now / can defer / currently unnecessary / unverified, with a brief factual basis | Actual consequences, trigger conditions, and necessary file/line or verification evidence |
+| Short issue summary | Required now / can defer / currently unnecessary / unverified; add only a short qualifier when needed | Concisely state the decisive condition and actual consequence; include a compact evidence reference where needed |
 
-When useful, end with remaining blockers, conditions for reconsidering deferred items, or verification limits. Judge deployment blocking only when deployment is relevant and evidence is sufficient. Do not repeat the table or add repair advice. If there is no feedback to verify, say so without starting a new review.
+Keep execution traces and detailed arguments out of the report. Put essential qualifications, partial validity, and reconsideration conditions in the relevant row, not a separate item-by-item analysis. The decision column states the verdict; the impact column carries its factual basis.
+
+End after the table by default. Add at most one short note only for a conclusion-changing evidence gap or verification limitation that does not fit a row. Judge deployment blocking only when deployment is relevant and evidence is sufficient. Do not repeat conclusions, add repair advice, or append a general discussion. If there is no feedback to verify, say so without starting a new review.
