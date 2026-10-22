@@ -17,7 +17,7 @@
 | [`amo-detail`](skills/amo-detail/docs/SKILL.zh-CN.md) | 展开已讨论方案的具体实施方式与实施后变化 |
 | [`amo-implement`](skills/amo-implement/docs/SKILL.zh-CN.md) | 按明确方案实施并验证，兼顾代码效率、精炼度、可读性和可维护性 |
 | [`amo-review`](skills/amo-review/docs/SKILL.zh-CN.md) | 功能正确性与潜在 Bug 审查 |
-| [`amo-check`](skills/amo-check/docs/SKILL.zh-CN.md) | 核实审查意见、评估实际影响并判断处理方式 |
+| [`amo-check`](skills/amo-check/docs/SKILL.zh-CN.md) | 核实审查意见、当前处理必要性及不处理的影响 |
 | [`amo-draft`](skills/amo-draft/docs/SKILL.zh-CN.md) | 编写聚焦目标的文档与文案 |
 
 ## 使用链路
@@ -30,7 +30,7 @@ amo-feature / amo-improve / amo-fix / amo-refactor（选一个）
 → amo-review（功能审查）
 
 amo-research：按需辅助方案设计与复核
-amo-check：按需核实已有审查意见并判断处理方式
+amo-check：按需核实已有意见并判断当前是否需要处理
 amo-draft：任意阶段按需使用
 ```
 

@@ -21,7 +21,7 @@ Prefix the first output line inline with `🔍 [amo-review]`. Do not put the mar
 ## Do Not Use
 
 - Code style, redundancy, abstraction, or type-expression review alone.
-- Verifying existing review feedback and deciding what to address; use `amo-check`.
+- Verifying existing review feedback and whether action is necessary now; use `amo-check`.
 - Diagnosing a known failure and choosing a fix; use `amo-fix`.
 - Designing or reassessing a proposal before implementation.
 

@@ -79,8 +79,8 @@
     },
     {
       "name": "amo-check",
-      "description": "Use when the user asks to verify existing code review feedback, decide whether findings need fixes, or address review comments from amo-review, other agents, tools, or colleagues. Check validity, actual impact, and repair costs before acting. Not for reviewing code from scratch, solution design, or diagnosing a known failure.",
-      "version": "0.2.0",
+      "description": "Use when the user asks to verify existing code review feedback from amo-review, other agents, tools, or colleagues within the current review scope. Check validity, actual consequences if unchanged, and whether action is necessary now. Not for reviewing code from scratch, designing fixes, or implementing repairs.",
+      "version": "0.3.0",
       "category": "workflow",
       "source": "./skills/amo-check",
       "homepage": "https://github.com/lencamo/amo-skill"
