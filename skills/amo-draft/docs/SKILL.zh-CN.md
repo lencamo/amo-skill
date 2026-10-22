@@ -26,7 +26,8 @@
 
 - 编码前方案设计；使用 `amo-feature`、`amo-improve`、`amo-fix` 或 `amo-refactor`。
 - 方案二次压力测试；使用 `amo-best`。
-- 已实现代码的风格审查；使用 `amo-check`。
+- 已实现代码的风格审查。
+- 审查反馈复核；使用 `amo-check`。
 - 基于真实实现生成面向用户的文档；使用 `doc-feat-desc`。
 - 提交信息；使用 `git-smart-commit`。
 

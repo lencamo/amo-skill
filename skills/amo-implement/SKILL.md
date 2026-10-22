@@ -23,7 +23,8 @@ Prefix the first output line inline with `🔨 [amo-implement]`. Do not put the 
 - The user wants solution design or proposal review.
 - The user wants proposal details; use `amo-detail`.
 - The user wants functional correctness review; use `amo-review`.
-- The user wants code style review; use `amo-check`.
+- The user wants standalone code style review.
+- The user wants to verify existing review feedback; use `amo-check`.
 
 ## Workflow
 
