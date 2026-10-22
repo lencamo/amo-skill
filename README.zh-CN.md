@@ -15,7 +15,7 @@
 | [`amo-research`](skills/amo-research/docs/SKILL.zh-CN.md) | 调研外部实现与可复用方案 |
 | [`amo-best`](skills/amo-best/docs/SKILL.zh-CN.md) | 复核已有方案与取舍 |
 | [`amo-detail`](skills/amo-detail/docs/SKILL.zh-CN.md) | 展开已讨论方案的具体实施方式与实施后变化 |
-| [`amo-implement`](skills/amo-implement/docs/SKILL.zh-CN.md) | 按明确方案实施并验证 |
+| [`amo-implement`](skills/amo-implement/docs/SKILL.zh-CN.md) | 按明确方案实施并验证，兼顾代码效率、精炼度、可读性和可维护性 |
 | [`amo-review`](skills/amo-review/docs/SKILL.zh-CN.md) | 功能正确性与潜在 Bug 审查 |
 | [`amo-check`](skills/amo-check/docs/SKILL.zh-CN.md) | 审查代码风格、冗余、抽象与类型表达 |
 | [`amo-draft`](skills/amo-draft/docs/SKILL.zh-CN.md) | 编写聚焦目标的文档与文案 |

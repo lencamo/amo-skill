@@ -94,7 +94,7 @@ amo-draft：任意阶段按需编写文档和文案
 只有在已有具体方案后，才把 `amo-best` 作为二次压力测试使用。
 `amo-research` 可以独立使用，也可按需开展外部实现调研，支持 `amo-feature`、`amo-improve`、`amo-fix`、`amo-refactor` 和 `amo-best` 做方案判断；它提供证据及复用建议，不会自动调用其他 skill。
 `amo-detail` 将已讨论的方案展开为具体实施安排，以及实施后的流程、前端、后端和数据变化。方案可以由用户提供，也可以来自 `amo-feature`、`amo-improve`、`amo-fix`、`amo-refactor` 或 `amo-best`；方案是主要依据，代码仅按需用于核实。
-`amo-implement` 对已有方案进行编码与验证，同时约束注释噪音、前端内容污染和范围蔓延。
+`amo-implement` 对已有方案进行编码与验证，包含任务范围内的代码质量自查，同时约束注释噪音、前端内容污染和范围蔓延。
 使用 `amo-review` 审查已实现功能，按需使用 `amo-check` 审查代码风格。
 当下一步产物是内容而不是代码时，使用 `amo-draft`。
 
