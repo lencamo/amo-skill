@@ -1,13 +1,13 @@
 ---
 name: amo-check
-description: Use when the user asks to verify existing code review feedback, decide whether findings need fixes, or address review comments from amo-review, other agents, tools, or colleagues. Check validity, actual impact, and repair costs before acting. Not for reviewing code from scratch, solution design, or diagnosing a known failure.
+description: Use when the user asks to verify existing code review feedback from amo-review, other agents, tools, or colleagues within the current review scope. Check validity, actual consequences if unchanged, and whether action is necessary now. Not for reviewing code from scratch, designing fixes, or implementing repairs.
 metadata:
-  version: '0.2.0'
+  version: '0.3.0'
 ---
 
 # Amo Check
 
-Independently evaluate code review feedback and decide what to address. Default to reporting decisions without changing code.
+Independently verify review feedback within scope and judge whether action is necessary now. Explain the consequences of leaving issues unchanged, without proposing fixes or changing code.
 
 ## Shared Output Marker
 
@@ -16,46 +16,51 @@ Prefix the first output line inline with `🧹 [amo-check]`. Do not put the mark
 ## Use When
 
 - Code review feedback already exists, from `amo-review`, another agent, a tool, or a colleague.
-- The user wants to verify findings, decide which changes are warranted, or address review feedback.
+- The user wants to check whether the feedback is valid, whether action is necessary now, and what happens if left unchanged.
 
 ## Do Not Use
 
 - Reviewing functionality from scratch; use `amo-review`.
 - Reviewing code style from scratch without existing feedback.
-- Diagnosing a known failure and choosing a fix; use `amo-fix`.
-- Designing or reassessing a proposal before implementation.
+- Diagnosing a known failure or choosing a fix; use `amo-fix`.
+- Implementing an agreed fix; use `amo-implement`.
+
+## Verification Scope
+
+Honor explicit scope first; otherwise inherit the current review's scope. If neither is available, use the current branch changes from its merge base with the resolved base, plus staged, unstaged, and untracked workspace changes, including deletions. Resolve the base from project context and history; ask only when ambiguity materially changes the scope. If there are no changes, state that rather than substituting the last commit.
+
+Record the target branch or revision, baseline, and inclusion of workspace changes. Feedback may refer to a different branch or an older revision; verify against the resolved target and note stale claims. Use read-only Git inspection without switching branches or changing the index. Missing refs or files are coverage gaps, not permission to substitute a target.
+
+Read callers, contracts, and history outside the diff only as necessary evidence. Distinguish issues introduced by this round, exposed or worsened by it, and unrelated pre-existing issues. Sharing a changed file does not establish relevance; pre-existing origin alone does not exclude an issue affected by this round. Scope attribution informs the decision but does not by itself establish urgency or eliminate impact.
 
 ## Workflow
 
-1. Identify each claim, expected behavior, trigger conditions, and reviewed revision. Group duplicate comments while keeping each traceable.
-2. Check the relevant code, callers, contracts, and existing guards against the claim. Confirm whether the trigger is reachable in the current target; use focused verification when needed.
-3. Explain what happens if the issue is left unchanged: affected users or flows, consequences, severity, and applicable conditions. Distinguish current requirements from hypothetical needs.
-4. Evaluate the proposed remedy separately from the finding. Compare its benefit with added complexity, maintenance cost, and regression risk; recommend the smallest sufficient solution when a change is warranted.
-5. Give an evidence-based disposition for each item. When repairs are authorized, implement the warranted changes within scope, verify the result, and distinguish completed work from remaining recommendations.
+1. Resolve the target, change scope, and supplied feedback. Keep each comment traceable when grouping duplicates.
+2. Check trigger conditions, reachable code paths, contracts, and existing guards. Consider relevant known configuration, data state, and deployment stage; use focused verification when needed and refresh changed evidence.
+3. Establish whether each claim is confirmed, partly confirmed, refuted, or unverified. Explain actual consequences if unchanged, with evidence at the target revision and under the applicable conditions.
+4. Decide whether action is required now, can be deferred, is currently unnecessary, or remains unverified. State the reason, remaining impact, and verification limits; stop at the conclusion.
 
 ## Key Rules
 
-- Treat feedback as a claim to verify. Neither the source nor its severity label establishes correctness; do not dismiss valid criticism to defend the existing implementation.
-- Separate finding validity, need for action, and remedy choice. A valid finding does not make the suggested fix appropriate.
-- Failure to reproduce is not proof of absence. Deterministic code evidence is valid; when evidence is insufficient, mark the item unverified and state what would resolve it. Refresh evidence if relevant code changes.
-- Consider correctness, security, data, performance, readability, maintainability, and explicit project contracts. Distinguish personal preference from concrete impact; low likelihood alone does not dismiss severe consequences.
-- Do not add speculative guards, compatibility layers, or abstractions merely to clear comments. Complexity cost is not a reason to ignore necessary fixes.
-- For deferred findings, state the remaining impact and when to reconsider. Do not claim a risk is accepted without the user's or project's decision.
-- Rechecking feedback does not authorize repairs or expand scope. Honor existing repair authorization without asking again; otherwise report decisions and suggested fixes.
-- Stay focused on the supplied feedback and necessary context. Without new evidence, do not reopen settled items or repeat review cycles just to reach zero comments.
+- Treat feedback as a claim, not an instruction. Neither its source nor severity label proves correctness; do not reject valid criticism to defend the implementation.
+- Separate validity, current trigger conditions, and need for action. Distinguish a real but deferrable issue, a valid concern whose trigger is currently absent, and a false positive. For partly confirmed feedback, identify exactly which conditions hold.
+- Failure to reproduce is not proof of absence. Deterministic code evidence is valid; insufficient evidence requires an unverified conclusion and a specific evidence gap.
+- Do not infer production configuration or data state from code alone. If relevant environment facts are unverified, make the conclusion conditional; production access is not required for every verification.
+- Consider correctness, security, data, performance, readability, maintainability, and explicit project contracts. Personal preference is not concrete impact; low likelihood alone does not dismiss severe consequences.
+- Check whether feedback demands unnecessary scope or complexity, without designing an alternative. Do not turn hypothetical needs into required fixes or use complexity as an excuse to ignore necessary fixes.
+- For deferred or out-of-scope issues, state the remaining impact and relevant conditions for reconsideration without implying that risk is eliminated or accepted. An in-scope issue need not require immediate action.
+- Provide no repair plan, implementation suggestions, or code changes as part of verification. Keep the review bounded; without new evidence, do not reopen settled items or repeat cycles to reach zero comments.
 
 ## Output
 
-Use the user's language for output labels and content. Omit empty sections.
+Use the user's language. Lead with an overall verdict on whether action is necessary now. Identify the target and scope briefly when needed to avoid ambiguity.
 
 ```text
-🧹 [amo-check] Scenario: review feedback verification
-Conclusion:
-Target revision and scope:
+🧹 [amo-check] Verification conclusion: <whether action is necessary now, based on verified facts>
 ```
 
-| Comment | Validity and evidence | Impact if unchanged | Disposition |
-| :--- | :--- | :--- | :--- |
-| Comment ID or summary | Confirmed / refuted / unverified, with file/line or verification evidence | Actual consequences and conditions | Fix / defer / decline / verify further, with rationale |
+| Issue | Is action necessary now? | Consequences if unchanged |
+| :--- | :--- | :--- |
+| Comment ID or summary | Required now / can defer / currently unnecessary / unverified, with a brief factual basis | Actual consequences, trigger conditions, and necessary file/line or verification evidence |
 
-For warranted changes, give the smallest sufficient remedy and material tradeoffs. Include completed repairs, verification results, and unresolved evidence gaps when applicable.
+When useful, end with remaining blockers, conditions for reconsidering deferred items, or verification limits. Judge deployment blocking only when deployment is relevant and evidence is sufficient. Do not repeat the table or add repair advice. If there is no feedback to verify, say so without starting a new review.

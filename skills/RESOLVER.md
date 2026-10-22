@@ -42,7 +42,7 @@ Keep the marker inline with the first line, not as a standalone paragraph.
 | Understand how a discussed proposal will be implemented and how workflows, frontend, backend, and data will change | `amo-detail` |
 | Implement an already defined proposal and verify the result | `amo-implement` |
 | Review functional correctness and potential bugs across workspace changes, specified commits, or a feature branch | `amo-review` |
-| Verify existing code review feedback, assess impact, or decide how to address it | `amo-check` |
+| Verify existing review feedback, current need for action, and consequences if unchanged within scope | `amo-check` |
 | Write or edit target-focused page copy, requirement notes, implementation docs, version notes, release notes, or temporary project documentation | `amo-draft` |
 
 ## Best Standard Routing
@@ -65,7 +65,7 @@ Default to target-state best when no constraint is stated. Do not invent compati
 3. Existing behavior is wrong or failing: use `amo-fix`; mention refactor only if root cause requires boundary work.
 4. No behavior change, only structure: use `amo-refactor`.
 5. A candidate proposal already exists and the user asks whether it is best: use `amo-best`.
-6. Code review feedback exists and the user asks whether it is valid, needs a fix, or should be addressed: use `amo-check`. A code style review from scratch is outside its scope; handle that request directly.
+6. Code review feedback exists and the user asks whether it is valid or requires action now: use `amo-check`. It verifies within the current review scope without designing or implementing repairs. A code style review from scratch is outside its scope; handle that request directly.
 7. The user asks to write clean target content from context, reference style, examples, or implementation history: use `amo-draft`.
 8. Implementing an already defined proposal: use `amo-implement`; direct small edits, assets, and commit messages do not require the amo design workflow.
 9. Check implemented functionality for correctness or latent bugs: use `amo-review`; use `amo-fix` to diagnose a known failure and choose a fix.
@@ -85,7 +85,7 @@ amo-feature / amo-improve / amo-fix / amo-refactor (usually choose one)
 → amo-review (functional review)
 
 amo-research: research independently or supply external evidence for design and review as needed
-amo-check: verify existing review feedback and decide what to address as needed
+amo-check: verify existing feedback and whether action is necessary now as needed
 amo-draft: write documentation and copy at any stage as needed
 ```
 
@@ -95,7 +95,7 @@ Use `amo-best` only as a second-pass pressure test after a concrete proposal exi
 Use `amo-research` independently or as optional external implementation research to support decisions in `amo-feature`, `amo-improve`, `amo-fix`, `amo-refactor`, and `amo-best`; it provides evidence and reuse advice without automatically invoking other skills.
 Use `amo-detail` to expand a discussed proposal into concrete implementation intentions and resulting workflow, frontend, backend, and data changes. The proposal may come from the user or `amo-feature`, `amo-improve`, `amo-fix`, `amo-refactor`, or `amo-best`; it is the primary source, with code used only as needed for verification.
 Use `amo-implement` to code and verify an existing proposal, including code quality self-checks within the task scope, while controlling comment noise, frontend content pollution, and scope creep.
-Use `amo-review` to review implemented functionality. Use `amo-check` when existing review feedback needs independent verification and a decision on what to address; it is not a required step after every review.
+Use `amo-review` to review implemented functionality. Use `amo-check` to verify existing feedback, current need for action, and consequences if unchanged within scope; it reports conclusions without repair advice or code changes and is not required after every review.
 Use `amo-draft` when the next artifact is content, not code.
 
 ## Maintenance Rule
