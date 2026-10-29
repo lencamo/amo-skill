@@ -2,7 +2,7 @@
 name: amo-fix
 description: Use when the user asks why existing behavior is broken, incorrect, flaky, regressed, unexpected, or runtime/build behavior is failing and wants a bug-fix approach before coding. Do not use for planned feature changes, pure refactors, or second-pass solution challenges.
 metadata:
-  version: '0.2.0'
+  version: '0.2.1'
 ---
 
 # Amo Fix
@@ -54,7 +54,7 @@ Select and state one before recommending a fix:
 
 ## Output
 
-Use the user's language for output labels and content.
+Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
 
 ```text
 🛠️ [amo-fix] Scenario: bug fix

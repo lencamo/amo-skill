@@ -2,7 +2,7 @@
 name: amo-implement
 description: Use when the user asks to implement an already defined proposal and verify the result, balancing code efficiency, concision, readability, and maintainability while keeping changes focused, comments useful, and frontend content free of conversation or implementation notes. Do not use for solution design, proposal explanation, or standalone code review.
 metadata:
-  version: '0.3.0'
+  version: '0.3.1'
 ---
 
 # Amo Implement
@@ -65,7 +65,7 @@ Prefix the first output line inline with `🔨 [amo-implement]`. Do not put the 
 
 ## Output
 
-Use the user's language for output labels and content.
+Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
 
 ```text
 🔨 [amo-implement] Scenario: proposal implementation

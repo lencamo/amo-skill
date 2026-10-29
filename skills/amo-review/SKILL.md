@@ -2,7 +2,7 @@
 name: amo-review
 description: Review implemented functionality for requirement gaps, logic errors, and bugs across workspace changes, specified commits, or an entire feature branch. Use when the user asks whether an implementation is correct or ready to merge. Not for code-style-only reviews, solution design, or diagnosing a known failure to choose a fix.
 metadata:
-  version: '0.2.0'
+  version: '0.2.1'
 ---
 
 # Amo Review
@@ -69,7 +69,7 @@ Use read-only Git inspection and preserve the worktree and index. Missing refs o
 
 ## Output
 
-Use the user's language for output labels and content.
+Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
 
 ```text
 🔍 [amo-review] Scenario: Functional review

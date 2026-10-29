@@ -2,7 +2,7 @@
 name: amo-research
 description: Use when the user asks to research how competitor products, communities, or open-source projects implement a feature, find mature reusable approaches, or verify implementation alternatives with external evidence to support solution decisions. Do not use for general market analysis or solution design without external implementation research.
 metadata:
-  version: '0.2.0'
+  version: '0.2.1'
 ---
 
 # Amo Research
@@ -45,7 +45,7 @@ Prefix the first output line inline with `🔬 [amo-research]`. Do not put the m
 
 ## Output
 
-Use the user's language for output labels and content.
+Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
 
 ```text
 🔬 [amo-research] Scenario: implementation research

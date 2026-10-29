@@ -2,7 +2,7 @@
 name: amo-improve
 description: Use when the user asks how to improve, extend, adjust, or redesign an existing feature or behavior before coding. Do not use for brand-new features, broken behavior, pure refactors, or second-pass solution challenges.
 metadata:
-  version: '0.2.0'
+  version: '0.2.1'
 ---
 
 # Amo Improve
@@ -54,7 +54,7 @@ Select and state one before recommending a solution:
 
 ## Output
 
-Use the user's language for output labels and content.
+Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
 
 ```text
 🧰 [amo-improve] Scenario: existing behavior change
