@@ -56,7 +56,7 @@
     {
       "name": "amo-detail",
       "description": "Use when the user wants an existing discussed proposal expanded into how the agent plans to implement it and how workflows, frontend behavior, backend processing, and data will change afterward. Not for initial solution design, challenging the chosen approach, coding, or code review.",
-      "version": "0.5.1",
+      "version": "0.6.2",
       "category": "workflow",
       "source": "./skills/amo-detail",
       "homepage": "https://github.com/lencamo/amo-skill"
