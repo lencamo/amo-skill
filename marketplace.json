@@ -8,7 +8,7 @@
     {
       "name": "amo-feature",
       "description": "Use when the user asks how to design or implement a new feature, capability, workflow, page, API, or behavior before coding. Do not use for bug fixes, intentional changes to existing behavior, pure refactors, or second-pass solution challenges.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "workflow",
       "source": "./skills/amo-feature",
       "homepage": "https://github.com/lencamo/amo-skill"
@@ -16,7 +16,7 @@
     {
       "name": "amo-improve",
       "description": "Use when the user asks how to improve, extend, adjust, or redesign an existing feature or behavior before coding. Do not use for brand-new features, broken behavior, pure refactors, or second-pass solution challenges.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "workflow",
       "source": "./skills/amo-improve",
       "homepage": "https://github.com/lencamo/amo-skill"
@@ -24,7 +24,7 @@
     {
       "name": "amo-fix",
       "description": "Use when the user asks why existing behavior is broken, incorrect, flaky, regressed, unexpected, or runtime/build behavior is failing and wants a bug-fix approach before coding. Do not use for planned feature changes, pure refactors, or second-pass solution challenges.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "workflow",
       "source": "./skills/amo-fix",
       "homepage": "https://github.com/lencamo/amo-skill"
@@ -32,7 +32,7 @@
     {
       "name": "amo-refactor",
       "description": "Use when the user asks how to refactor, split modules, clarify architecture, move ownership, reduce coupling, or fix unclear state, data-flow, or component boundaries before coding. Do not use for ordinary feature work, bug fixes, or second-pass solution challenges.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "workflow",
       "source": "./skills/amo-refactor",
       "homepage": "https://github.com/lencamo/amo-skill"
@@ -40,7 +40,7 @@
     {
       "name": "amo-best",
       "description": "Use when the user challenges an existing proposal, asks whether it is the best solution, asks for a better approach, or wants second-pass review of the chosen best-standard, tradeoffs, scope, compatibility, risk, or refactor depth before implementation.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "workflow",
       "source": "./skills/amo-best",
       "homepage": "https://github.com/lencamo/amo-skill"
@@ -48,7 +48,7 @@
     {
       "name": "amo-research",
       "description": "Use when the user asks to research how competitor products, communities, or open-source projects implement a feature, find mature reusable approaches, or verify implementation alternatives with external evidence to support solution decisions. Do not use for general market analysis or solution design without external implementation research.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "workflow",
       "source": "./skills/amo-research",
       "homepage": "https://github.com/lencamo/amo-skill"
@@ -56,7 +56,7 @@
     {
       "name": "amo-detail",
       "description": "Use when the user wants an existing discussed proposal expanded into how the agent plans to implement it and how workflows, frontend behavior, backend processing, and data will change afterward. Not for initial solution design, challenging the chosen approach, coding, or code review.",
-      "version": "0.4.0",
+      "version": "0.5.1",
       "category": "workflow",
       "source": "./skills/amo-detail",
       "homepage": "https://github.com/lencamo/amo-skill"
@@ -64,7 +64,7 @@
     {
       "name": "amo-implement",
       "description": "Use when the user asks to implement an already defined proposal and verify the result, balancing code efficiency, concision, readability, and maintainability while keeping changes focused, comments useful, and frontend content free of conversation or implementation notes. Do not use for solution design, proposal explanation, or standalone code review.",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "category": "workflow",
       "source": "./skills/amo-implement",
       "homepage": "https://github.com/lencamo/amo-skill"
@@ -72,7 +72,7 @@
     {
       "name": "amo-review",
       "description": "Review implemented functionality for requirement gaps, logic errors, and bugs across workspace changes, specified commits, or an entire feature branch. Use when the user asks whether an implementation is correct or ready to merge. Not for code-style-only reviews, solution design, or diagnosing a known failure to choose a fix.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "workflow",
       "source": "./skills/amo-review",
       "homepage": "https://github.com/lencamo/amo-skill"

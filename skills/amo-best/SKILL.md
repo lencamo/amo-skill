@@ -2,7 +2,7 @@
 name: amo-best
 description: Use when the user challenges an existing proposal, asks whether it is the best solution, asks for a better approach, or wants second-pass review of the chosen best-standard, tradeoffs, scope, compatibility, risk, or refactor depth before implementation.
 metadata:
-  version: '0.2.0'
+  version: '0.2.1'
 ---
 
 # Amo Best
@@ -56,7 +56,7 @@ If the proposal used the wrong standard, say so before judging the implementatio
 
 ## Output
 
-Use the user's language for output labels and content.
+Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
 
 ```text
 🏆 [amo-best] Scenario: best-solution pressure test

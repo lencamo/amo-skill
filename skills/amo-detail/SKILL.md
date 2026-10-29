@@ -2,7 +2,7 @@
 name: amo-detail
 description: Use when the user wants an existing discussed proposal expanded into how the agent plans to implement it and how workflows, frontend behavior, backend processing, and data will change afterward. Not for initial solution design, challenging the chosen approach, coding, or code review.
 metadata:
-  version: '0.4.0'
+  version: '0.5.1'
 ---
 
 # Amo Detail
@@ -40,11 +40,12 @@ Prefix the first output line inline with `🔎 [amo-detail]`. Do not put the mar
 - For each major change, explain what will be done, how it will work, and resulting behavior; summaries or name lists alone are insufficient.
 - Distinguish settled decisions, planned details, and open questions. Do not invent current behavior or defer routine implementation details to the user.
 - Stay within the proposal; do not add features or architecture, or change states beyond its scope. Mark irrelevant areas as not involved.
+- When schema or data changes rely on the project's auto-migration mechanism (e.g. GORM AutoMigrate), split deployment actions into what the mechanism applies automatically at startup and what stays manual — data backfills, composite or unique indexes, environments where the mechanism is disabled; never present one as the other.
 - Explain without implementing; provide execution order beyond deployment and verification plans only when requested.
 
 ## Output
 
-Use the user's language for output labels and content.
+Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
 
 ```text
 🔎 [amo-detail] Scenario: proposal implementation details
