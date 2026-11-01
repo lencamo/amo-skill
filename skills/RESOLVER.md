@@ -15,6 +15,7 @@ All `amo-*` workflow skills prefix the first output line inline with their skill
 
 | Skill | Marker |
 | :---- | :----- |
+| `amo-workflow` | `🧭 [amo-workflow]` |
 | `amo-feature` | `🧩 [amo-feature]` |
 | `amo-improve` | `🧰 [amo-improve]` |
 | `amo-fix` | `🛠️ [amo-fix]` |
@@ -33,6 +34,7 @@ Keep the marker inline with the first line, not as a standalone paragraph.
 
 | User intent | Use |
 | :---------- | :-- |
+| Coordinate complete or staged feature delivery, or resume an active delivery | `amo-workflow` |
 | Build behavior that does not exist yet | `amo-feature` |
 | Intentionally change, extend, improve, or redesign existing behavior | `amo-improve` |
 | Explain and fix broken, wrong, flaky, regressed, or failing existing behavior | `amo-fix` |
@@ -69,10 +71,11 @@ Default to target-state best when no constraint is stated. Do not invent compati
 7. The user asks to write clean target content from context, reference style, examples, or implementation history: use `amo-draft`.
 8. Implementing an already defined proposal: use `amo-implement`; direct small edits, assets, and commit messages do not require the amo design workflow.
 9. Check implemented functionality for correctness or latent bugs: use `amo-review`; use `amo-fix` to diagnose a known failure and choose a fix.
+10. A complete delivery or continuation needs stage coordination: use `amo-workflow`, then the skill for the active module. A side question or standalone review keeps its own scope and output; it does not authorize another stage.
 
 ## Chaining
 
-Skills do not automatically chain.
+Individual skills do not automatically chain. During a delivery selected through `amo-workflow`, that coordinator advances applicable stages under the confirmed plan, checkpoints, and authorization. Outside that context, use the standalone routing below.
 
 Typical manual chain:
 
@@ -89,7 +92,7 @@ amo-check: verify existing feedback and whether action is necessary now as neede
 amo-draft: write documentation and copy at any stage as needed
 ```
 
-This is one manual workflow, not a required sequence. A defined proposal can go straight to implementation, and existing code can go straight to review. Skills do not automatically chain.
+This is one manual workflow, not a required sequence. A defined proposal can go straight to implementation, and existing code can go straight to review.
 
 Use `amo-best` only as a second-pass pressure test after a concrete proposal exists.
 Use `amo-research` independently or as optional external implementation research to support decisions in `amo-feature`, `amo-improve`, `amo-fix`, `amo-refactor`, and `amo-best`; it provides evidence and reuse advice without automatically invoking other skills.

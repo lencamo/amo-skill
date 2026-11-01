@@ -8,6 +8,7 @@
 
 | Skill | 职责 |
 | :--- | :--- |
+| [`amo-workflow`](skills/amo-workflow/docs/SKILL.zh-CN.md) | 协调完整功能交付、阶段证据、确认节点与进度恢复 |
 | [`amo-feature`](skills/amo-feature/docs/SKILL.zh-CN.md) | 新功能方案设计 |
 | [`amo-improve`](skills/amo-improve/docs/SKILL.zh-CN.md) | 主动调整已有功能 |
 | [`amo-fix`](skills/amo-fix/docs/SKILL.zh-CN.md) | 分析异常根因与修复方案 |
@@ -21,6 +22,8 @@
 | [`amo-draft`](skills/amo-draft/docs/SKILL.zh-CN.md) | 编写聚焦目标的文档与文案 |
 
 ## 使用链路
+
+完整或分阶段功能交付及续做使用 `amo-workflow`，由它协调适用 skill，保留方案确认、可选的页面确认和最终用户验收。各 skill 仍可独立使用。
 
 ```text
 amo-feature / amo-improve / amo-fix / amo-refactor（选一个）

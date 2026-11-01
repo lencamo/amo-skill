@@ -8,6 +8,7 @@ Amo skills for engineering work: planning, implementation, verification, and wri
 
 | Skill | Responsibility |
 | :--- | :--- |
+| [`amo-workflow`](skills/amo-workflow/SKILL.md) | Coordinate complete feature delivery, stage evidence, approvals, and resumable progress |
 | [`amo-feature`](skills/amo-feature/SKILL.md) | Design new features |
 | [`amo-improve`](skills/amo-improve/SKILL.md) | Plan intentional changes to existing behavior |
 | [`amo-fix`](skills/amo-fix/SKILL.md) | Diagnose bugs and plan fixes |
@@ -21,6 +22,8 @@ Amo skills for engineering work: planning, implementation, verification, and wri
 | [`amo-draft`](skills/amo-draft/SKILL.md) | Write focused documentation and copy |
 
 ## Workflow
+
+Use `amo-workflow` for complete or staged feature delivery and continuation. It coordinates the applicable skills with plan approval, an optional UI checkpoint, and final user acceptance. Individual skills remain available independently.
 
 ```text
 amo-feature / amo-improve / amo-fix / amo-refactor (choose one)

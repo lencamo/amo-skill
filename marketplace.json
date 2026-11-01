@@ -6,6 +6,14 @@
   },
   "plugins": [
     {
+      "name": "amo-workflow",
+      "description": "Coordinate a complete feature delivery or resume its staged work, from discovery and plan approval through UI, integration, review, fixes, and user acceptance. Not for standalone questions, small edits, or review-only requests outside an active delivery.",
+      "version": "0.1.1",
+      "category": "workflow",
+      "source": "./skills/amo-workflow",
+      "homepage": "https://github.com/lencamo/amo-skill"
+    },
+    {
       "name": "amo-feature",
       "description": "Use when the user asks how to design or implement a new feature, capability, workflow, page, API, or behavior before coding. Do not use for bug fixes, intentional changes to existing behavior, pure refactors, or second-pass solution challenges.",
       "version": "0.2.1",
