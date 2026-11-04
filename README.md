@@ -16,6 +16,7 @@ Amo skills for engineering work: planning, implementation, verification, and wri
 | [`amo-research`](skills/amo-research/SKILL.md) | Research external implementations and reusable approaches |
 | [`amo-best`](skills/amo-best/SKILL.md) | Reassess existing proposals and tradeoffs |
 | [`amo-detail`](skills/amo-detail/SKILL.md) | Explain how a discussed proposal will be implemented and how behavior will change |
+| [`amo-preview`](skills/amo-preview/SKILL.md) | Preview UI changes with entry guidance and connected interactions across product types |
 | [`amo-implement`](skills/amo-implement/SKILL.md) | Implement defined proposals and verify results, balancing code efficiency, concision, readability, and maintainability |
 | [`amo-review`](skills/amo-review/SKILL.md) | Functional correctness and bug review |
 | [`amo-check`](skills/amo-check/SKILL.md) | Verify review feedback, current need for action, and consequences if unchanged |
@@ -33,6 +34,7 @@ amo-feature / amo-improve / amo-fix / amo-refactor (choose one)
 → amo-review (functional review)
 
 amo-research: support design and proposal review as needed
+amo-preview: guide users from familiar entrances to proposed UI changes and local interactions
 amo-check: verify existing feedback and whether action is necessary now as needed
 amo-draft: use at any stage as needed
 ```

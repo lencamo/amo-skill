@@ -16,6 +16,7 @@
 | [`amo-research`](skills/amo-research/docs/SKILL.zh-CN.md) | 调研外部实现与可复用方案 |
 | [`amo-best`](skills/amo-best/docs/SKILL.zh-CN.md) | 复核已有方案与取舍 |
 | [`amo-detail`](skills/amo-detail/docs/SKILL.zh-CN.md) | 展开已讨论方案的具体实施方式与实施后变化 |
+| [`amo-preview`](skills/amo-preview/docs/SKILL.zh-CN.md) | 跨产品场景制作带入口引导和连贯交互的界面方案预览 |
 | [`amo-implement`](skills/amo-implement/docs/SKILL.zh-CN.md) | 按明确方案实施并验证，兼顾代码效率、精炼度、可读性和可维护性 |
 | [`amo-review`](skills/amo-review/docs/SKILL.zh-CN.md) | 功能正确性与潜在 Bug 审查 |
 | [`amo-check`](skills/amo-check/docs/SKILL.zh-CN.md) | 核实审查意见、当前处理必要性及不处理的影响 |
@@ -33,6 +34,7 @@ amo-feature / amo-improve / amo-fix / amo-refactor（选一个）
 → amo-review（功能审查）
 
 amo-research：按需辅助方案设计与复核
+amo-preview：实施前引导用户找到改动、查看效果及体验操作
 amo-check：按需核实已有意见并判断当前是否需要处理
 amo-draft：任意阶段按需使用
 ```

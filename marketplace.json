@@ -6,9 +6,17 @@
   },
   "plugins": [
     {
+      "name": "amo-preview",
+      "description": "Build or revise interactive UI proposal previews that guide users from familiar entry points to proposed changes and demonstrate how they work. Use across web, mobile, and admin interfaces before implementation, not for raster images, production code, or UX audits.",
+      "version": "0.1.0",
+      "category": "workflow",
+      "source": "./skills/amo-preview",
+      "homepage": "https://github.com/lencamo/amo-skill"
+    },
+    {
       "name": "amo-workflow",
       "description": "Coordinate a complete feature delivery or resume its staged work, from discovery and plan approval through UI, integration, review, fixes, and user acceptance. Not for standalone questions, small edits, or review-only requests outside an active delivery.",
-      "version": "0.1.1",
+      "version": "0.2.0",
       "category": "workflow",
       "source": "./skills/amo-workflow",
       "homepage": "https://github.com/lencamo/amo-skill"

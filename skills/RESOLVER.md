@@ -23,6 +23,7 @@ All `amo-*` workflow skills prefix the first output line inline with their skill
 | `amo-best` | `🏆 [amo-best]` |
 | `amo-research` | `🔬 [amo-research]` |
 | `amo-detail` | `🔎 [amo-detail]` |
+| `amo-preview` | `🖼️ [amo-preview]` |
 | `amo-implement` | `🔨 [amo-implement]` |
 | `amo-review` | `🔍 [amo-review]` |
 | `amo-check` | `🧹 [amo-check]` |
@@ -42,6 +43,7 @@ Keep the marker inline with the first line, not as a standalone paragraph.
 | Challenge an existing proposal: "is this best?", "better way?", "tradeoff right?", "scope right?" | `amo-best` |
 | Research competitor products, community practices, or open-source implementations for mature, reusable approaches | `amo-research` |
 | Understand how a discussed proposal will be implemented and how workflows, frontend, backend, and data will change | `amo-detail` |
+| Build or revise a UI proposal preview with entry guidance, visible changes, and key interactions | `amo-preview` |
 | Implement an already defined proposal and verify the result | `amo-implement` |
 | Review functional correctness and potential bugs across workspace changes, specified commits, or a feature branch | `amo-review` |
 | Verify existing review feedback, current need for action, and consequences if unchanged within scope | `amo-check` |
@@ -49,7 +51,7 @@ Keep the marker inline with the first line, not as a standalone paragraph.
 
 ## Best Standard Routing
 
-Design-oriented `amo-*` skills must choose one primary best standard before recommending a solution. `amo-research`, `amo-detail`, and `amo-implement` follow existing decisions without choosing a new best standard. `amo-review`, `amo-check`, and `amo-draft` do not choose a best standard.
+Design-oriented `amo-*` skills must choose one primary best standard before recommending a solution. `amo-research`, `amo-detail`, `amo-preview`, and `amo-implement` follow existing decisions without choosing a new best standard. `amo-review`, `amo-check`, and `amo-draft` do not choose a best standard.
 
 | User signal | Standard |
 | :---------- | :------- |
@@ -72,6 +74,7 @@ Default to target-state best when no constraint is stated. Do not invent compati
 8. Implementing an already defined proposal: use `amo-implement`; direct small edits, assets, and commit messages do not require the amo design workflow.
 9. Check implemented functionality for correctness or latent bugs: use `amo-review`; use `amo-fix` to diagnose a known failure and choose a fix.
 10. A complete delivery or continuation needs stage coordination: use `amo-workflow`, then the skill for the active module. A side question or standalone review keeps its own scope and output; it does not authorize another stage.
+11. A discussed approach needs a discoverable, clickable UI preview: use `amo-preview` across product types. Establish missing business design first; implementation of accepted pages uses `amo-implement`. Honor explicit static-only requests directly.
 
 ## Chaining
 
@@ -88,6 +91,7 @@ amo-feature / amo-improve / amo-fix / amo-refactor (usually choose one)
 → amo-review (functional review)
 
 amo-research: research independently or supply external evidence for design and review as needed
+amo-preview: prepare interactive UI proposals at the planning stage as needed
 amo-check: verify existing feedback and whether action is necessary now as needed
 amo-draft: write documentation and copy at any stage as needed
 ```

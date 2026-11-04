@@ -2,7 +2,7 @@
 name: amo-workflow
 description: Coordinate a complete feature delivery or resume its staged work, from discovery and plan approval through UI, integration, review, fixes, and user acceptance. Not for standalone questions, small edits, or review-only requests outside an active delivery.
 metadata:
-  version: '0.1.1'
+  version: '0.2.0'
 ---
 
 # Amo Workflow
@@ -24,7 +24,7 @@ Coordinate delivery stages and their evidence. Use the existing amo skills for t
 1. Read the applicable project rules and delivery preferences, then [modules.md](references/modules.md) for stage obligations, evidence, and the delivery record. Resolve the actual worktree, branch, running environment, design source, and existing task record before continuing.
 2. On a new task, investigate and prepare the plan and any necessary preview before collecting the user's business decisions and execution authorization. Record the agreed scope, acceptance criteria, execution mode, and checkpoints. Reuse decisions already established in the conversation.
 3. In continuous mode, advance through applicable stages after plan approval; in UI-first mode, also wait for UI acceptance before business integration. Report progress with artifact links without turning ordinary stage updates into approval requests.
-4. Select and read the relevant installed skill by name for each piece of work: feature/improve for proposals, best/detail/research when needed, implement for code, review for functional review, check for supplied feedback, fix for unresolved diagnosis, and draft for content. Preserve their responsibilities and output contracts. If a required skill is unavailable, state the coverage gap rather than claiming it ran.
+4. Select and read the relevant installed skill by name for each piece of work: feature/improve for proposals, preview for UI proposals with entry guidance and key interactions, best/detail/research when needed, implement for code, review for functional review, check for supplied feedback, fix for unresolved diagnosis, and draft for content. Preserve their responsibilities and output contracts. If a required skill is unavailable, state the coverage gap rather than claiming it ran.
 5. Repair verified defects within the approved implementation scope and repeat affected checks. Reopen design decisions only when new evidence changes the agreed behavior or scope. Review-only and feedback-verification requests remain read-only unless repair is also authorized.
 6. Refresh the delivery record at stage transitions, material decisions, interruptions, and handoff. On resume, compare it with current code, configuration, and environment; recheck only evidence invalidated by changes. Answer side questions and then resume the active stage unless the user stops or redirects it.
 7. Prepare the final acceptance package and wait for user acceptance. Perform only the separately authorized closeout operations, then record their actual results.

@@ -23,6 +23,7 @@ README 是公开目录：列出所有 skill、安装命令和简短说明。
 | `amo-best` | `🏆 [amo-best]` |
 | `amo-research` | `🔬 [amo-research]` |
 | `amo-detail` | `🔎 [amo-detail]` |
+| `amo-preview` | `🖼️ [amo-preview]` |
 | `amo-implement` | `🔨 [amo-implement]` |
 | `amo-review` | `🔍 [amo-review]` |
 | `amo-check` | `🧹 [amo-check]` |
@@ -42,6 +43,7 @@ README 是公开目录：列出所有 skill、安装命令和简短说明。
 | 挑战已有方案：“这是最佳方案吗？”“有没有更好方案？”“取舍/范围是否正确？” | `amo-best` |
 | 调研竞品、社区实践或开源实现，寻找成熟、可复用的方案 | `amo-research` |
 | 了解已讨论方案准备怎样实施，以及实施后的流程、前端、后端和数据变化 | `amo-detail` |
+| 制作或修改具有入口引导、变化标记和关键交互的界面方案预览 | `amo-preview` |
 | 实施已明确的方案并验证结果 | `amo-implement` |
 | 审查工作区、指定提交或整个功能分支的功能正确性和潜在 Bug | `amo-review` |
 | 在范围内核实已有审查意见、当前处理必要性及不处理的影响 | `amo-check` |
@@ -49,7 +51,7 @@ README 是公开目录：列出所有 skill、安装命令和简短说明。
 
 ## 最佳标准路由
 
-方案类 `amo-*` skill 在推荐方案前都必须先选择一个主要最佳标准。`amo-research`、`amo-detail` 和 `amo-implement` 沿用已有决策，不选择新的最佳标准。`amo-review`、`amo-check` 和 `amo-draft` 不选择最佳标准。
+方案类 `amo-*` skill 在推荐方案前都必须先选择一个主要最佳标准。`amo-research`、`amo-detail`、`amo-preview` 和 `amo-implement` 沿用已有决策，不选择新的最佳标准。`amo-review`、`amo-check` 和 `amo-draft` 不选择最佳标准。
 
 | 用户信号 | 标准 |
 | :------- | :--- |
@@ -72,6 +74,7 @@ README 是公开目录：列出所有 skill、安装命令和简短说明。
 8. 实施已明确的方案：使用 `amo-implement`；直接小改、生成资产和 commit message 不要求经过 amo 方案设计链路。
 9. 检查已实现功能是否正确或存在潜在 Bug：使用 `amo-review`；针对已知异常分析根因和修复方案使用 `amo-fix`。
 10. 完整交付或续做需要阶段协调：使用 `amo-workflow`，再使用当前模块的 skill。插入问题或单独审查保持自身范围和输出，不构成其他阶段的授权。
+11. 已讨论方案需要可发现、可点击的界面预览：跨产品场景使用 `amo-preview`。缺失业务设计时先明确方案；已确认页面的真实实施用 `amo-implement`。明确的仅静态请求直接遵从。
 
 ## 串联
 
@@ -88,6 +91,7 @@ amo-feature / amo-improve / amo-fix / amo-refactor（通常选一个）
 → amo-review（功能审查）
 
 amo-research：按需独立调研，或为方案设计与复核补充外部证据
+amo-preview：方案阶段按需准备交互界面预览
 amo-check：按需核实已有意见并判断当前是否需要处理
 amo-draft：任意阶段按需编写文档和文案
 ```
