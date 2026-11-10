@@ -2,7 +2,7 @@
 name: amo-deliver
 description: Use when completed feature or branch work needs final acceptance and closeout, internal or external review feedback rounds, or delivery of a reviewed branch. Automate independent final reviews and verified repairs through convergence. Not for mid-development review, single-feedback verification, or coordination from requirements onward.
 metadata:
-  version: '0.3.0'
+  version: '0.3.1'
 ---
 
 # Amo Deliver
@@ -54,14 +54,12 @@ Prefix each stage report's first line inline with `📦 [amo-deliver]`. Do not p
 
 Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
 
-At final delivery, use Change summary and Self-test result for one sentence each summarizing the entire branch's final changes and verification results, respectively.
-
 ```text
 📦 [amo-deliver] Closing loop: <branch>
 Round status:
 Fix delivery:
 Convergence:
 Ship:
-Change summary:
-Self-test result:
 ```
+
+In the final response after the entire amo-deliver workflow completes, append Change summary and Self-test result after Ship, using one sentence each to summarize the entire branch's final changes and self-test results; omit both labels and placeholders before then.
