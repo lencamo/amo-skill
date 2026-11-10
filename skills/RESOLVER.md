@@ -28,6 +28,7 @@ All `amo-*` workflow skills prefix the first output line inline with their skill
 | `amo-review` | `🔍 [amo-review]` |
 | `amo-check` | `🧹 [amo-check]` |
 | `amo-draft` | `📝 [amo-draft]` |
+| `amo-deliver` | `📦 [amo-deliver]` |
 
 Keep the marker inline with the first line, not as a standalone paragraph.
 
@@ -48,6 +49,7 @@ Keep the marker inline with the first line, not as a standalone paragraph.
 | Review functional correctness and potential bugs across workspace changes, specified commits, or a feature branch | `amo-review` |
 | Verify existing review feedback, current need for action, and consequences if unchanged within scope | `amo-check` |
 | Write or edit target-focused page copy, requirement notes, implementation docs, version notes, release notes, or temporary project documentation | `amo-draft` |
+| Wrap up completed development: final acceptance, independent review and feedback rounds, verified repairs, or delivery readiness | `amo-deliver` |
 
 ## Best Standard Routing
 
@@ -75,6 +77,7 @@ Default to target-state best when no constraint is stated. Do not invent compati
 9. Check implemented functionality for correctness or latent bugs: use `amo-review`; use `amo-fix` to diagnose a known failure and choose a fix.
 10. A complete delivery or continuation needs stage coordination: use `amo-workflow`, then the skill for the active module. A side question or standalone review keeps its own scope and output; it does not authorize another stage.
 11. A discussed approach needs a discoverable, clickable UI preview: use `amo-preview` across product types. Establish missing business design first; implementation of accepted pages uses `amo-implement`. Honor explicit static-only requests directly.
+12. Completed work needs acceptance and closeout: use `amo-deliver`; infer the target and progress from context. A standalone correctness review remains `amo-review`, and feedback verification without closeout remains `amo-check`.
 
 ## Chaining
 

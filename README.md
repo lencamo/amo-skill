@@ -21,10 +21,11 @@ Amo skills for engineering work: planning, implementation, verification, and wri
 | [`amo-review`](skills/amo-review/SKILL.md) | Functional correctness and bug review |
 | [`amo-check`](skills/amo-check/SKILL.md) | Verify review feedback, current need for action, and consequences if unchanged |
 | [`amo-draft`](skills/amo-draft/SKILL.md) | Write focused documentation and copy |
+| [`amo-deliver`](skills/amo-deliver/SKILL.md) | Close out finished work: local experience, automated Orca/Claude Code final reviews, feedback rounds, and converged delivery |
 
 ## Workflow
 
-Use `amo-workflow` for complete or staged feature delivery and continuation. It coordinates the applicable skills with plan approval, an optional UI checkpoint, and final user acceptance. Individual skills remain available independently.
+Use `amo-workflow` for complete or staged feature delivery and continuation. It coordinates the applicable skills with plan approval, an optional UI checkpoint, and final user acceptance. It enters amo-deliver at final acceptance without a separate user invocation. Individual skills remain available independently; ask to wrap up a finished feature to start amo-deliver directly. amo-deliver uses Orca orchestration to launch two fresh Claude Code sessions using open-code-review-delegate and collect both reports automatically.
 
 ```text
 amo-feature / amo-improve / amo-fix / amo-refactor (choose one)
@@ -32,6 +33,7 @@ amo-feature / amo-improve / amo-fix / amo-refactor (choose one)
 → amo-detail (optional)
 → amo-implement
 → amo-review (functional review)
+→ amo-deliver (final acceptance and closeout)
 
 amo-research: support design and proposal review as needed
 amo-preview: guide users from familiar entrances to proposed UI changes and local interactions

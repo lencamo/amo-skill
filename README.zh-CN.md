@@ -21,10 +21,11 @@
 | [`amo-review`](skills/amo-review/docs/SKILL.zh-CN.md) | 功能正确性与潜在 Bug 审查 |
 | [`amo-check`](skills/amo-check/docs/SKILL.zh-CN.md) | 核实审查意见、当前处理必要性及不处理的影响 |
 | [`amo-draft`](skills/amo-draft/docs/SKILL.zh-CN.md) | 编写聚焦目标的文档与文案 |
+| [`amo-deliver`](skills/amo-deliver/docs/SKILL.zh-CN.md) | 完成工作后的收尾：本地体验、Orca／Claude Code 自动终审、意见轮次与收敛交付 |
 
 ## 使用链路
 
-完整或分阶段功能交付及续做使用 `amo-workflow`，由它协调适用 skill，保留方案确认、可选的页面确认和最终用户验收。各 skill 仍可独立使用。
+完整或分阶段功能交付及续做使用 `amo-workflow`，由它协调适用 skill，保留方案确认、可选的页面确认和最终用户验收。最终验收时接入 amo-deliver，无需用户再次调用。各 skill 仍可独立使用；直接说“功能做好了，帮我收尾”即可启动 amo-deliver。amo-deliver 通过 Orca orchestration 启动两个全新 Claude Code 会话，使用 open-code-review-delegate 审查并自动收回两份报告。
 
 ```text
 amo-feature / amo-improve / amo-fix / amo-refactor（选一个）
@@ -32,6 +33,7 @@ amo-feature / amo-improve / amo-fix / amo-refactor（选一个）
 → amo-detail（按需）
 → amo-implement
 → amo-review（功能审查）
+→ amo-deliver（最终验收与交付收尾）
 
 amo-research：按需辅助方案设计与复核
 amo-preview：实施前引导用户找到改动、查看效果及体验操作
