@@ -25,7 +25,7 @@
 
 ## 使用链路
 
-完整或分阶段功能交付及续做使用 `amo-workflow`，由它协调适用 skill，保留方案确认、可选的页面确认和最终用户验收。最终验收时接入 amo-deliver，无需用户再次调用。各 skill 仍可独立使用；直接说“功能做好了，帮我收尾”即可启动 amo-deliver。amo-deliver 通过 Orca orchestration 启动两个全新 Claude Code 会话，使用 open-code-review-delegate 审查并自动收回两份报告。
+完整或分阶段功能交付及续做使用 `amo-workflow`，由它协调适用 skill，保留方案确认、可选的页面确认和最终用户验收。最终验收时接入 amo-deliver，无需用户再次调用。各 skill 仍可独立使用；直接说“功能做好了，帮我收尾”即可启动 amo-deliver。amo-deliver 通过 Orca orchestration 每轮启动一个全新 Claude Code 会话，使用 open-code-review-delegate 审查并自动收回报告。
 
 ```text
 amo-feature / amo-improve / amo-fix / amo-refactor（选一个）

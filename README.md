@@ -25,7 +25,7 @@ Amo skills for engineering work: planning, implementation, verification, and wri
 
 ## Workflow
 
-Use `amo-workflow` for complete or staged feature delivery and continuation. It coordinates the applicable skills with plan approval, an optional UI checkpoint, and final user acceptance. It enters amo-deliver at final acceptance without a separate user invocation. Individual skills remain available independently; ask to wrap up a finished feature to start amo-deliver directly. amo-deliver uses Orca orchestration to launch two fresh Claude Code sessions using open-code-review-delegate and collect both reports automatically.
+Use `amo-workflow` for complete or staged feature delivery and continuation. It coordinates the applicable skills with plan approval, an optional UI checkpoint, and final user acceptance. It enters amo-deliver at final acceptance without a separate user invocation. Individual skills remain available independently; ask to wrap up a finished feature to start amo-deliver directly. amo-deliver uses Orca orchestration to launch one fresh Claude Code session per round using open-code-review-delegate and collect its report automatically.
 
 ```text
 amo-feature / amo-improve / amo-fix / amo-refactor (choose one)

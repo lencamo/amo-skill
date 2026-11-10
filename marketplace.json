@@ -112,7 +112,7 @@
     {
       "name": "amo-deliver",
       "description": "Use when completed feature or branch work needs final acceptance and closeout, internal or external review feedback rounds, or delivery of a reviewed branch. Automate independent final reviews and verified repairs through convergence. Not for mid-development review, single-feedback verification, or coordination from requirements onward.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "workflow",
       "source": "./skills/amo-deliver",
       "homepage": "https://github.com/lencamo/amo-skill"

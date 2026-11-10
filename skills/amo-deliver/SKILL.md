@@ -2,7 +2,7 @@
 name: amo-deliver
 description: Use when completed feature or branch work needs final acceptance and closeout, internal or external review feedback rounds, or delivery of a reviewed branch. Automate independent final reviews and verified repairs through convergence. Not for mid-development review, single-feedback verification, or coordination from requirements onward.
 metadata:
-  version: '0.1.0'
+  version: '0.2.0'
 ---
 
 # Amo Deliver
@@ -29,8 +29,8 @@ Prefix each stage report's first line inline with `📦 [amo-deliver]`. Do not p
 
 1. Resolve the branch and acceptance progress from context and read the project rules. Have the user try the finished work locally; reuse an existing valid acceptance result. Route adjustments to amo-improve or amo-fix, then return to closeout.
 2. Run internal final review automatically:
-   - Read the orchestration skill and follow its runtime guide to start two fresh Claude Code review sessions in Orca, using the configured model. Give both the same branch, baseline, and target revision, with a read-only assignment to read and use the `/open-code-review-delegate` skill (`/open-code-review-delegate <branch>`).
-   - Receive both reports through orchestration's completion protocol, ending the turn when that protocol requires it; continue when results return without asking the user to copy them. If a required capability is unavailable, report the blocker and preserve the pending task; do not substitute reviewers or claim completion.
+   - Read the orchestration skill and follow its runtime guide to start one fresh Claude Code review session per round in Orca, using the configured model. Provide the branch, baseline, and target revision, with a read-only assignment to read and use the `/open-code-review-delegate` skill (`/open-code-review-delegate <branch>`).
+   - Receive the report through orchestration's completion protocol, ending the turn when that protocol requires it; continue when the result returns without asking the user to copy it. If a required capability is unavailable, report the blocker and preserve the pending task; do not substitute the reviewer or claim completion.
    - Register findings by round, severity, claim, and status; deduplicate and retain only High/Medium. Discard Low silently.
 3. Process each internal or external feedback round; external reports are pasted by the user:
    - Read and use amo-check before changing code. Classify findings as must-fix, acceptable tradeoff (record remaining impact in the residual risk list), or false positive (discard silently). Keep unverified claims as gaps. Check step 4's stop-loss condition before further repairs.
@@ -45,7 +45,7 @@ Prefix each stage report's first line inline with `📦 [amo-deliver]`. Do not p
 ## Key Rules
 
 - Use the smallest necessary fix for a verified issue; do not refactor unrelated code or expand functionality. Check affected existing behavior and verify that the fix introduces no new regressions.
-- Keep both reviewers independent of the delivery session and each other. Share only the review target, necessary requirements, and repository rules; exclude delivery discussion, proposed fixes, and previous reports. Use fresh sessions for every review round.
+- Keep the reviewer independent of the delivery session. Share only the review target, necessary requirements, and repository rules; exclude delivery discussion, proposed fixes, and previous reports. Use a fresh session for every review round.
 - Verify criticism rather than defending the implementation; do not treat a deferred risk as accepted without the user's decision.
 - Separate commit and push authorization. Commit confirmed repairs under project permissions; push, merge, and external handoff require explicit instructions.
 
