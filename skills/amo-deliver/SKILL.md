@@ -2,7 +2,7 @@
 name: amo-deliver
 description: Use when completed feature or branch work needs final acceptance and closeout, internal or external review feedback rounds, or delivery of a reviewed branch. Automate independent final reviews and verified repairs through convergence. Not for mid-development review, single-feedback verification, or coordination from requirements onward.
 metadata:
-  version: '0.3.1'
+  version: '0.4.0'
 ---
 
 # Amo Deliver
@@ -62,4 +62,6 @@ Convergence:
 Ship:
 ```
 
-In the final response after the entire amo-deliver workflow completes, append Change summary and Self-test result after Ship, using one sentence each to summarize the entire branch's final changes and self-test results; omit both labels and placeholders before then.
+In the final response after the entire amo-deliver workflow completes, append Change summary, Self-test result, and Deployment notes after Ship. Use one sentence each for the entire branch's final changes and self-test results; omit these three labels and placeholders before then.
+
+Derive Deployment notes from the entire branch's actual changes, configuration, and deployment/migration entry points. List required env names, whether mandatory and their defaults; SQL/migration script paths and execution order/timing, separating automatic startup migrations from manual operations; and other necessary dependency, build, restart, or backfill steps. Mark unverified requirements as gaps; state No additional deployment actions only when verified.
