@@ -2,7 +2,7 @@
 name: amo-deliver
 description: Use when completed feature or branch work needs final acceptance and closeout, internal or external review feedback rounds, or delivery of a reviewed branch. Automate independent final reviews and verified repairs through convergence. Not for mid-development review, single-feedback verification, or coordination from requirements onward.
 metadata:
-  version: '0.4.0'
+  version: '0.5.0'
 ---
 
 # Amo Deliver
@@ -36,9 +36,10 @@ Prefix each stage report's first line inline with `📦 [amo-deliver]`. Do not p
 3. Process each internal or external feedback round; external reports are pasted by the user:
    - Read and use amo-check before changing code. Classify findings as must-fix, acceptable tradeoff (record remaining impact in the residual risk list), or false positive (discard silently). Keep unverified claims as gaps. Check step 4's stop-loss condition before further repairs.
    - For must-fix findings, identify the introducing commit and the repair approach. Continue within existing repair authorization; ask only for a changed requirement, scope expansion, or missing permission.
-   - Implement in an isolated temporary Git worktree, preserving the main checkout. If the target branch is already checked out, use a temporary repair branch from its revision. Commit and integrate repairs only as authorized; remove the worktree after changes are safely retained, otherwise retain it and report its location.
+   - Default to repairing in the target branch's existing worktree or main checkout, preserving unrelated changes. If the target branch has no checkout, create a worktree directly on that branch. Create an additional temporary worktree and repair branch only when conflicting concurrent edits or an explicit isolation requirement prevents using the existing checkout; state that reason. Follow the environment's worktree management instructions.
    - Prove each new regression test fails on the pre-fix code for the intended reason, then passes after the fix. Use actual producer data structures and relevant boundary cases. Run related tests and applicable build/type checks.
    - Self-review the final diff across three dimensions: new mechanism combined with existing behavior, trigger frequency, and steady state across runs or days. Update residual risks; never promise zero defects.
+   - Commit and integrate verified repairs only as authorized. Confirm the target branch contains the intended repairs before reporting them delivered. Once no uncommitted or untransferred work remains in temporary resources, clean up the temporary worktrees and repair branches created by this task within Git authorization; preserve the target branch and pre-existing worktrees. If integration or cleanup is blocked, retain the resources and report their names, locations, and reason.
    - Repeat step 2 on the repaired revision unless the stop-loss rule applies.
 4. Track rounds and severity trends; state when impact is not decreasing. Stop patching if a subsequent review confirms a problem introduced by a repair: use amo-draft to document known limitations and prepare a separate follow-up requirement. Offer limited delivery for the user's decision; do not automatically merge. Explicitly remind the user of this stop-loss rule after two repair rounds.
 5. Present the commit chain, per-round results, and remaining limitations for final acceptance. On an explicit push request, confirm the unpushed commits and push the branch; report the actual result.
