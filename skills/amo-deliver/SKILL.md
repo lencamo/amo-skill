@@ -2,7 +2,7 @@
 name: amo-deliver
 description: Use when completed feature or branch work needs final acceptance and closeout, internal or external review feedback rounds, or delivery of a reviewed branch. Automate independent final reviews and verified repairs through convergence. Not for mid-development review, single-feedback verification, or coordination from requirements onward.
 metadata:
-  version: '0.5.0'
+  version: '0.6.0'
 ---
 
 # Amo Deliver
@@ -29,8 +29,10 @@ Prefix each stage report's first line inline with `📦 [amo-deliver]`. Do not p
 
 1. Resolve the branch and acceptance progress from context and read the project rules. Have the user try the finished work locally; reuse an existing valid acceptance result. Route adjustments to amo-improve or amo-fix, then return to closeout.
 2. Run internal final review automatically:
-   - Choose one review session for localized, straightforward changes; choose two for complex changes with interacting modules, state transitions, concurrency, or data risks. Reassess each round and state the count and reason under Round status.
+   - Default to one review session. Use two only when the change has two distinct high-risk concerns that warrant complementary review, such as business correctness and concurrency safety, or migration integrity and rollback. File count alone does not justify two: styling and repeated component replacements remain single-review work unless they introduce such risks. Reassess each round; under Round status, state the count and, for two, each review focus and why one session is insufficient.
    - Read the orchestration skill and follow its runtime guide to start the selected number of fresh Claude Code review sessions in Orca, using the configured model. Give each the same branch, baseline, and target revision, with a read-only assignment to read and use the `/open-code-review-delegate` skill (`/open-code-review-delegate <branch>`).
+   - Include the verification constraints below and available self-test evidence in each assignment: tested revision, commands, covered scope, results, and artifact locations. Reviewers must independently inspect code and test coverage; existing results are evidence, not a correctness verdict. Reuse valid evidence for the target revision instead of mechanically rerunning checks. Reviewers may independently reproduce a concrete concern or add a focused check; state the question it resolves. Run the full suite only when a specific coverage need cannot be met by focused checks.
+   - Coordinate supplemental verification across review sessions on the same local host: run one test or build command at a time, with one test worker by default. Do not start another copy while a command is still running. On a timeout, inspect its status and resource use before deciding whether a retry is justified; do not automatically repeat or broaden the run. Preserve full failure output and the command's actual exit status. Record owned task/process handles so cancellation can reach background work.
    - Collect all selected reports through orchestration's completion protocol, ending the turn when that protocol requires it; process the round when all results return without asking the user to copy them. If a required capability is unavailable, report the blocker and preserve the pending task; do not substitute the reviewer or claim completion.
    - Register findings by round, severity, claim, and status; deduplicate and retain only High/Medium. Discard Low silently.
 3. Process each internal or external feedback round; external reports are pasted by the user:
@@ -47,7 +49,8 @@ Prefix each stage report's first line inline with `📦 [amo-deliver]`. Do not p
 ## Key Rules
 
 - Use the smallest necessary fix for a verified issue; do not refactor unrelated code or expand functionality. Check affected existing behavior and verify that the fix introduces no new regressions.
-- Keep reviewers independent of the delivery session and, when using two, each other. Share only the review target, necessary requirements, and repository rules; exclude delivery discussion, proposed fixes, and previous reports. Use fresh sessions for every review round.
+- Keep reviewers independent of the delivery session and, when using two, each other. Share the review target, necessary requirements, repository rules, verification constraints, and objective self-test evidence; exclude delivery discussion, proposed fixes, and previous review reports. Use fresh sessions for every review round.
+- If the user reports machine resource pressure, stop the review-owned verification commands before continuing diagnosis. On review cancellation, stop both the assigned agent and its owned background test/build processes using the runtime's ownership and cancellation protocol; preserve unrelated sessions and development services. Confirm exit before reporting that work has stopped. If ownership or exit cannot be verified, report the remaining process and the cleanup gap rather than claiming completion. Cancelled reviews remain incomplete and are not restarted without the user's instruction.
 - Verify criticism rather than defending the implementation; do not treat a deferred risk as accepted without the user's decision.
 - Separate commit and push authorization. Commit confirmed repairs under project permissions; push, merge, and external handoff require explicit instructions.
 
