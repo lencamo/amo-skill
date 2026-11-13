@@ -25,14 +25,14 @@ Amo skills for engineering work: planning, implementation, verification, and wri
 
 ## Workflow
 
-Use `amo-workflow` for complete or staged feature delivery and continuation. It coordinates the applicable skills with plan approval, an optional UI checkpoint, and final user acceptance. It enters amo-deliver at final acceptance without a separate user invocation. Individual skills remain available independently; ask to wrap up a finished feature to start amo-deliver directly. amo-deliver uses Orca orchestration to launch one or two fresh Claude Code sessions per round according to change complexity, use open-code-review-delegate, and collect their reports automatically.
+Use `amo-workflow` for complete or staged feature delivery and continuation. It coordinates the applicable skills with plan approval, an optional UI checkpoint, and final user acceptance. It enters amo-deliver at final acceptance without a separate user invocation. Individual skills remain available independently; ask to wrap up a finished feature to start amo-deliver directly. amo-review provides the code review rules. amo-deliver reuses valid completed independent reviews or uses Orca orchestration to launch fresh Claude Code review sessions and collect their reports, defaulting to one reviewer. Orca handles session execution; no external review skill or review CLI is required.
 
 ```text
 amo-feature / amo-improve / amo-fix / amo-refactor (choose one)
 → amo-best (optional)
 → amo-detail (optional)
 → amo-implement
-→ amo-review (functional review)
+→ amo-review (functional review as needed)
 → amo-deliver (final acceptance and closeout)
 
 amo-research: support design and proposal review as needed
@@ -40,6 +40,8 @@ amo-preview: guide users from familiar entrances to proposed UI changes and loca
 amo-check: verify existing feedback and whether action is necessary now as needed
 amo-draft: use at any stage as needed
 ```
+
+During complete delivery, amo-deliver coordinates the independent final review through amo-review; a stage transition alone does not require another review.
 
 See [RESOLVER](skills/RESOLVER.md) for routing rules.
 

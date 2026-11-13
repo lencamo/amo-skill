@@ -25,14 +25,14 @@
 
 ## 使用链路
 
-完整或分阶段功能交付及续做使用 `amo-workflow`，由它协调适用 skill，保留方案确认、可选的页面确认和最终用户验收。最终验收时接入 amo-deliver，无需用户再次调用。各 skill 仍可独立使用；直接说“功能做好了，帮我收尾”即可启动 amo-deliver。amo-deliver 通过 Orca orchestration 每轮按改动复杂度启动一个或两个全新 Claude Code 会话，使用 open-code-review-delegate 审查并自动收回报告。
+完整或分阶段功能交付及续做使用 `amo-workflow`，由它协调适用 skill，保留方案确认、可选的页面确认和最终用户验收。最终验收时接入 amo-deliver，无需用户再次调用。各 skill 仍可独立使用；直接说“功能做好了，帮我收尾”即可启动 amo-deliver。amo-review 提供代码审查规则；amo-deliver 复用已完成且仍有效的独立审查，或通过 Orca orchestration 启动全新 Claude Code 审查会话并收回报告，默认一个审查者。Orca 负责会话执行，不要求额外的审查 skill 或审查 CLI。
 
 ```text
 amo-feature / amo-improve / amo-fix / amo-refactor（选一个）
 → amo-best（按需）
 → amo-detail（按需）
 → amo-implement
-→ amo-review（功能审查）
+→ amo-review（按需进行功能审查）
 → amo-deliver（最终验收与交付收尾）
 
 amo-research：按需辅助方案设计与复核
@@ -40,6 +40,8 @@ amo-preview：实施前引导用户找到改动、查看效果及体验操作
 amo-check：按需核实已有意见并判断当前是否需要处理
 amo-draft：任意阶段按需使用
 ```
+
+完整交付中的独立终审由 amo-deliver 统一安排并使用 amo-review；阶段切换本身不要求再审一次。
 
 路由规则见 [RESOLVER](skills/RESOLVER.zh-CN.md)。
 

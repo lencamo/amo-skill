@@ -16,7 +16,7 @@
     {
       "name": "amo-workflow",
       "description": "Coordinate a complete feature delivery or resume its staged work, from discovery and plan approval through UI, integration, review, fixes, final acceptance, and closeout. Not for standalone questions, small edits, or review-only requests outside an active delivery.",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "category": "workflow",
       "source": "./skills/amo-workflow",
       "homepage": "https://github.com/lencamo/amo-skill"
@@ -88,7 +88,7 @@
     {
       "name": "amo-review",
       "description": "Review implemented functionality for requirement gaps, logic errors, and bugs across workspace changes, specified commits, or an entire feature branch. Use when the user asks whether an implementation is correct or ready to merge. Not for code-style-only reviews, solution design, or diagnosing a known failure to choose a fix.",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "category": "workflow",
       "source": "./skills/amo-review",
       "homepage": "https://github.com/lencamo/amo-skill"
@@ -112,7 +112,7 @@
     {
       "name": "amo-deliver",
       "description": "Use when completed feature or branch work needs final acceptance and closeout, internal or external review feedback rounds, or delivery of a reviewed branch. Automate independent final reviews and verified repairs through convergence. Not for mid-development review, single-feedback verification, or coordination from requirements onward.",
-      "version": "0.7.0",
+      "version": "0.8.0",
       "category": "workflow",
       "source": "./skills/amo-deliver",
       "homepage": "https://github.com/lencamo/amo-skill"
