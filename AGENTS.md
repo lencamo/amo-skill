@@ -71,6 +71,10 @@ Rules:
 1. Bump every change: patch for wording or fixes, minor for new rules or behavior.
 2. Keep versions in sync across `SKILL.md`, `docs/SKILL.zh-CN.md`, and `marketplace.json`.
 
+## Commit Messages
+
+- Include a body in every commit message with equivalent English and Chinese content under `English:` and `中文：`.
+
 ## Repository Sync
 
 Update repository-level docs when any of the following happens:

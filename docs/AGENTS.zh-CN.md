@@ -71,6 +71,10 @@ docs/AGENTS.zh-CN.md
 1. 每次变更都 bump：措辞或修复提 patch 号，新规则或行为变化提 minor 号。
 2. 三处版本保持同步：`SKILL.md`、`docs/SKILL.zh-CN.md`、`marketplace.json`。
 
+## 提交信息
+
+- 每次提交信息必须包含正文，在 `English:` 和 `中文：` 下分别写语义一致的英文版和中文版。
+
 ## 仓库同步
 
 发生以下情况时更新仓库级文档：
