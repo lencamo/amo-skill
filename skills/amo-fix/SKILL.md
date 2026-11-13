@@ -2,7 +2,7 @@
 name: amo-fix
 description: Use when the user asks why existing behavior is broken, incorrect, flaky, regressed, unexpected, or runtime/build behavior is failing and wants a bug-fix approach before coding. Do not use for planned feature changes, pure refactors, or second-pass solution challenges.
 metadata:
-  version: '0.2.1'
+  version: '0.3.0'
 ---
 
 # Amo Fix
@@ -11,7 +11,7 @@ Diagnose a bug from symptom to root cause before choosing the fix.
 
 ## Shared Output Marker
 
-Prefix the first output line inline with `🛠️ [amo-fix]`. Do not put the marker in a separate paragraph.
+For a complete deliverable, prefix its first line inline with `🛠️ [amo-fix]`. Do not put the marker in a separate paragraph.
 
 ## Use When
 
@@ -54,7 +54,7 @@ Select and state one before recommending a fix:
 
 ## Output
 
-Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
+Use the user's language and requested level of detail. Lead with the answer to the current request. For a complete deliverable, follow the format below, preserving label order and omitting inapplicable sections. For a focused follow-up, answer only that question and any qualification needed to interpret the answer; do not repeat the report or restart workflow routing.
 
 ```text
 🛠️ [amo-fix] Scenario: bug fix

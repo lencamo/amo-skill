@@ -2,7 +2,7 @@
 name: amo-feature
 description: Use when the user asks how to design or implement a new feature, capability, workflow, page, API, or behavior before coding. Do not use for bug fixes, intentional changes to existing behavior, pure refactors, or second-pass solution challenges.
 metadata:
-  version: '0.2.1'
+  version: '0.3.0'
 ---
 
 # Amo Feature
@@ -11,7 +11,7 @@ Design new functionality before implementation.
 
 ## Shared Output Marker
 
-Prefix the first output line inline with `🧩 [amo-feature]`. Do not put the marker in a separate paragraph.
+For a complete deliverable, prefix its first line inline with `🧩 [amo-feature]`. Do not put the marker in a separate paragraph.
 
 ## Use When
 
@@ -37,7 +37,7 @@ Select and state one before recommending a solution:
 
 ## Workflow
 
-1. Clarify target behavior and success criteria.
+1. Clarify target behavior and success criteria. For queries, history, or migrations, state what users will see with existing data immediately after deployment and with newly collected or created data; surface a limitation that changes usefulness before recommending the implementation, and distinguish verified results from projections.
 2. Select the best standard and explain why.
 3. Inspect relevant code, patterns, and constraints.
 4. Recommend one design with explicit tradeoffs.
@@ -54,7 +54,7 @@ Select and state one before recommending a solution:
 
 ## Output
 
-Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
+Use the user's language and requested level of detail. Lead with the answer to the current request. For a complete deliverable, follow the format below, preserving label order and omitting inapplicable sections. For a focused follow-up, answer only that question and any qualification needed to interpret the answer; do not repeat the report or restart workflow routing.
 
 ```text
 🧩 [amo-feature] Scenario: new feature design

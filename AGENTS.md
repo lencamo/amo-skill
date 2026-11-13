@@ -56,8 +56,8 @@ Rules:
 
 ## Output Skeleton
 
-1. Output sections must declare their label block mandatory, not just show it.
-2. The skeleton sentence is a cross-skill contract: change it in all skills at once.
+1. Output sections must distinguish complete deliverables from focused follow-ups. Require the declared format for complete deliverables, preserve label order, and omit inapplicable sections; answer focused follow-ups directly.
+2. The shared output contract must remain consistent across skills; update it in all skills at once.
 
 ## Skill Maintenance
 

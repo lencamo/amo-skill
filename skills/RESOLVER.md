@@ -11,7 +11,7 @@ Runtime trigger source remains each `skills/amo-*/SKILL.md` frontmatter `descrip
 
 ## Shared Output Marker
 
-All `amo-*` workflow skills prefix the first output line inline with their skill marker:
+Complete `amo-*` deliverables prefix their first line inline with the skill marker:
 
 | Skill | Marker |
 | :---- | :----- |
@@ -33,6 +33,8 @@ All `amo-*` workflow skills prefix the first output line inline with their skill
 Keep the marker inline with the first line, not as a standalone paragraph.
 
 ## Primary Routing
+
+Answer factual follow-ups and local clarifications within the current task. Reselect a skill when the requested work changes, not merely because a follow-up mentions implementation, scope, or a field.
 
 | User intent | Use |
 | :---------- | :-- |

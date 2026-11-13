@@ -2,7 +2,7 @@
 name: amo-detail
 description: Use when the user wants an existing discussed proposal expanded into how the agent plans to implement it and how workflows, frontend behavior, backend processing, and data will change afterward. Not for initial solution design, challenging the chosen approach, coding, or code review.
 metadata:
-  version: '0.6.2'
+  version: '0.7.0'
 ---
 
 # Amo Detail
@@ -11,7 +11,7 @@ Expand an existing discussed proposal into concrete implementation intentions an
 
 ## Shared Output Marker
 
-Prefix the first output line inline with `🔎 [amo-detail]`. Do not put the marker in a separate paragraph.
+For a complete deliverable, prefix its first line inline with `🔎 [amo-detail]`. Do not put the marker in a separate paragraph.
 
 ## Use When
 
@@ -28,7 +28,7 @@ Prefix the first output line inline with `🔎 [amo-detail]`. Do not put the mar
 ## Workflow
 
 1. Establish the proposal, goal, scope, and settled decisions from the discussion.
-2. Trace the resulting flow from user action or system trigger to outcome, identifying affected features and modules.
+2. Trace the resulting flow from user action or system trigger to outcome, identifying affected features and modules. For queries, history, or migrations, explain the immediate outcome for existing data and the outcome for new data before storage mechanics; distinguish verified behavior, projections, and unavailable historical data.
 3. Expand frontend implementation: page changes, which existing components and APIs will be reused or adjusted and how, data sources, state ownership, request handling, and resulting display, interaction, and state transitions.
 4. Expand backend implementation: entry points and inputs, which existing processing logic will be reused or adjusted and how, business rules, data reads and writes, storage changes (tables and fields), results and consumers. For scheduled tasks, explain triggers or timing, work, and outcomes.
 5. Check that frontend requests, backend inputs, responses, and UI updates connect; identify open questions affecting implementation.
@@ -46,7 +46,7 @@ Prefix the first output line inline with `🔎 [amo-detail]`. Do not put the mar
 
 ## Output
 
-Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
+Use the user's language and requested level of detail. Lead with the answer to the current request. For a complete deliverable, follow the format below, preserving label order and omitting inapplicable sections. For a focused follow-up, answer only that question and any qualification needed to interpret the answer; do not repeat the report or restart workflow routing.
 
 ```text
 🔎 [amo-detail] Scenario: proposal implementation details

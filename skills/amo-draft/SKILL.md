@@ -2,7 +2,7 @@
 name: amo-draft
 description: Use when the user asks to write or edit development-time content, website or page copy, requirement notes, implementation docs, version notes, release notes, or temporary project documentation, especially when reference material, examples, chat history, or implementation process could pollute the target artifact.
 metadata:
-  version: '0.1.0'
+  version: '0.2.0'
 ---
 
 # Amo Draft
@@ -11,7 +11,7 @@ Write target-focused content by classifying context before drafting.
 
 ## Shared Output Marker
 
-Prefix the first output line inline with `📝 [amo-draft]`. Do not put the marker in a separate paragraph.
+For a complete deliverable, prefix its first line inline with `📝 [amo-draft]`. Do not put the marker in a separate paragraph.
 
 ## Use When
 
@@ -61,7 +61,7 @@ Use target context as content. Use reference context only as form. Exclude proce
 
 ## Output
 
-Use the user's language for output labels and content.
+Use the user's language and requested level of detail. Lead with the answer to the current request. For a complete deliverable, follow the format below, preserving label order and omitting inapplicable sections. For a focused follow-up, answer only that question and any qualification needed to interpret the answer; do not repeat the report or restart workflow routing.
 
 For simple drafting, output only the final artifact:
 

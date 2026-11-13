@@ -2,7 +2,7 @@
 name: amo-preview
 description: Build or revise interactive UI proposal previews that guide users from familiar entry points to proposed changes and demonstrate how they work. Use across web, mobile, and admin interfaces before implementation, not for raster images, production code, or UX audits.
 metadata:
-  version: '0.1.0'
+  version: '0.2.0'
 ---
 
 # Amo Preview
@@ -40,7 +40,7 @@ Make a discussed UI change discoverable, visible, and operable from the user's s
 
 ## Output
 
-Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
+Use the user's language and requested level of detail. Lead with the answer to the current request. For a complete deliverable, follow the format below, preserving label order and omitting inapplicable sections. For a focused follow-up, answer only that question and any qualification needed to interpret the answer; do not repeat the report or restart workflow routing.
 
 ```text
 🖼️ [amo-preview] Scenario: UI proposal preview

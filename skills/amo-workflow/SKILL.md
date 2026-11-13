@@ -2,7 +2,7 @@
 name: amo-workflow
 description: Coordinate a complete feature delivery or resume its staged work, from discovery and plan approval through UI, integration, review, fixes, final acceptance, and closeout. Not for standalone questions, small edits, or review-only requests outside an active delivery.
 metadata:
-  version: '0.3.0'
+  version: '0.4.0'
 ---
 
 # Amo Workflow
@@ -26,7 +26,7 @@ Coordinate delivery stages and their evidence. Use the existing amo skills for t
 3. In continuous mode, advance through applicable stages after plan approval; in UI-first mode, also wait for UI acceptance before business integration. Report progress with artifact links without turning ordinary stage updates into approval requests.
 4. Select and read the relevant installed skill by name for each piece of work: feature/improve for proposals, preview for UI proposals with entry guidance and key interactions, best/detail/research when needed, implement for code, review for functional review, check for supplied feedback, fix for unresolved diagnosis, draft for content, and deliver for final acceptance and closeout. Preserve their responsibilities and output contracts. If a required skill is unavailable, state the coverage gap rather than claiming it ran.
 5. Repair verified defects within the approved implementation scope and repeat affected checks. Reopen design decisions only when new evidence changes the agreed behavior or scope. Review-only and feedback-verification requests remain read-only unless repair is also authorized.
-6. Refresh the delivery record at stage transitions, material decisions, interruptions, and handoff. On resume, compare it with current code, configuration, and environment; recheck only evidence invalidated by changes. Answer side questions and then resume the active stage unless the user stops or redirects it.
+6. Refresh the delivery record at stage transitions, material decisions, interruptions, and handoff. On resume, compare it with current code, configuration, and environment; recheck only evidence invalidated by changes. Apply local corrections to the affected decision and retain the other confirmed decisions. When a correction conflicts with another decision, explain the changed user-visible outcome and resolve that conflict before dependent work. Answer side questions and then resume the active stage unless the user stops or redirects it.
 7. At final acceptance and closeout, read and use amo-deliver without requiring another invocation from the user. Pass the target, current evidence, delivery preferences, authorization, and pending steps; let it coordinate experience, independent final review, repairs, and acceptance. Keep the existing delivery record and record only actual authorized closeout results.
 
 ## Key Rules
@@ -40,7 +40,9 @@ Coordinate delivery stages and their evidence. Use the existing amo skills for t
 
 ## Output
 
-Use the active module skill's output for its substantive result. For workflow coordination reports, use the user's language and the mandatory labels below in order; put content under its matching label and retain an empty label with a brief explanation. Do not concatenate every module's report. Prefix the first line inline with `🧭 [amo-workflow]`.
+Use the user's language and requested level of detail. Lead with the answer to the current request. For a complete deliverable, follow the format below, preserving label order and omitting inapplicable sections. For a focused follow-up, answer only that question and any qualification needed to interpret the answer; do not repeat the report or restart workflow routing.
+
+Use the active module skill's format for its substantive deliverable and the format below for coordination reports; do not concatenate all module reports. Prefix coordination reports with `🧭 [amo-workflow]`.
 
 ```text
 🧭 [amo-workflow] Scenario: feature delivery

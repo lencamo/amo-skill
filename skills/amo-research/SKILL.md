@@ -2,7 +2,7 @@
 name: amo-research
 description: Use when the user asks to research how competitor products, communities, or open-source projects implement a feature, find mature reusable approaches, or verify implementation alternatives with external evidence to support solution decisions. Do not use for general market analysis or solution design without external implementation research.
 metadata:
-  version: '0.2.1'
+  version: '0.3.0'
 ---
 
 # Amo Research
@@ -11,7 +11,7 @@ Research how others implement a relevant capability, why their approach fits the
 
 ## Shared Output Marker
 
-Prefix the first output line inline with `🔬 [amo-research]`. Do not put the marker in a separate paragraph.
+For a complete deliverable, prefix its first line inline with `🔬 [amo-research]`. Do not put the marker in a separate paragraph.
 
 ## Use When
 
@@ -45,7 +45,7 @@ Prefix the first output line inline with `🔬 [amo-research]`. Do not put the m
 
 ## Output
 
-Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
+Use the user's language and requested level of detail. Lead with the answer to the current request. For a complete deliverable, follow the format below, preserving label order and omitting inapplicable sections. For a focused follow-up, answer only that question and any qualification needed to interpret the answer; do not repeat the report or restart workflow routing.
 
 ```text
 🔬 [amo-research] Scenario: implementation research

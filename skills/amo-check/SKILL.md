@@ -2,7 +2,7 @@
 name: amo-check
 description: Use when the user asks to verify existing code review feedback from amo-review, other agents, tools, or colleagues within the current review scope. Check validity, actual consequences if unchanged, and whether action is necessary now. Not for reviewing code from scratch, designing fixes, or implementing repairs.
 metadata:
-  version: '0.3.1'
+  version: '0.4.0'
 ---
 
 # Amo Check
@@ -11,7 +11,7 @@ Independently verify review feedback within scope and judge whether action is ne
 
 ## Shared Output Marker
 
-Prefix the first output line inline with `🧹 [amo-check]`. Do not put the marker in a separate paragraph.
+For a complete deliverable, prefix its first line inline with `🧹 [amo-check]`. Do not put the marker in a separate paragraph.
 
 ## Use When
 
@@ -55,7 +55,9 @@ Read callers, contracts, and history outside the diff only as necessary evidence
 
 ## Output
 
-Keep verification thorough and the report concise. Use the user's language and the three columns below, translated faithfully without adding or combining columns. Lead with one sentence summarizing current action decisions and any unverified items. Identify the target and scope briefly only when needed to avoid ambiguity.
+Use the user's language and requested level of detail. Lead with the answer to the current request. For a complete deliverable, follow the format below, preserving label order and omitting inapplicable sections. For a focused follow-up, answer only that question and any qualification needed to interpret the answer; do not repeat the report or restart workflow routing.
+
+For a verification report, use the three columns below, translated faithfully without adding or combining columns. Lead with one sentence summarizing current action decisions and any unverified items. Identify the target and scope briefly only when needed to avoid ambiguity.
 
 ```text
 🧹 [amo-check] Verification conclusion: <whether action is necessary now, based on verified facts>

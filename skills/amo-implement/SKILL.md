@@ -2,7 +2,7 @@
 name: amo-implement
 description: Use when the user asks to implement an already defined proposal and verify the result, balancing code efficiency, concision, readability, and maintainability while keeping changes focused, comments useful, and frontend content free of conversation or implementation notes. Do not use for solution design, proposal explanation, or standalone code review.
 metadata:
-  version: '0.3.1'
+  version: '0.4.0'
 ---
 
 # Amo Implement
@@ -11,7 +11,7 @@ Implement and verify a defined proposal, balancing code efficiency, concision, r
 
 ## Shared Output Marker
 
-Prefix the first output line inline with `🔨 [amo-implement]`. Do not put the marker in a separate paragraph.
+For a complete deliverable, prefix its first line inline with `🔨 [amo-implement]`. Do not put the marker in a separate paragraph.
 
 ## Use When
 
@@ -65,7 +65,7 @@ Prefix the first output line inline with `🔨 [amo-implement]`. Do not put the 
 
 ## Output
 
-Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
+Use the user's language and requested level of detail. Lead with the answer to the current request. For a complete deliverable, follow the format below, preserving label order and omitting inapplicable sections. For a focused follow-up, answer only that question and any qualification needed to interpret the answer; do not repeat the report or restart workflow routing.
 
 ```text
 🔨 [amo-implement] Scenario: proposal implementation

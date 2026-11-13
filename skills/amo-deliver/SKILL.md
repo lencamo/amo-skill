@@ -2,7 +2,7 @@
 name: amo-deliver
 description: Use when completed feature or branch work needs final acceptance and closeout, internal or external review feedback rounds, or delivery of a reviewed branch. Automate independent final reviews and verified repairs through convergence. Not for mid-development review, single-feedback verification, or coordination from requirements onward.
 metadata:
-  version: '0.6.0'
+  version: '0.7.0'
 ---
 
 # Amo Deliver
@@ -11,7 +11,7 @@ Close a finished branch: local experience, independent final review, feedback ro
 
 ## Shared Output Marker
 
-Prefix each stage report's first line inline with `📦 [amo-deliver]`. Do not put the marker in a separate paragraph.
+For a stage report, prefix its first line inline with `📦 [amo-deliver]`. Do not put the marker in a separate paragraph.
 
 ## Use When
 
@@ -56,7 +56,7 @@ Prefix each stage report's first line inline with `📦 [amo-deliver]`. Do not p
 
 ## Output
 
-Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
+Use the user's language and requested level of detail. Lead with the answer to the current request. For a complete deliverable, follow the format below, preserving label order and omitting inapplicable sections. For a focused follow-up, answer only that question and any qualification needed to interpret the answer; do not repeat the report or restart workflow routing.
 
 ```text
 📦 [amo-deliver] Closing loop: <branch>

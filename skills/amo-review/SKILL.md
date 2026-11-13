@@ -2,7 +2,7 @@
 name: amo-review
 description: Review implemented functionality for requirement gaps, logic errors, and bugs across workspace changes, specified commits, or an entire feature branch. Use when the user asks whether an implementation is correct or ready to merge. Not for code-style-only reviews, solution design, or diagnosing a known failure to choose a fix.
 metadata:
-  version: '0.2.1'
+  version: '0.3.0'
 ---
 
 # Amo Review
@@ -11,7 +11,7 @@ Review functional correctness with concrete evidence. Default to reporting findi
 
 ## Shared Output Marker
 
-Prefix the first output line inline with `🔍 [amo-review]`. Do not put the marker in a separate paragraph.
+For a complete deliverable, prefix its first line inline with `🔍 [amo-review]`. Do not put the marker in a separate paragraph.
 
 ## Use When
 
@@ -42,7 +42,7 @@ Use read-only Git inspection and preserve the worktree and index. Missing refs o
 ## Workflow
 
 1. Resolve the scope and expected behavior from the request, requirements, acceptance criteria, project docs, tests, and existing contracts. Distinguish documented intent from inference. Compare the changes with the stated goal: identify missing requirements, off-target behavior, and unrelated changes. Report scope deviations separately from functional defects.
-2. Read the complete selected diffs and relevant context: callers, callees, prior content for deletions, tests, configuration, and storage contracts. Trace inputs, processing, state changes, persistence, and outputs.
+2. Read the complete selected diffs and relevant context: callers, callees, prior content for deletions, tests, configuration, and storage contracts. Trace inputs, processing, state changes, persistence, and outputs. When result sources or record lifecycles change, check existing actions on those results under the newly reachable states, including records no longer present in the previous source.
 3. Check the dimensions below against the actual contracts and expected load. For high-risk changed flows, identify what must remain true before and after the operation, then choose relevant adversarial cases by varying timing, input format, or permission scope. Examples include stale responses overwriting newer state, refresh interrupting an active session, and reused components retaining stale state. Follow affected call sites when signatures, return values, or behavior change. For bug fixes, check directly related paths for the same defect to confirm the fix covers all affected entry points. Do not expand into an unrelated whole-repo audit or repair unrequested areas.
 4. Verify each candidate finding against reachable inputs, downstream behavior, and existing guards. For timing-, state-, or environment-dependent behavior, prefer a minimal observable reproduction; deterministic static evidence is also valid. Run focused verification on the reviewed revision when practical; historical results are context, not current verification. Distinguish executed checks, static reasoning, and unavailable checks. When a review conclusion depends on real-dependency behavior that mocks or substitute services do not exercise, report that verification gap.
 5. Account for every scoped file as reviewed or skipped with a reason. Before reporting, refresh affected evidence if the target or relevant working files changed.
@@ -69,7 +69,7 @@ Use read-only Git inspection and preserve the worktree and index. Missing refs o
 
 ## Output
 
-Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
+Use the user's language and requested level of detail. Lead with the answer to the current request. For a complete deliverable, follow the format below, preserving label order and omitting inapplicable sections. For a focused follow-up, answer only that question and any qualification needed to interpret the answer; do not repeat the report or restart workflow routing.
 
 ```text
 🔍 [amo-review] Scenario: Functional review

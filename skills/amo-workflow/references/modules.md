@@ -26,7 +26,7 @@ Maintain these fields as facts, with evidence links where relevant:
 | Field | Content |
 | :--- | :--- |
 | Goal and boundary | Target behavior, exclusions, acceptance criteria, and unresolved business decisions. |
-| Confirmed decisions | Agreed rules and design direction, with the conversation or instruction that established them. |
+| Confirmed decisions | Agreed rules and design direction, with the conversation or instruction that established them; distinguish user confirmation from recommendations and assumptions. Retain decision-critical business meanings and current user-visible outcomes so later stages use the same interpretation. |
 | Execution agreement | Continuous or UI-first, required checkpoints, and authorization source/scope for implementation and any separate operations. |
 | Working context | Actual repository, worktree, branch/revision, environment purpose, persistence, and real versus simulated dependencies. |
 | Stage progress | Each of stages 1–8: pending, active, agent-verified, awaiting-user, user-accepted, blocked, or not-applicable; attach artifacts and verification limits. |

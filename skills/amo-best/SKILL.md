@@ -2,7 +2,7 @@
 name: amo-best
 description: Use when the user challenges an existing proposal, asks whether it is the best solution, asks for a better approach, or wants second-pass review of the chosen best-standard, tradeoffs, scope, compatibility, risk, or refactor depth before implementation.
 metadata:
-  version: '0.2.1'
+  version: '0.3.0'
 ---
 
 # Amo Best
@@ -11,7 +11,7 @@ Re-check the selected best standard and pressure-test an existing proposal.
 
 ## Shared Output Marker
 
-Prefix the first output line inline with `🏆 [amo-best]`. Do not put the marker in a separate paragraph.
+For a complete deliverable, prefix its first line inline with `🏆 [amo-best]`. Do not put the marker in a separate paragraph.
 
 ## Use When
 
@@ -56,7 +56,7 @@ If the proposal used the wrong standard, say so before judging the implementatio
 
 ## Output
 
-Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
+Use the user's language and requested level of detail. Lead with the answer to the current request. For a complete deliverable, follow the format below, preserving label order and omitting inapplicable sections. For a focused follow-up, answer only that question and any qualification needed to interpret the answer; do not repeat the report or restart workflow routing.
 
 ```text
 🏆 [amo-best] Scenario: best-solution pressure test

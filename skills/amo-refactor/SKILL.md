@@ -2,7 +2,7 @@
 name: amo-refactor
 description: Use when the user asks how to refactor, split modules, clarify architecture, move ownership, reduce coupling, or fix unclear state, data-flow, or component boundaries before coding. Do not use for ordinary feature work, bug fixes, or second-pass solution challenges.
 metadata:
-  version: '0.2.1'
+  version: '0.3.0'
 ---
 
 # Amo Refactor
@@ -11,7 +11,7 @@ Plan structural changes when boundaries, ownership, or coupling are the primary 
 
 ## Shared Output Marker
 
-Prefix the first output line inline with `🧱 [amo-refactor]`. Do not put the marker in a separate paragraph.
+For a complete deliverable, prefix its first line inline with `🧱 [amo-refactor]`. Do not put the marker in a separate paragraph.
 
 ## Use When
 
@@ -54,7 +54,7 @@ Select and state one before recommending a refactor:
 
 ## Output
 
-Use the user's language for output labels and content. The labels are the mandatory skeleton: emit every label in order, place all content under its matching label — never unlabeled prose, never merged; keep empty sections with a brief note.
+Use the user's language and requested level of detail. Lead with the answer to the current request. For a complete deliverable, follow the format below, preserving label order and omitting inapplicable sections. For a focused follow-up, answer only that question and any qualification needed to interpret the answer; do not repeat the report or restart workflow routing.
 
 ```text
 🧱 [amo-refactor] Scenario: refactor / architecture boundary
