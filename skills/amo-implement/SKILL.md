@@ -2,7 +2,7 @@
 name: amo-implement
 description: Use when the user asks to implement an already defined proposal and verify the result, balancing code efficiency, concision, readability, and maintainability while keeping changes focused, comments useful, and frontend content free of conversation or implementation notes. Do not use for solution design, proposal explanation, or standalone code review.
 metadata:
-  version: '0.4.0'
+  version: '0.5.0'
 ---
 
 # Amo Implement
@@ -32,8 +32,8 @@ For a complete deliverable, prefix its first line inline with `🔨 [amo-impleme
 2. Inspect relevant code, project conventions, and existing type contracts.
 3. Make the changes needed to complete the proposal.
 4. Check proposal completion, scope, and code quality in the diff; correct issues introduced by this task.
-5. Run relevant checks on the final implementation against the proposal and its acceptance criteria.
-6. Report actual changes, verification results, and unfinished work.
+5. Run relevant checks on the final implementation against the proposal and its acceptance criteria. Use one-shot commands and confirm the runner honors the intended scope and options. In the existing task record or handoff, retain the tested revision and relevant uncommitted state, exact commands, covered scope, results with actual exit status, relevant environment or substitutes, and available output/log locations. Mark interrupted or incomplete checks as unverified.
+6. Report actual changes, verification results, and unfinished work. For background checks or development services started by this task, include their runtime handles, purpose, and any need to remain available for user acceptance.
 
 ## Key Rules
 

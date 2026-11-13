@@ -2,7 +2,7 @@
 name: amo-workflow
 description: Coordinate a complete feature delivery or resume its staged work, from discovery and plan approval through UI, integration, review, fixes, final acceptance, and closeout. Not for standalone questions, small edits, or review-only requests outside an active delivery.
 metadata:
-  version: '0.5.0'
+  version: '0.6.0'
 ---
 
 # Amo Workflow

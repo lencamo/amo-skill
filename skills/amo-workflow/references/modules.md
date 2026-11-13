@@ -31,7 +31,8 @@ Maintain these fields as facts, with evidence links where relevant:
 | Working context | Actual repository, worktree, branch/revision, environment purpose, persistence, and real versus simulated dependencies. |
 | Stage progress | Each of stages 1–8: pending, active, agent-verified, awaiting-user, user-accepted, blocked, or not-applicable; attach artifacts and verification limits. |
 | Findings and repairs | Trigger, evidence, action decision, repair status, and affected checks. |
-| Review and verification evidence | Reviewer identity and completion state, baseline/target and coverage, verification commands and results/logs, relevant environment, and running task/process handles. Reuse this record across implementation, review, and closeout; refresh only evidence invalidated by changes. |
+| Review and verification evidence | Reviewer identity and completion state, baseline/target and coverage, verification commands and results/logs, and relevant environment. Reuse this record across implementation, review, and closeout; refresh only evidence invalidated by changes. |
+| Background resources, when present | Task-owned background check and review-session handles, purpose, current state, retained development/acceptance services and access points, and unresolved cleanup with its reason and next action. Reconcile these on resume before retrying or releasing resources. Record only resources this task needs to manage; do not inventory all machine processes. |
 | Closeout | Intended included/excluded files, temporary configuration, user acceptance, and actual Git/release results. |
 | Resume | Next action, outstanding answers/conditions, and last update. |
 
