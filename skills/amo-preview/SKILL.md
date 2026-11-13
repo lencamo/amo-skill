@@ -2,7 +2,7 @@
 name: amo-preview
 description: Build or revise interactive UI proposal previews that guide users from familiar entry points to proposed changes and demonstrate how they work. Use across web, mobile, and admin interfaces before implementation, not for raster images, production code, or UX audits.
 metadata:
-  version: '0.2.0'
+  version: '0.3.0'
 ---
 
 # Amo Preview
@@ -25,10 +25,10 @@ Make a discussed UI change discoverable, visible, and operable from the user's s
 
 1. Read the discussed approach, settled decisions, project instructions, and any existing preview. Read [preview-contract.md](references/preview-contract.md) for the route, marking, artifact, and verification requirements.
 2. Inspect the relevant running interface under the correct project and identity using available browser, device, or runtime tools. Use design files and code as supporting evidence. If inspection is unavailable, report the gap and use supplied references only as permitted by the task and project rules; do not claim an uninspected style match.
-3. Trace the familiar starting screen, necessary entrances and intermediate steps, target changes, and resulting states. Distinguish unchanged navigation from actual modifications. Preserve existing shared behavior and terminology unless their change is agreed; resolve material business uncertainty through the proposal owner.
+3. Trace the familiar starting screen, necessary entrances and intermediate steps, target changes, and resulting states. Establish the per-surface change scope under the contract's fidelity rules; resolve material business uncertainty through the proposal owner.
 4. Build a local interactive HTML preview suited to the actual platform and decision, following the contract. Generate the required pages, components, or dialogs from the inspected product and agreed references; do not impose a fixed business example or page count.
 5. Apply the contract's entry guidance and change marking throughout the route, including the necessary entrances that remain unchanged.
-6. Open the artifact at the agreed starting screen and follow the represented user path through the target changes. Exercise relevant states, mark visibility, and reset; inspect the rendered result and save representative screenshots. Record unavailable checks as gaps.
+6. Compare represented existing screens against the inspected baseline and scoped changes, then follow the represented user path from the agreed starting screen. Exercise relevant states, mark visibility, and reset; inspect the rendered result and save representative screenshots. Record unavailable checks as gaps.
 7. Present the clickable artifact through a supported host renderer or a usable local entry, with a short starting-point/operation guide. For revisions, update the same preview and identify which version any before/after screenshot represents.
 
 ## Key Rules

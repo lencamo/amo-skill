@@ -8,6 +8,12 @@ Before choosing visual values, inspect the relevant existing screens and retain 
 
 Distinguish inspected product behavior from design references and proposed changes. If there is no existing screen, use the agreed design reference and label the new surface accordingly. Never present a screenshot of an earlier prototype as the original live system.
 
+## Change Scope and Fidelity
+
+- Before building, briefly identify retained elements and additions, adjustments, replacements, merges, or removals on each represented surface. Tie changes to the user's requirements or established proposal; keep this in working notes or an existing task record.
+- Preserve the inspected layout, navigation, content, controls, terminology, initial states, and shared business contexts outside those changes. Implement replacements, merges, and removals already supported by the requirements or proposal without asking again; resolve material business decisions or scope expansion before presenting them as settled.
+- Use synthetic data covering the relevant existing contexts, such as platforms or account sources, as well as the new one. A reduced sample dataset must not narrow the represented screen's capabilities.
+
 ## Entry Route and Marking
 
 - Start at an agreed, recognizable screen and retain the navigation needed to reach the change. Cover the relevant route through menus, existing buttons, intermediate screens, and dialogs. A deep link, isolated final dialog, or preview-only page switcher cannot replace that route.
@@ -18,9 +24,9 @@ Distinguish inspected product behavior from design references and proposed chang
 ## Artifact
 
 - Deliver interactive HTML by default, with the screens, components, dialogs, and viewport appropriate to the actual platform and decision. Do not require an admin shell, fixed page set, or sample business domain. Generate enough coherent content and visual detail to judge the result; a sparse interaction test harness is insufficient.
-- Retain the inspected product context and shared components needed to recognize the feature's location. Extend them with the agreed fields and controls; do not introduce an unrelated interface or rename shared behavior to accommodate one feature.
 - Scope CSS and DOM queries to the preview, use local scripts and assets where practical, and avoid requiring a new application framework for a small mockup. Follow the host renderer's packaging rules when embedding and provide the artifact's actual open/run entry.
 - Use a coherent synthetic scenario. Derive dependent totals, labels, and states from local data. Reflect a demonstrated save or state change in the other represented pages; allow reset to the starting scenario. Identify which controls are demonstrable and which are out of scope.
+- Keep the original presentation and state of controls whose behavior is not simulated. Explain that limit in the review frame, optionally when the control is activated, without performing a live action. Lack of simulation is not a reason to omit a control or arbitrarily disable it.
 - Make labels, buttons, dialogs, and forms usable with keyboard focus and visible validation. In a sandbox that blocks form submissions, use explicit local action handlers with validation and keyboard support. Demonstrate the applicable empty, disabled, confirmation, success, or failure states that affect the proposed decision rather than implementing unrelated navigation.
 - Keep credentials, real customer data, and service calls out of the artifact. Sample actions must remain local, including form submission and upload controls. Use already permitted non-sensitive assets; obtaining new remote assets still follows the task's authorization.
 
@@ -34,8 +40,10 @@ For a revision, retain the same artifact entry where practical, preserve unaffec
 
 ## Verification
 
+Compare each represented existing surface with its baseline at a comparable viewport and state. Reconcile omissions, moves, renames, replacements, merges, and state changes with the scoped changes, including content revealed by scrolling or expansion where relevant. Correct unexplained differences; a working new interaction path does not establish fidelity. If the baseline cannot be inspected, report fidelity as unverified.
+
 Open the artifact at the agreed start and reach the change using the represented product entrances, including an unchanged trigger when applicable. Check that the next step is discoverable, the final UI is visually assessable, and the key operation produces its expected local outcome. Verify mark purpose, shape, color, visibility, and unobstructed clicks along the route.
 
 Check the rendered layout at the intended review size and exercise the applicable edited values, confirmation/cancellation branches, state propagation, clean-view toggle, and reset to the starting screen. Check that the runtime is not sending business requests, form submissions, or navigation to production.
 
-Verify only interactions actually present. Report the inspected baseline, exercised paths, synthetic behavior, and missing coverage accurately. A proposal preview supports a design decision; runtime UI and business acceptance remain later delivery stages.
+Claim behavioral verification only for interactions actually exercised; this does not replace the baseline comparison for missing or altered elements. Report the inspected baseline, exercised paths, synthetic behavior, and missing coverage accurately. A proposal preview supports a design decision; runtime UI and business acceptance remain later delivery stages.

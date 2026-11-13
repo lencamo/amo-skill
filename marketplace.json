@@ -8,7 +8,7 @@
     {
       "name": "amo-preview",
       "description": "Build or revise interactive UI proposal previews that guide users from familiar entry points to proposed changes and demonstrate how they work. Use across web, mobile, and admin interfaces before implementation, not for raster images, production code, or UX audits.",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "category": "workflow",
       "source": "./skills/amo-preview",
       "homepage": "https://github.com/lencamo/amo-skill"
