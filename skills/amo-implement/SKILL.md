@@ -2,7 +2,7 @@
 name: amo-implement
 description: Use when the user asks to implement an already defined proposal and verify the result, balancing code efficiency, concision, readability, and maintainability while keeping changes focused, comments useful, and frontend content free of conversation or implementation notes. Do not use for solution design, proposal explanation, or standalone code review.
 metadata:
-  version: '0.5.0'
+  version: '0.6.0'
 ---
 
 # Amo Implement
@@ -31,8 +31,8 @@ For a complete deliverable, prefix its first line inline with `🔨 [amo-impleme
 1. Identify the existing proposal and implementation scope.
 2. Inspect relevant code, project conventions, and existing type contracts.
 3. Make the changes needed to complete the proposal.
-4. Check proposal completion, scope, and code quality in the diff; correct issues introduced by this task.
-5. Run relevant checks on the final implementation against the proposal and its acceptance criteria. Use one-shot commands and confirm the runner honors the intended scope and options. In the existing task record or handoff, retain the tested revision and relevant uncommitted state, exact commands, covered scope, results with actual exit status, relevant environment or substitutes, and available output/log locations. Mark interrupted or incomplete checks as unverified.
+4. Check requirement completion, preserved behavior, scope, and code quality in the diff; correct issues introduced by this task. Include this requirement check in implementation self-checks rather than scheduling another review for it.
+5. Select verification by changed behavior and acceptance criteria. For display-only text, comments, or non-executable prose, check the diff, replacement coverage, and unintended changes; do not default to business tests or a full build. Treat selectors, protocol values, interpolation, and executable instructions by their behavioral impact. For logic changes, run the smallest checks that exercise the changed behavior and important regressions; editing a spec does not require running every test in that file. Honor mandatory project checks and surface conflicts rather than silently waiving them. Use one-shot commands, confirm the runner honors the scope and options, and preserve actual exit status and complete failure output. Retain the tested revision, relevant uncommitted state, command, scope, environment, results, and available logs in the existing record. Mark interrupted checks as unverified; investigate unrelated failures separately without automatically rerunning or expanding the checks.
 6. Report actual changes, verification results, and unfinished work. For background checks or development services started by this task, include their runtime handles, purpose, and any need to remain available for user acceptance.
 
 ## Key Rules

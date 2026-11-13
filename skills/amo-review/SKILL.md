@@ -1,13 +1,13 @@
 ---
 name: amo-review
-description: Review implemented functionality for requirement gaps, logic errors, and bugs across workspace changes, specified commits, or an entire feature branch. Use when the user asks whether an implementation is correct or ready to merge. Not for code-style-only reviews, solution design, or diagnosing a known failure to choose a fix.
+description: Review implemented functionality with risk-proportionate static checks for requirement gaps, logic errors, and bugs across workspace changes, specified commits, or a feature branch. Use when the user asks whether an implementation is correct or ready to merge. Not for code-style-only reviews, solution design, or diagnosing a known failure to choose a fix.
 metadata:
-  version: '0.5.0'
+  version: '0.6.0'
 ---
 
 # Amo Review
 
-Review functional correctness with concrete evidence. Default to reporting findings without changing code.
+Review functional correctness with concrete evidence and depth proportional to the change's risk. Used alone, perform the review; during delivery, provide the standards without duplicating the independent review arranged by amo-deliver. Default to static analysis and a report without changing code.
 
 ## Shared Output Marker
 
@@ -35,17 +35,23 @@ Honor the user's explicit scope first. For a generic implementation-review reque
 | Specified commits | Each requested commit's changes, or the net diff of an explicitly requested range. Preserve an explicit commit selection rather than expanding it to include intervening commits. |
 | Feature branch | Resolve the base and target to commit IDs, find their merge base, and review the net diff from that point to the target. Use history to explain intent, not to report intermediate defects already fixed in the final state. |
 
-Record the resolved mode, baseline, target, and file inventory once before reviewing. Use `(path, status)` to distinguish changes, including a tracked deletion followed by an untracked recreation at the same path; record explicit exclusions and their reasons separately. Read files at the reviewed revision; working files may differ from a selected commit or branch. For commit and branch scopes, state whether uncommitted changes are included and keep them outside scope unless requested.
+Record the resolved mode, baseline, target, and inclusion of uncommitted changes once. Read files at the reviewed revision; working files may differ from a selected commit or branch. Preserve explicitly excluded changes and report material unread or unavailable scope without counting it as reviewed.
 
 Use read-only Git inspection and preserve the worktree and index. Missing refs or unreadable files are coverage gaps, not permission to substitute another scope.
 
+## Review Depth
+
+- Classify the change by behavior and consequences, not file count or diff size. Display-only text, comments, and non-executable prose need replacement, omission, and unintended-change checks. Text used by selectors, protocols, templates, or business decisions, and executable instructions, can change behavior and require the corresponding review.
+- For local changes, inspect the changed logic and directly affected contracts. For routine features, follow changed inputs, state, and outputs. For permissions, money, data integrity, migrations, or concurrency, trace the relevant protections and failure paths even when the diff is small.
+- Select only applicable dimensions below. Consult the relevant [stack-specific checks](references/stack-checks.md) only when a changed behavior or concrete concern calls for them; do not expand every change into all checks or a repository audit.
+
 ## Workflow
 
-1. Resolve the scope and expected behavior from the request, requirements, acceptance criteria, project docs, tests, and existing contracts. Read applicable repository and path-specific rules directly and reuse them for files governed by the same rules; an unreadable or unsupported required rule source is a coverage gap. Distinguish documented intent from inference. Compare the changes with the stated goal: identify missing requirements, off-target behavior, and unrelated changes. Report scope deviations separately from functional defects.
-2. Read every selected diff, batching files by shared rules, technology, or repeated change pattern. Read shared implementation and context once, then verify each changed caller's bindings, arguments, and special conditions; grouping does not permit sampling callers. Use bounded batches when output would truncate. Trace relevant callers, callees, prior content for deletions, tests, configuration, and storage contracts. When result sources or record lifecycles change, check existing actions on those results under the newly reachable states, including records no longer present in the previous source.
-3. Apply the dimensions below to the actual contracts and expected load. Prioritize deeper tracing where shared interfaces, state/lifecycles, concurrency, permissions, or persisted data change. Read only the relevant sections of [stack-specific checks](references/stack-checks.md) for Vue/TypeScript or Python changes, selecting by the actual framework and code rather than the extension alone; other stacks continue with the general dimensions. Trace a concern from its input or producer through the changed logic to its observable consequence, checking caller validation and existing guards before escalating it. For high-risk flows, identify what must remain true and vary relevant timing, input, or permission conditions. For bug fixes, check directly related paths for the same defect. Extend investigation only to resolve a contract, guard, or concrete concern; do not turn a change review into an unrelated whole-repo audit.
-4. Verify each candidate finding against reachable inputs, downstream behavior, and existing guards. For timing-, state-, or environment-dependent behavior, prefer a minimal observable reproduction; deterministic static evidence is also valid. Inspect available verification evidence and its coverage. Reuse results when the relevant code, tests, configuration, and environment remain unchanged; a different commit message alone does not invalidate them. Run a focused check when it resolves a concrete concern or coverage gap, following the caller's verification constraints. Use a one-shot command, confirm that the runner honors the requested file scope and concurrency, and preserve its actual exit status and full failure output. Distinguish executed checks, reused results, static reasoning, and unavailable checks. When a review conclusion depends on real-dependency behavior that mocks or substitute services do not exercise, report that verification gap.
-5. Reconcile the inventory with reviewed and skipped entries, each skipped entry having a reason; unread or truncated content cannot count as reviewed. Continue through the remaining scope after finding a severe defect. Before reporting, refresh affected evidence if the target or relevant working files changed. Summarize reviewed/total counts, skips, and exclusions; counts describe coverage, not proof of correctness. Delegated reports must also identify the baseline and target and distinguish executed, reused, and unavailable checks. Finish when the agreed scope is accounted for and candidate findings are confirmed, rejected, or explicitly unverified; reopen only for new evidence or invalidated coverage.
+1. Resolve the scope, expected behavior, and applicable project rules. Reuse shared context and distinguish requirements from inference. Check for omissions, off-target behavior, and unrelated changes.
+2. Read the scoped diff in bounded batches. Group repeated replacements and check their coverage; read callers, dependencies, history, or configuration only to understand changed behavior or resolve a concrete concern. Check deleted behavior as well as additions.
+3. Verify candidate defects against reachable inputs, existing guards, and observable consequences. Deterministic code evidence is sufficient; a runtime reproduction is not a prerequisite for every finding. Reject unsupported candidates and keep conclusion-changing uncertainties as gaps.
+4. Reuse available verification evidence when relevant code, tests, configuration, and environment are unchanged; a commit-message change alone does not invalidate it. Default to no test or build execution during review. If a concrete concern needs runtime evidence, identify the focused check for a separate verification step. Follow explicit user or project verification requirements without silently broadening them, and distinguish static reasoning, reused results, and missing evidence.
+5. Report confirmed findings, the actual reviewed scope, and material exclusions or gaps. Refresh affected evidence if the target changes. Finish when the scoped checks and candidate findings are settled; an empty findings list is a valid outcome. Do not reopen unchanged scope to seek more comments or to reach an arbitrary duration.
 
 ## Review Dimensions
 

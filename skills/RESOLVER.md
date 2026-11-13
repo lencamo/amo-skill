@@ -107,7 +107,7 @@ Use `amo-best` only as a second-pass pressure test after a concrete proposal exi
 Use `amo-research` independently or as optional external implementation research to support decisions in `amo-feature`, `amo-improve`, `amo-fix`, `amo-refactor`, and `amo-best`; it provides evidence and reuse advice without automatically invoking other skills.
 Use `amo-detail` to expand a discussed proposal into concrete implementation intentions and resulting workflow, frontend, backend, and data changes. The proposal may come from the user or `amo-feature`, `amo-improve`, `amo-fix`, `amo-refactor`, or `amo-best`; it is the primary source, with code used only as needed for verification.
 Use `amo-implement` to code and verify an existing proposal, including code quality self-checks within the task scope, while controlling comment noise, frontend content pollution, and scope creep.
-Use `amo-review` to review implemented functionality. Use `amo-check` to verify existing feedback, current need for action, and consequences if unchanged within scope; it reports conclusions without repair advice or code changes and is not required after every review.
+Use `amo-review` for risk-proportionate standalone review and review standards. During delivery, `amo-deliver` coordinates the independent local Claude `/code-review`; do not chain another review solely for a stage transition. Use `amo-check` to verify existing feedback, current need for action, and consequences if unchanged within scope; it reports conclusions without repair advice or code changes and is not required after every review.
 Use `amo-draft` when the next artifact is content, not code.
 
 ## Maintenance Rule

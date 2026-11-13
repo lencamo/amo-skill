@@ -18,14 +18,14 @@ Amo skills for engineering work: planning, implementation, verification, and wri
 | [`amo-detail`](skills/amo-detail/SKILL.md) | Explain how a discussed proposal will be implemented and how behavior will change |
 | [`amo-preview`](skills/amo-preview/SKILL.md) | Preview UI changes with entry guidance and connected interactions across product types |
 | [`amo-implement`](skills/amo-implement/SKILL.md) | Implement defined proposals and verify results, balancing code efficiency, concision, readability, and maintainability |
-| [`amo-review`](skills/amo-review/SKILL.md) | Functional correctness and bug review |
+| [`amo-review`](skills/amo-review/SKILL.md) | Risk-proportionate static correctness and bug review |
 | [`amo-check`](skills/amo-check/SKILL.md) | Verify review feedback, current need for action, and consequences if unchanged |
 | [`amo-draft`](skills/amo-draft/SKILL.md) | Write focused documentation and copy |
 | [`amo-deliver`](skills/amo-deliver/SKILL.md) | Close out finished work: local experience, automated Orca/Claude Code final reviews, feedback rounds, and converged delivery |
 
 ## Workflow
 
-Use `amo-workflow` for complete or staged feature delivery and continuation. It coordinates the applicable skills with plan approval, an optional UI checkpoint, and final user acceptance. It enters amo-deliver at final acceptance without a separate user invocation. Individual skills remain available independently; ask to wrap up a finished feature to start amo-deliver directly. amo-review provides the code review rules. amo-deliver reuses valid completed independent reviews or uses Orca orchestration to launch fresh Claude Code review sessions and collect their reports, defaulting to one reviewer. Orca handles session execution; no external review skill or review CLI is required.
+Use `amo-workflow` for complete or staged feature delivery and continuation. It coordinates the applicable skills with plan approval, an optional UI checkpoint, and final user acceptance. It enters amo-deliver at final acceptance without a separate user invocation. Individual skills remain available independently; ask to wrap up a finished feature to start amo-deliver directly. amo-review provides risk-proportionate review standards and performs standalone reviews. During delivery, amo-deliver records justified low-risk exemptions, reuses valid independent reviews, or starts one fresh Claude Code session through Orca to run the built-in local /code-review command with an explicitly selected effort and scope. Review is static by default; implementation owns necessary tests and builds. Repair rechecks cover changed behavior and affected contracts.
 
 ```text
 amo-feature / amo-improve / amo-fix / amo-refactor (choose one)
@@ -41,7 +41,7 @@ amo-check: verify existing feedback and whether action is necessary now as neede
 amo-draft: use at any stage as needed
 ```
 
-During complete delivery, amo-deliver coordinates the independent final review through amo-review; a stage transition alone does not require another review.
+During complete delivery, amo-deliver coordinates the independent review through the local Claude /code-review command; do not also execute amo-review as a second pass. A stage transition alone does not require another review.
 
 See [RESOLVER](skills/RESOLVER.md) for routing rules.
 
