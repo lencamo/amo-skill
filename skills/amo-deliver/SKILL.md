@@ -2,7 +2,7 @@
 name: amo-deliver
 description: Use when completed feature or branch work needs final acceptance and closeout, internal or external review feedback rounds, or delivery of a reviewed branch. Automate independent final reviews and verified repairs through convergence. Not for mid-development review, single-feedback verification, or coordination from requirements onward.
 metadata:
-  version: '0.10.0'
+  version: '0.11.0'
 ---
 
 # Amo Deliver
@@ -45,6 +45,7 @@ For a stage report, prefix its first line inline with `📦 [amo-deliver]`. Do n
    - Self-check the repair against affected existing behavior; examine trigger frequency and repeated-run or cross-day state when relevant. Update residual risks; never promise zero defects.
    - Commit and integrate verified repairs only as authorized. Confirm the target branch contains the intended repairs before reporting them delivered. Once no uncommitted or untransferred work remains in temporary resources, clean up the temporary worktrees and repair branches created by this task within Git authorization; preserve the target branch and pre-existing worktrees. If integration or cleanup is blocked, retain the resources and report their names, locations, and reason.
    - Unless the stop-loss rule applies, recheck the repair diff and affected contracts on the repaired revision, retaining valid coverage of unchanged code. Request another independent review only for coverage invalidated by the repair; expand to the whole branch only when new behavior or risk invalidates that broader coverage.
+   - When a round's repairs are committed and its recheck settles, proactively report that round to the user before waiting or starting the next round: one sentence on what the repairs changed and one on the actual self-test results. Do not wait for the user to ask.
 4. Track rounds and severity trends; state when impact is not decreasing. Stop patching if a subsequent review confirms a problem introduced by a repair: use amo-draft to document known limitations and prepare a separate follow-up requirement. Offer limited delivery for the user's decision; do not automatically merge. Explicitly remind the user of this stop-loss rule after two repair rounds.
 5. Present the commit chain, per-round results, and remaining limitations for final acceptance. On an explicit push request, confirm the unpushed commits and push the branch; report the actual result.
 
@@ -70,6 +71,6 @@ Convergence:
 Ship:
 ```
 
-In the final response after the entire amo-deliver workflow completes, append Change summary, Self-test result, and Deployment notes after Ship. Use one sentence each for the entire branch's final changes and self-test results; omit these three labels and placeholders before then.
+In the final response after the entire amo-deliver workflow completes, append Change summary, Self-test result, and Deployment notes after Ship. Use one sentence each for the entire branch's final changes and self-test results. These three labels are reserved for that final branch-level report; before then, omit the labels and placeholders, while per-round repair reports keep their own plain wording under the workflow's per-round reporting rule.
 
 Derive Deployment notes from the entire branch's actual changes, configuration, and deployment/migration entry points. List required env names, whether mandatory and their defaults; SQL/migration script paths and execution order/timing, separating automatic startup migrations from manual operations; and other necessary dependency, build, restart, or backfill steps. Mark unverified requirements as gaps; state No additional deployment actions only when verified.
