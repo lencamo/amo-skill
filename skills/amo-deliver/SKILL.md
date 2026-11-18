@@ -2,7 +2,7 @@
 name: amo-deliver
 description: Use when completed feature or branch work needs final acceptance and closeout, internal or external review feedback rounds, or delivery of a reviewed branch. Automate independent final reviews and verified repairs through convergence. Not for mid-development review, single-feedback verification, or coordination from requirements onward.
 metadata:
-  version: '0.11.0'
+  version: '0.12.0'
 ---
 
 # Amo Deliver
@@ -25,12 +25,16 @@ For a stage report, prefix its first line inline with `📦 [amo-deliver]`. Do n
 - Single-feedback verification without closeout; use amo-check.
 - Coordination from requirements to acceptance; use amo-workflow.
 
+## Push-Only Requests
+
+When the user only asks to push an existing branch, confirm its identity, remote/upstream, and outgoing commits. If applicable verification is already complete and no new change invalidates it, push within authorization and report the result without restarting experience, review, or acceptance. If verification is missing, report the gap without claiming delivery readiness or treating the push request as authorization for new review/test rounds. Honor any mandatory project checks. Do not commit pending changes or merge/deploy as part of a push request.
+
 ## Workflow
 
-1. Resolve the branch and acceptance progress from context and read the project rules. Have the user try the finished work locally; reuse an existing valid acceptance result. Route adjustments to amo-improve or amo-fix, then return to closeout.
+1. Resolve the branch and acceptance progress from context and read the project rules. Offer the applicable running entry for user acceptance; reuse an existing valid acceptance result and honor an explicitly authorized earlier commit/push without relabeling it as acceptance. Route adjustments to amo-improve or amo-fix, then return to closeout.
 2. Arrange proportionate independent review:
    - Reuse a completed independent review when it still covers the target code, requirements, and acceptance scope; do not launch another review solely because delivery entered a new stage. The implementer's self-check is not an independent review. If relevant changes invalidate that coverage, arrange review of the affected scope.
-   - Apply amo-review's risk criteria before launching a session. For changes confined to display text, comments, or non-executable prose with unchanged behavior, reuse implementation self-checks and record independent review as not applicable, unless explicitly requested or required by project rules. Do not treat executable instructions, selectors, protocol values, or business rules as harmless prose. For other changes, use one independent session.
+   - Apply amo-review's risk criteria before launching a session. For changes confined to display text, comments, non-executable prose, or bounded presentation-only layout/displayed-field moves, reuse proportionate implementation self-checks and applicable page verification; record independent review as not applicable unless explicitly requested or required by project rules. A layout exemption requires unchanged event semantics, link targets, requests, permissions, persistence, and business rules; inspect affected bindings before claiming it. Executable instructions, selectors, and protocol values require review according to their behavioral impact. For other changes, use one independent session within the user’s review instructions; explain concrete risks or coverage gaps rather than silently adding rounds.
    - Select the local `/code-review` effort automatically from the actual risk: `low` for bounded low-risk changes, `medium` for routine features, and `high` for sensitive or complex behavior; use `max` only for a concrete need for deeper analysis. State the selected effort and reason briefly. Respect an explicit effort request; do not run levels in sequence, inherit a previous level, or escalate because of file count alone.
    - Read the orchestration skill and follow its runtime guide to launch a fresh Claude Code session in Orca with the configured model. Assign the built-in local `/code-review`, not the legacy GitHub plugin, cloud Code Review, ultrareview, or OCR delegate. Pass the explicit effort and resolved review target; for a contiguous committed range, use `/code-review <effort> <base-sha>..<target-sha>` with the review baseline already resolved to the appropriate merge base. Preserve explicit commit selections. If workspace changes are included, identify their staged, unstaged, and untracked contents and detect changes to those inputs during review; never silently omit them or substitute a different scope.
    - Give the reviewer only the fixed scope, concise requirements and relevant project constraints, and existing verification evidence: revision, commands, scope, results, and available logs. Request a read-only report of concrete defects and material gaps, with no `--fix`, `--comment`, tests, or builds. Have it identify any focused runtime evidence still needed for a separate verification step. Do not assign a second amo-review pass alongside the built-in review. If the local command, explicit effort, or required scope is unavailable, report the capability gap rather than substituting another reviewer or installing tools.

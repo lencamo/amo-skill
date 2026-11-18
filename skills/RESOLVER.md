@@ -38,7 +38,7 @@ Answer factual follow-ups and local clarifications within the current task. Rese
 
 | User intent | Use |
 | :---------- | :-- |
-| Coordinate complete or staged feature delivery, or resume an active delivery | `amo-workflow` |
+| Coordinate feature delivery or resume active delivery, using a lightweight or staged path | `amo-workflow` |
 | Build behavior that does not exist yet | `amo-feature` |
 | Intentionally change, extend, improve, or redesign existing behavior | `amo-improve` |
 | Explain and fix broken, wrong, flaky, regressed, or failing existing behavior | `amo-fix` |
@@ -77,9 +77,9 @@ Default to target-state best when no constraint is stated. Do not invent compati
 7. The user asks to write clean target content from context, reference style, examples, or implementation history: use `amo-draft`.
 8. Implementing an already defined proposal: use `amo-implement`; direct small edits, assets, and commit messages do not require the amo design workflow.
 9. Check implemented functionality for correctness or latent bugs: use `amo-review`; use `amo-fix` to diagnose a known failure and choose a fix.
-10. A complete delivery or continuation needs stage coordination: use `amo-workflow`, then the skill for the active module. A side question or standalone review keeps its own scope and output; it does not authorize another stage.
+10. Delivery or continuation needs coordination: use `amo-workflow` to select the appropriate path, then the skill for the active work. A small edit alone does not require this coordinator. A side question or standalone review keeps its own scope and output; it does not authorize another stage.
 11. A discussed approach needs a discoverable, clickable UI preview: use `amo-preview` across product types. Establish missing business design first; implementation of accepted pages uses `amo-implement`. Honor explicit static-only requests directly.
-12. Completed work needs acceptance and closeout: use `amo-deliver`; infer the target and progress from context. A standalone correctness review remains `amo-review`, and feedback verification without closeout remains `amo-check`.
+12. Completed work needs acceptance and closeout: use `amo-deliver`; infer the target and progress from context. A standalone correctness review remains `amo-review`, and feedback verification without closeout remains `amo-check`. For push-only requests, follow amo-deliver’s push-only path without restarting valid completed work.
 
 ## Chaining
 

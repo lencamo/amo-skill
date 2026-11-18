@@ -1,17 +1,27 @@
 # Delivery Modules
 
-Use the applicable rows for the current task. Keep all eight statuses in the delivery record; mark a stage not applicable with its reason instead of inventing work. The rows describe completion evidence, not eight mandatory user approvals.
+Use the delivery mode selected in SKILL.md. The stages below describe evidence, not mandatory user approvals.
+
+## Lightweight Path
+
+Combine work into: confirm requirements and any necessary preview → implement and self-check → runtime/user acceptance as applicable → authorized closeout. Reuse settled decisions; a preview is optional and follows the requested format. Establish UI data and access conditions using amo-implement before presenting an acceptance environment.
+
+Keep only the goal, worktree/branch, changes, verification results or gaps, acceptance entry/status when applicable, and actual commit/push status in the existing task record or concise delivery report. Do not require eight stage statuses or a separate delivery document. Apply amo-deliver's independent-review criteria at closeout; lightweight mode alone is not a review result.
+
+## Staged Path
+
+Use the applicable rows. Keep all eight statuses in the delivery record; mark a stage not applicable with its reason instead of inventing work.
 
 | Stage | Work | Reviewable result | Completion condition |
 | :--- | :--- | :--- | :--- |
 | 1. Requirements and current state | Read requirements and design states; inspect actual code and relevant running pages under the correct project, identity, and tenant. Distinguish reusable, changed, new, and unverified capabilities, including their real entry points. | Scope and current-state/change inventory, sources, and unresolved business questions. | Enough evidence to propose the work; remaining unknowns are explicit. |
-| 2. Proposal and preview | Explain user, operator, and system flows; identify shared behavior, data contracts, migrations, acceptance criteria, and deployment dependencies. When UI changes need a concrete decision, use amo-preview to prepare an interactive HTML proposal grounded in the inspected interface, with a discoverable entry route, rounded orange dashed entrance/change marks, and local scenario interactions. Consolidate decisions on rules, UI direction, execution mode, checkpoints, and permitted operations. | Plan and necessary clickable preview entry with representative screenshots and coverage limits, with confirmed decisions distinguished from recommendations. | The user has approved the applicable plan and execution boundary; existing explicit approval counts. |
+| 2. Proposal and preview | Explain user, operator, and system flows; identify shared behavior, data contracts, migrations, acceptance criteria, and deployment dependencies. When UI changes need a concrete decision, follow the requested preview format. For interactive previews, use amo-preview grounded in the inspected interface, with a discoverable entry route, rounded orange dashed entrance/change marks, and local scenario interactions; do not require interactive HTML for an explicit static-image request. Consolidate decisions on rules, UI direction, execution mode, checkpoints, and permitted operations. | Plan and necessary preview in the requested format with coverage limits, with confirmed decisions distinguished from recommendations. | The user has approved the applicable plan and execution boundary; existing explicit approval counts. |
 | 3. Real UI | Inspect design annotations, relevant states, and current components. Verify the actual asset upload and readback path within authorization, reuse headers/components where appropriate, and implement native pages in the target stack. Check rendered states against the approved design, accepted preview where applicable, and rules. | Running page entry points, state screenshots, design comparison, and identification of mock versus live data. | Applicable states are checked in the runtime; in UI-first mode the user also accepts them. |
 | 4. Business integration | Connect admin configuration, APIs, persistence, and state transitions; replace demonstration responses. Prepare schema changes using the project's migration mechanism and preserve affected existing flows. | Connected implementation, data-source mapping, migrations where needed, and focused verification. | Core paths are ready for end-to-end integration; remaining limits are recorded. |
 | 5. Integration and experience | Establish an isolated environment using the actual implementation and reproducible setup. Exercise operator setup, user actions, downstream processing, and relevant failure paths; distinguish real dependencies from substitutes. | A usable environment, access instructions without secrets, experience steps, expected outcomes, and observed results. | The core flow is exercised across its participating interfaces; UI and dependency gaps remain explicit. |
 | 6. Review and feedback verification | Apply amo-review's risk-proportionate standards. Use amo-deliver's independent-review procedure when warranted, without starting final user acceptance early or adding a second amo-review pass. Use amo-check for returned findings and carry valid evidence into stage 8. | Concrete defects, material gaps, and review evidence, or a reason independent review is not applicable. | Scoped findings are evaluated for repair or acceptance; a clean review or justified low-risk exemption is valid. |
 | 7. Repair and recheck | Repair approved defects, reproduce relevant triggers, check affected existing behavior, and refresh invalidated evidence. | Fix results and current acceptance evidence. | Required defects are resolved; unresolved or deferred limits are explicitly presented for user decision. |
-| 8. Acceptance and closeout | Use amo-deliver for final experience, risk-proportionate independent review through the local Claude /code-review command when needed, feedback, repairs, and user acceptance. Reuse stage 6 evidence; Orca handles session execution and report return. Present scope and remaining limits. After acceptance, carry out authorized closeout and explain applicable migration, deployment, and rollback. | Acceptance record, actual commit/sync results, included/excluded files, and release handoff. | User acceptance and authorized closeout results are recorded; awaiting authorization is not completion. |
+| 8. Acceptance and closeout | Use amo-deliver for final experience, risk-proportionate independent review through the local Claude /code-review command when needed, feedback, repairs, and user acceptance. Reuse stage 6 evidence; Orca handles session execution and report return. Present scope and remaining limits. Carry out closeout in the authorized order and explain applicable migration, deployment, and rollback; an earlier commit/push does not count as user acceptance. | Acceptance record, actual commit/sync results, included/excluded files, and release handoff. | User acceptance and authorized closeout results are recorded; awaiting authorization is not completion. |
 
 ## Planning Checkpoint
 
@@ -19,9 +29,9 @@ Recommend continuous execution when the design and rules are sufficiently define
 
 ## Delivery Record
 
-Use the existing task specification and issue tracker; add a short delivery section rather than creating parallel tracking documents. Choose a record location from project instructions. If none exists, establish it with the user before persisting outside the agreed workspace; continue useful discovery meanwhile.
+For staged delivery, use the existing task specification and issue tracker; add a short delivery section rather than creating parallel tracking documents. Choose a record location from project instructions. If none exists, establish it with the user before persisting outside the agreed workspace; continue useful discovery meanwhile.
 
-Maintain these fields as facts, with evidence links where relevant:
+For staged delivery, maintain these fields as facts, with evidence links where relevant:
 
 | Field | Content |
 | :--- | :--- |

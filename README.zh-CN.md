@@ -8,7 +8,7 @@
 
 | Skill | 职责 |
 | :--- | :--- |
-| [`amo-workflow`](skills/amo-workflow/docs/SKILL.zh-CN.md) | 协调完整功能交付、阶段证据、确认节点与进度恢复 |
+| [`amo-workflow`](skills/amo-workflow/docs/SKILL.zh-CN.md) | 协调轻量或分阶段交付、证据、确认节点与进度恢复 |
 | [`amo-feature`](skills/amo-feature/docs/SKILL.zh-CN.md) | 新功能方案设计 |
 | [`amo-improve`](skills/amo-improve/docs/SKILL.zh-CN.md) | 主动调整已有功能 |
 | [`amo-fix`](skills/amo-fix/docs/SKILL.zh-CN.md) | 分析异常根因与修复方案 |
@@ -25,21 +25,42 @@
 
 ## 使用链路
 
-完整或分阶段功能交付及续做使用 `amo-workflow`，由它协调适用 skill，保留方案确认、可选的页面确认和最终用户验收。最终验收时接入 amo-deliver，无需用户再次调用。各 skill 仍可独立使用；直接说“功能做好了，帮我收尾”即可启动 amo-deliver。amo-review 提供适度审查标准并执行单独审查。交付中由 amo-deliver 记录有依据的低风险豁免、复用有效独立审查，或通过 Orca 启动一个全新 Claude Code 会话，显式指定力度与范围，执行内置本地 /code-review。审查默认静态分析，必要测试及构建由实施阶段负责。修复后只复核变化行为及受影响契约。
+功能交付或续做需要协调时，使用 `amo-workflow` 选择轻量或分阶段路径并安排适用技能。独立的小改、问答和审查可直接使用对应技能。
 
 ```text
-amo-feature / amo-improve / amo-fix / amo-refactor（选一个）
-→ amo-best（按需）
-→ amo-detail（按需）
-→ amo-implement
-→ amo-review（按需进行功能审查）
-→ amo-deliver（最终验收与交付收尾）
-
-amo-research：按需辅助方案设计与复核
-amo-preview：实施前引导用户找到改动、查看效果及体验操作
-amo-check：按需核实已有意见并判断当前是否需要处理
-amo-draft：任意阶段按需使用
+你提出需求
+    ↓
+需求是否已经明确？
+    ├─ 明确 → 直接实施
+    │
+    └─ 需要讨论 → 选择对应技能
+                   ├─ 新功能：amo-feature
+                   ├─ 调整已有功能：amo-improve
+                   ├─ 修 Bug：amo-fix
+                   └─ 重构：amo-refactor
+                       ↓
+                   形成具体方案
+                       ↓
+                   按需补充：
+                   · 查外部做法：amo-research
+                   · 判断方案好不好：amo-best
+                   · 解释具体怎么做：amo-detail
+                   · 看界面效果：静态图或 amo-preview
+                       ↓
+                   你确认方案
+    ↓
+amo-implement：修改代码、完成必要验证
+    ↓
+提供实际页面或运行结果，供你验收
+    ↓
+amo-deliver：按任务风险完成审查和收尾
+    ↓
+按你的授权 commit、push、合并或部署
 ```
+
+这条主线由 Agent 按需选择技能，不要求用户逐个调用，也不是每个任务都必须走完所有步骤。“明确 → 直接实施”沿用已有执行授权；仅讨论方案不代表允许修改代码。简单任务合并阶段，不默认增加独立审查或全量测试；复杂任务按风险补齐必要验证。commit、push、合并、部署分别遵循授权和用户指定顺序，提前提交不代表用户已验收。仅要求 push 时复用有效验证，不重新启动整条链路。
+
+`amo-review` 可独立执行功能审查；交付中的独立审查由 `amo-deliver` 安排。收到需要核实的反馈时按需使用 `amo-check`，修复后仅重查受影响部分。`amo-draft` 可在任意阶段按需编写文档和文案。
 
 完整交付的独立审查由 amo-deliver 统一安排并使用本地 Claude /code-review，不额外执行第二轮 amo-review；阶段切换本身不要求再审一次。
 

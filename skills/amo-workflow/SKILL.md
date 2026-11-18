@@ -1,8 +1,8 @@
 ---
 name: amo-workflow
-description: Coordinate a complete feature delivery or resume its staged work, from discovery and plan approval through UI, integration, review, fixes, final acceptance, and closeout. Not for standalone questions, small edits, or review-only requests outside an active delivery.
+description: Coordinate feature delivery or resume active work, choosing a lightweight or staged process by scope and risk. Not for standalone questions or isolated implementation, design, diagnosis, or review requests without delivery coordination.
 metadata:
-  version: '0.7.0'
+  version: '0.8.0'
 ---
 
 # Amo Workflow
@@ -11,23 +11,32 @@ Coordinate delivery stages and their evidence. Use the existing amo skills for t
 
 ## Use When
 
-- The user requests a complete feature delivery, staged implementation, or continuation of an active delivery.
+- The user requests delivery coordination, from a lightweight change to staged implementation, or continuation of an active delivery.
 - A project workflow entry selects this process for the task.
 
 ## Do Not Use
 
-- A standalone question, small edit, or isolated design, diagnosis, or review request has no active delivery context.
+- A standalone question or isolated implementation, design, diagnosis, or review request has no delivery coordination context.
 - The user has chosen a different workflow.
+
+## Delivery Mode
+
+Choose the process by changed behavior and consequences, not file count:
+
+- **Lightweight:** requirements are settled and the change is confined to presentation or a bounded local interaction, with unchanged business rules, API contracts, persistence, and permissions. Combine applicable work using the lightweight path in modules.md; do not expand a small edit into full delivery unless coordination is requested.
+- **Staged:** behavior changes across business flows, APIs, storage, permissions, or concurrency, or unresolved decisions require separate checkpoints. Use the applicable delivery stages in modules.md.
+
+Honor the user's requested scope and verification limits. New evidence can require additional focused checks or a mode change; explain the concrete impact instead of adding stages automatically. Delivery mode does not grant operation permissions.
 
 ## Workflow
 
-1. Read the applicable project rules and delivery preferences, then [modules.md](references/modules.md) for stage obligations, evidence, and the delivery record. Resolve the actual worktree, branch, running environment, design source, and existing task record before continuing.
+1. Read the applicable project rules and delivery preferences, choose the delivery mode above, then read [modules.md](references/modules.md) for the applicable path, evidence, and record. Resolve the actual worktree, branch, running environment, design source, and existing task record before continuing.
 2. On a new task, investigate and prepare the plan and any necessary preview before collecting the user's business decisions and execution authorization. Record the agreed scope, acceptance criteria, execution mode, and checkpoints. Reuse decisions already established in the conversation.
 3. In continuous mode, advance through applicable stages after plan approval; in UI-first mode, also wait for UI acceptance before business integration. Report progress with artifact links without turning ordinary stage updates into approval requests.
-4. Select and read the relevant installed skill by name for each piece of work: feature/improve for proposals, preview for UI proposals with entry guidance and key interactions, best/detail/research when needed, implement for code, review for review standards or standalone functional review, check for supplied feedback, fix for unresolved diagnosis, draft for content, and deliver for delivery's independent review and final closeout. Preserve their responsibilities and output contracts. If a required skill is unavailable, state the coverage gap rather than claiming it ran.
+4. Select and read the relevant installed skill by name for each piece of work: feature/improve for proposals, preview for interactive UI proposals with entry guidance and key interactions (honor static-image requests directly without requiring interactive HTML), best/detail/research when needed, implement for code, review for review standards or standalone functional review, check for supplied feedback, fix for unresolved diagnosis, draft for content, and deliver for delivery's independent review and final closeout. Preserve their responsibilities and output contracts. If a required skill is unavailable, state the coverage gap rather than claiming it ran.
 5. Repair verified defects within the approved implementation scope and repeat affected checks. Reopen design decisions only when new evidence changes the agreed behavior or scope. Review-only and feedback-verification requests remain read-only unless repair is also authorized.
 6. Refresh the delivery record at stage transitions, material decisions, interruptions, and handoff. On resume, compare it with current code, configuration, and environment; recheck only evidence invalidated by changes. Apply local corrections to the affected decision and retain the other confirmed decisions. When a correction conflicts with another decision, explain the changed user-visible outcome and resolve that conflict before dependent work. Answer side questions and then resume the active stage unless the user stops or redirects it.
-7. At final acceptance and closeout, read and use amo-deliver without requiring another invocation from the user. Pass the target, current evidence, delivery preferences, authorization, and pending steps; let it coordinate experience, independent final review, repairs, and acceptance. Keep the existing delivery record and record only actual authorized closeout results.
+7. At final acceptance and closeout, read and use amo-deliver without requiring another invocation from the user. Pass the target, current evidence, delivery preferences, authorization, and pending steps; let it coordinate experience, independent final review, repairs, and acceptance. Keep the existing delivery record and record only actual authorized closeout results. Follow the user’s explicit commit/push ordering; user acceptance remains a separate status rather than an extra prerequisite for an already authorized earlier commit.
 
 ## Key Rules
 

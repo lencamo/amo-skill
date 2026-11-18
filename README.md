@@ -8,7 +8,7 @@ Amo skills for engineering work: planning, implementation, verification, and wri
 
 | Skill | Responsibility |
 | :--- | :--- |
-| [`amo-workflow`](skills/amo-workflow/SKILL.md) | Coordinate complete feature delivery, stage evidence, approvals, and resumable progress |
+| [`amo-workflow`](skills/amo-workflow/SKILL.md) | Coordinate lightweight or staged delivery, evidence, approvals, and resumable progress |
 | [`amo-feature`](skills/amo-feature/SKILL.md) | Design new features |
 | [`amo-improve`](skills/amo-improve/SKILL.md) | Plan intentional changes to existing behavior |
 | [`amo-fix`](skills/amo-fix/SKILL.md) | Diagnose bugs and plan fixes |
@@ -25,21 +25,42 @@ Amo skills for engineering work: planning, implementation, verification, and wri
 
 ## Workflow
 
-Use `amo-workflow` for complete or staged feature delivery and continuation. It coordinates the applicable skills with plan approval, an optional UI checkpoint, and final user acceptance. It enters amo-deliver at final acceptance without a separate user invocation. Individual skills remain available independently; ask to wrap up a finished feature to start amo-deliver directly. amo-review provides risk-proportionate review standards and performs standalone reviews. During delivery, amo-deliver records justified low-risk exemptions, reuses valid independent reviews, or starts one fresh Claude Code session through Orca to run the built-in local /code-review command with an explicitly selected effort and scope. Review is static by default; implementation owns necessary tests and builds. Repair rechecks cover changed behavior and affected contracts.
+When feature delivery or continuation needs coordination, use `amo-workflow` to choose a lightweight or staged path and coordinate the applicable skills. Standalone edits, questions, and reviews can use the relevant skill directly.
 
 ```text
-amo-feature / amo-improve / amo-fix / amo-refactor (choose one)
-→ amo-best (optional)
-→ amo-detail (optional)
-→ amo-implement
-→ amo-review (functional review as needed)
-→ amo-deliver (final acceptance and closeout)
-
-amo-research: support design and proposal review as needed
-amo-preview: guide users from familiar entrances to proposed UI changes and local interactions
-amo-check: verify existing feedback and whether action is necessary now as needed
-amo-draft: use at any stage as needed
+You describe the requirement
+    ↓
+Is the requirement already clear?
+    ├─ Yes → Implement directly
+    │
+    └─ Needs discussion → Choose the relevant skill
+                          ├─ New feature: amo-feature
+                          ├─ Change existing behavior: amo-improve
+                          ├─ Fix a bug: amo-fix
+                          └─ Refactor: amo-refactor
+                              ↓
+                          Form a concrete proposal
+                              ↓
+                          Add support as needed:
+                          · Research external approaches: amo-research
+                          · Reassess the proposal: amo-best
+                          · Explain implementation details: amo-detail
+                          · Preview the UI: static image or amo-preview
+                              ↓
+                          You approve the proposal
+    ↓
+amo-implement: change the code and perform necessary verification
+    ↓
+Provide the running page or results for your acceptance
+    ↓
+amo-deliver: arrange review and closeout proportionate to risk
+    ↓
+Commit, push, merge, or deploy within your authorization
 ```
+
+The agent selects skills as needed; users do not need to invoke each one, and not every task traverses every step. “Clear → Implement directly” reuses existing execution authorization; discussing a proposal alone does not authorize code changes. Simple tasks combine stages without defaulting to independent review or a full test suite; complex tasks receive the verification their risks require. Commit, push, merge, and deployment follow their respective authorization and the user's specified order; an earlier commit does not count as user acceptance. A push-only request reuses valid verification without restarting the entire flow.
+
+`amo-review` can perform standalone functional review; `amo-deliver` coordinates independent review during delivery. Use `amo-check` for feedback that needs verification, then recheck only the scope affected by repairs. Use `amo-draft` for documentation and copy at any stage as needed.
 
 During complete delivery, amo-deliver coordinates the independent review through the local Claude /code-review command; do not also execute amo-review as a second pass. A stage transition alone does not require another review.
 
