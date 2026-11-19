@@ -21,7 +21,7 @@
 | [`amo-review`](skills/amo-review/docs/SKILL.zh-CN.md) | 按风险进行静态功能正确性与 Bug 审查 |
 | [`amo-check`](skills/amo-check/docs/SKILL.zh-CN.md) | 核实审查意见、当前处理必要性及不处理的影响 |
 | [`amo-draft`](skills/amo-draft/docs/SKILL.zh-CN.md) | 编写聚焦目标的文档与文案 |
-| [`amo-deliver`](skills/amo-deliver/docs/SKILL.zh-CN.md) | 完成工作后的收尾：本地体验、Orca／Claude Code 自动终审、意见轮次与收敛交付 |
+| [`amo-deliver`](skills/amo-deliver/docs/SKILL.zh-CN.md) | 完成工作后的收尾：体验、按风险独立审查、修复定向复核与交付 |
 
 ## 使用链路
 
@@ -62,7 +62,15 @@ amo-deliver：按任务风险完成审查和收尾
 
 `amo-review` 可独立执行功能审查；交付中的独立审查由 `amo-deliver` 安排。收到需要核实的反馈时按需使用 `amo-check`，修复后仅重查受影响部分。`amo-draft` 可在任意阶段按需编写文档和文案。
 
-完整交付的独立审查由 amo-deliver 统一安排并使用本地 Claude /code-review，不额外执行第二轮 amo-review；阶段切换本身不要求再审一次。
+交付中由 `amo-deliver` 复用有效审查覆盖，并按风险选择仍需完成的审查：
+
+| 改动 | 路径 |
+| :--- | :--- |
+| 纯展示 | 实施 → 适用自检／页面验证 → 交付；只有明确要求时才独立审查。 |
+| 局部逻辑修复 | 检查直接调用方 → 实施与针对性测试 → 一次直接独立审查 → 按需修复与定向复核 → 交付。 |
+| 复杂或高风险改动 | 明确必要决策 → 分阶段实施／验证 → 深入独立审查 → 定向修复／复核 → 交付。 |
+
+局部存储／API 修复可以采用轻量流程，同时保留关键失败路径检查。直接审查由一个独立会话应用 `amo-review`，本地 Claude `/code-review` 是可选执行方式，不是额外必经轮次。遵守明确指定的工具／审查者。协调会话用 `amo-check` 判断反馈，继承已有裁定并复用有效证据。边界清楚的局部修复可用针对性回归证据和实施者验证收尾；新的关键或复杂风险需要独立复核。不逐 commit 重审，也不在阶段切换时重写报告。简短提供修改说明、实际自测结果、实质缺口与已授权 Git 状态。
 
 路由规则见 [RESOLVER](skills/RESOLVER.zh-CN.md)。
 

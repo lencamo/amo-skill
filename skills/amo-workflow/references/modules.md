@@ -4,13 +4,13 @@ Use the delivery mode selected in SKILL.md. The stages below describe evidence, 
 
 ## Lightweight Path
 
-Combine work into: confirm requirements and any necessary preview → implement and self-check → runtime/user acceptance as applicable → authorized closeout. Reuse settled decisions; a preview is optional and follows the requested format. Establish UI data and access conditions using amo-implement before presenting an acceptance environment.
+Combine work into: confirm scope → implement and perform focused verification → applicable risk-based review and acceptance → authorized closeout. Reuse settled decisions; add a proposal/preview only for an unresolved need. Establish UI data and access conditions using amo-implement before presenting an acceptance environment.
 
 Keep only the goal, worktree/branch, changes, verification results or gaps, acceptance entry/status when applicable, and actual commit/push status in the existing task record or concise delivery report. Do not require eight stage statuses or a separate delivery document. Apply amo-deliver's independent-review criteria at closeout; lightweight mode alone is not a review result.
 
 ## Staged Path
 
-Use the applicable rows. Keep all eight statuses in the delivery record; mark a stage not applicable with its reason instead of inventing work.
+Select the rows that require actual work or checkpoints. Track those stages in the existing record; mention a material omission and its reason without maintaining eight placeholder statuses.
 
 | Stage | Work | Reviewable result | Completion condition |
 | :--- | :--- | :--- | :--- |
@@ -21,7 +21,7 @@ Use the applicable rows. Keep all eight statuses in the delivery record; mark a 
 | 5. Integration and experience | Establish an isolated environment using the actual implementation and reproducible setup. Exercise operator setup, user actions, downstream processing, and relevant failure paths; distinguish real dependencies from substitutes. | A usable environment, access instructions without secrets, experience steps, expected outcomes, and observed results. | The core flow is exercised across its participating interfaces; UI and dependency gaps remain explicit. |
 | 6. Review and feedback verification | Apply amo-review's risk-proportionate standards. Use amo-deliver's independent-review procedure when warranted, without starting final user acceptance early or adding a second amo-review pass. Use amo-check for returned findings and carry valid evidence into stage 8. | Concrete defects, material gaps, and review evidence, or a reason independent review is not applicable. | Scoped findings are evaluated for repair or acceptance; a clean review or justified low-risk exemption is valid. |
 | 7. Repair and recheck | Repair approved defects, reproduce relevant triggers, check affected existing behavior, and refresh invalidated evidence. | Fix results and current acceptance evidence. | Required defects are resolved; unresolved or deferred limits are explicitly presented for user decision. |
-| 8. Acceptance and closeout | Use amo-deliver for final experience, risk-proportionate independent review through the local Claude /code-review command when needed, feedback, repairs, and user acceptance. Reuse stage 6 evidence; Orca handles session execution and report return. Present scope and remaining limits. Carry out closeout in the authorized order and explain applicable migration, deployment, and rollback; an earlier commit/push does not count as user acceptance. | Acceptance record, actual commit/sync results, included/excluded files, and release handoff. | User acceptance and authorized closeout results are recorded; awaiting authorization is not completion. |
+| 8. Acceptance and closeout | Use amo-deliver to coordinate applicable final experience, feedback, repairs, user acceptance, and only independent coverage still needed. Reuse stage 6 evidence rather than starting another review. Present scope and remaining limits. Carry out closeout in the authorized order and explain applicable migration, deployment, and rollback; an earlier commit/push does not count as user acceptance. | Acceptance record, actual commit/sync results, included/excluded files, and release handoff. | User acceptance and authorized closeout results are recorded; awaiting authorization is not completion. |
 
 ## Planning Checkpoint
 
@@ -39,7 +39,7 @@ For staged delivery, maintain these fields as facts, with evidence links where r
 | Confirmed decisions | Agreed rules and design direction, with the conversation or instruction that established them; distinguish user confirmation from recommendations and assumptions. Retain decision-critical business meanings and current user-visible outcomes so later stages use the same interpretation. |
 | Execution agreement | Continuous or UI-first, required checkpoints, and authorization source/scope for implementation and any separate operations. |
 | Working context | Actual repository, worktree, branch/revision, environment purpose, persistence, and real versus simulated dependencies. |
-| Stage progress | Each of stages 1–8: pending, active, agent-verified, awaiting-user, user-accepted, blocked, or not-applicable; attach artifacts and verification limits. |
+| Stage progress | Applicable stages: pending, active, agent-verified, awaiting-user, user-accepted, or blocked; attach artifacts and verification limits. |
 | Findings and repairs | Trigger, evidence, action decision, repair status, and affected checks. |
 | Review and verification evidence | Reviewer identity and completion state, baseline/target and coverage, verification commands and results/logs, and relevant environment. Reuse this record across implementation, review, and closeout; refresh only evidence invalidated by changes. |
 | Background resources, when present | Task-owned background check and review-session handles, purpose, current state, retained development/acceptance services and access points, and unresolved cleanup with its reason and next action. Reconcile these on resume before retrying or releasing resources. Record only resources this task needs to manage; do not inventory all machine processes. |

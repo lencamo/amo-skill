@@ -2,7 +2,7 @@
 name: amo-check
 description: Use when the user asks to verify existing code review feedback from amo-review, other agents, tools, or colleagues within the current review scope. Check validity, actual consequences if unchanged, and whether action is necessary now. Not for reviewing code from scratch, designing fixes, or implementing repairs.
 metadata:
-  version: '0.4.0'
+  version: '0.5.0'
 ---
 
 # Amo Check
@@ -36,7 +36,7 @@ Read callers, contracts, and history outside the diff only as necessary evidence
 ## Workflow
 
 1. Resolve the target, change scope, and supplied feedback. Keep each comment traceable when grouping duplicates.
-2. Check trigger conditions, reachable code paths, contracts, and existing guards. Consider relevant known configuration, data state, and deployment stage; use focused verification when needed and refresh changed evidence.
+2. Check trigger conditions, reachable code paths, contracts, and existing guards. Reuse valid review evidence and prior decisions with their basis; inspect only disputed or missing evidence rather than rereading the whole diff. Consider relevant known configuration, data state, and deployment stage; use focused verification when needed and refresh changed evidence.
 3. Establish whether each claim is confirmed, partly confirmed, refuted, or unverified. Explain actual consequences if unchanged, with evidence at the target revision and under the applicable conditions.
 4. Decide whether action is required now, can be deferred, is currently unnecessary, or remains unverified. State the reason, remaining impact, and verification limits; stop at the conclusion.
 
@@ -52,6 +52,7 @@ Read callers, contracts, and history outside the diff only as necessary evidence
 - Check whether feedback demands unnecessary scope or complexity, without designing an alternative. Do not turn hypothetical needs into required fixes or use complexity as an excuse to ignore necessary fixes.
 - For deferred or out-of-scope issues, state the remaining impact and relevant conditions for reconsideration without implying that risk is eliminated or accepted. An in-scope issue need not require immediate action.
 - Provide no repair plan, implementation suggestions, or code changes as part of verification. Keep the review bounded; without new evidence, do not reopen settled items or repeat cycles to reach zero comments.
+- During delivery, apply this judgment in the coordinating session and record only decision changes in the existing findings record. Do not launch another independent session or require a separate report for every returned finding. Preserve the standalone report below when the user explicitly asks for feedback verification.
 
 ## Output
 

@@ -21,7 +21,7 @@ Amo skills for engineering work: planning, implementation, verification, and wri
 | [`amo-review`](skills/amo-review/SKILL.md) | Risk-proportionate static correctness and bug review |
 | [`amo-check`](skills/amo-check/SKILL.md) | Verify review feedback, current need for action, and consequences if unchanged |
 | [`amo-draft`](skills/amo-draft/SKILL.md) | Write focused documentation and copy |
-| [`amo-deliver`](skills/amo-deliver/SKILL.md) | Close out finished work: local experience, automated Orca/Claude Code final reviews, feedback rounds, and converged delivery |
+| [`amo-deliver`](skills/amo-deliver/SKILL.md) | Close out finished work: experience, risk-based independent review, focused repair rechecks, and delivery |
 
 ## Workflow
 
@@ -62,7 +62,15 @@ The agent selects skills as needed; users do not need to invoke each one, and no
 
 `amo-review` can perform standalone functional review; `amo-deliver` coordinates independent review during delivery. Use `amo-check` for feedback that needs verification, then recheck only the scope affected by repairs. Use `amo-draft` for documentation and copy at any stage as needed.
 
-During complete delivery, amo-deliver coordinates the independent review through the local Claude /code-review command; do not also execute amo-review as a second pass. A stage transition alone does not require another review.
+During delivery, `amo-deliver` reuses valid review coverage and selects the remaining review by risk:
+
+| Change | Path |
+| :--- | :--- |
+| Pure presentation | Implement → applicable self-check/page verification → deliver; independent review only when requested or required. |
+| Bounded logic repair | Inspect direct callers → implement and focused tests → one direct independent review → repair and targeted recheck as needed → deliver. |
+| Complex or high-risk change | Resolve necessary decisions → staged implementation/verification → in-depth independent review → focused repair/recheck → deliver. |
+
+A bounded storage/API repair can use a lightweight process while retaining critical failure-path checks. Direct review uses one independent session applying `amo-review`; the local Claude `/code-review` is an optional executor, not an extra mandatory pass. Honor explicit tool/reviewer requirements. The coordinator evaluates feedback using `amo-check`, retains settled decisions, and reuses valid evidence. A clear bounded repair may close with focused regression evidence and implementer verification; new critical or complex risks need independent recheck. Do not re-review each commit or rewrite reports at stage transitions. Report changes and actual self-test results briefly, with material gaps and authorized Git status.
 
 See [RESOLVER](skills/RESOLVER.md) for routing rules.
 
