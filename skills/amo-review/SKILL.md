@@ -2,7 +2,7 @@
 name: amo-review
 description: Review implemented functionality with risk-proportionate static checks for requirement gaps, logic errors, and bugs across workspace changes, specified commits, or a feature branch. Use when the user asks whether an implementation is correct or ready to merge. Not for code-style-only reviews, solution design, or diagnosing a known failure to choose a fix.
 metadata:
-  version: '0.7.0'
+  version: '0.8.0'
 ---
 
 # Amo Review
@@ -42,7 +42,7 @@ Use read-only Git inspection and preserve the worktree and index. Missing refs o
 ## Review Depth
 
 - Classify the change by behavior and consequences, not file count or diff size. Display-only text, comments, and non-executable prose need replacement, omission, and unintended-change checks. Text used by selectors, protocols, templates, or business decisions, and executable instructions, can change behavior and require the corresponding review.
-- For local changes, inspect the changed logic and directly affected contracts. For routine features, follow changed inputs, state, and outputs. For permissions, money, data integrity, migrations, or concurrency, trace the relevant protections and failure paths even when the diff is small.
+- For local changes, inspect the changed logic and directly affected contracts. For routine features, follow changed inputs, state, and outputs. For changed stateful actions, trace entry visibility and enabled conditions through the handler, persistence/cache, and user feedback, including reachable recovery states. For permissions, money, data integrity, migrations, or concurrency, trace the relevant protections and failure paths even when the diff is small.
 - Select only applicable dimensions below. Consult the relevant [stack-specific checks](references/stack-checks.md) only when a changed behavior or concrete concern calls for them; do not expand every change into all checks or a repository audit.
 
 ## Workflow
@@ -66,7 +66,7 @@ Use read-only Git inspection and preserve the worktree and index. Missing refs o
 
 ## Key Rules
 
-- Report only concrete defects affecting the scoped behavior. Identify the trigger, code path, wrong result and impact, and why existing protections do not prevent it. Distinguish regressions from pre-existing defects.
+- Report only concrete defects affecting the scoped behavior. Identify the trigger, code path, wrong result and impact, and why existing protections do not prevent it. Distinguish regressions from pre-existing defects; establish how an older issue affects current acceptance or an explicitly requested repair before treating it as in scope.
 - Re-read the relevant lines and callers before reporting. Cite the exact file and line at the reviewed revision; provide a reproduction or code evidence and the smallest sufficient fix.
 - Do not turn speculation, intentional tradeoffs, style preferences, or unrelated cleanup into findings. Style issues that cause a concrete behavioral defect can be reported for that defect.
 - For repair rechecks, verify the known trigger against the repaired contract and inspect direct impacts. Reuse unchanged coverage; expand only for a concrete new risk. Do not recast a confirmed constraint as a defect solely because an alternative behavior was not implemented. Still report newly demonstrated violations; do not treat an agent's assumption as an accepted user tradeoff.

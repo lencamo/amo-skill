@@ -2,7 +2,7 @@
 name: amo-workflow
 description: Coordinate feature delivery or resume active work, choosing a lightweight or staged process by scope and risk. Not for standalone questions or isolated implementation, design, diagnosis, or review requests without delivery coordination.
 metadata:
-  version: '0.9.0'
+  version: '0.10.0'
 ---
 
 # Amo Workflow
@@ -30,7 +30,7 @@ Honor the user's requested scope and verification limits. New evidence can requi
 
 ## Workflow
 
-1. Read the applicable project rules and delivery preferences, choose the delivery mode above, then read [modules.md](references/modules.md) for the applicable path, evidence, and record. Resolve the actual worktree, branch, running environment, design source, and existing task record before continuing.
+1. Read the applicable project rules and delivery preferences, choose the delivery mode above, then read [modules.md](references/modules.md) for the applicable path, evidence, and record. Resolve the actual worktree, branch, running environment, design source, and existing task record before continuing. Honor explicit scope; for whole-branch closeout, resolve the baseline/target and net branch changes, including agreed workspace changes. Identify patch-only checks as partial coverage, distinct from branch review or application audit.
 2. Reuse settled requirements, proposals, and authorization; proceed to implementation when they are sufficient. Otherwise investigate and prepare the necessary plan/preview before collecting unresolved business decisions and execution authorization. Record the agreed scope, acceptance criteria, execution mode, and applicable checkpoints without adding a design stage to a defined repair.
 3. In continuous mode, advance through applicable stages after plan approval; in UI-first mode, also wait for UI acceptance before business integration. Report progress with artifact links without turning ordinary stage updates into approval requests.
 4. Select and read the relevant installed skill by name for each piece of work: feature/improve for proposals, preview for interactive UI proposals with entry guidance and key interactions (honor static-image requests directly without requiring interactive HTML), best/detail/research when needed, implement for code, review for review standards or standalone functional review, check for supplied feedback, fix for unresolved diagnosis, draft for content, and deliver for delivery's independent review and final closeout. Preserve their responsibilities and output contracts. If a required skill is unavailable, state the coverage gap rather than claiming it ran.

@@ -2,7 +2,7 @@
 name: amo-deliver
 description: Use when completed feature or branch work needs final acceptance and closeout, internal or external review feedback rounds, or delivery of a reviewed branch. Automate independent final reviews and verified repairs through convergence. Not for mid-development review, single-feedback verification, or coordination from requirements onward.
 metadata:
-  version: '0.13.0'
+  version: '0.14.0'
 ---
 
 # Amo Deliver
@@ -35,7 +35,7 @@ When the user only asks to push an existing branch, confirm its identity, remote
 2. Reuse completed independent review that still covers the target code, requirements, and acceptance scope. Otherwise select the review path below and arrange at most one independent reviewer for the initial scoped review. The implementer's self-check is not independent review. A stage transition or commit alone does not require another session.
 3. Evaluate returned feedback using amo-check in the coordinating session. Verify candidate findings and disputed evidence, not the entire diff again; do not start another review or require a separate verification report for this step. Deduplicate by trigger, violated contract, and consequence. Judge severity by verified impact rather than incoming labels. Retain confirmed unmet requirements/acceptance criteria and Critical/High/Medium defects; discard non-blocking Low suggestions and false positives without a rejection appendix. Leave unverified claims as gaps.
 4. Repair confirmed defects within existing authorization. Identify the introducing revision and affected contract, then use amo-implement to inspect its direct callers and make the smallest complete repair. Add a focused regression test where useful and establish failure before the fix and success afterward. Reuse unaffected checks; run tests/builds in this verification step, not in the reviewer. Apply the repair-recheck rules below.
-5. Deliver when required defects are resolved and applicable evidence covers the target. State material gaps or remaining risks for the user's decision; elapsed time, round count, or an empty findings list alone cannot establish readiness. Report each completed repair round proactively with one sentence on changes and one on actual self-test results. Present actual commit/push status and acceptance needs without a full report per stage.
+5. Deliver when required defects are resolved and applicable evidence covers the target. Limit the verdict to the reviewed baseline/target and covered flows; distinguish static checks, automated/component tests, simulated failures, real-interface verification, and user acceptance. State material gaps or remaining risks for the user's decision; elapsed time, round count, test totals, or an empty findings list alone cannot establish readiness. Report each completed repair round proactively with one sentence on changes and one on actual self-test results. Present actual commit/push status and acceptance needs without a full report per stage.
 
 ## Review Path
 
@@ -55,7 +55,7 @@ Maintain one compact record of reviewed scope/revision, valid verification, and 
 
 ## Repair Recheck
 
-- Check that the original trigger is resolved, directly affected callers retain their behavior, and relevant regression evidence covers the repaired target. A bounded repair with clear code evidence, focused passing tests, and no new risk can close with this targeted check; identify it as implementer verification, not a new independent review.
+- Check that the original trigger is resolved, the repaired user action can complete, directly affected callers retain their behavior, and relevant regression evidence covers the repaired target. A bounded repair can close with this targeted check when clear code evidence and focused passing tests cover the user outcome and preserved state, with no new risk; identify it as implementer verification, not a new independent review.
 - Request independent recheck when a repair changes or exposes critical protections, complex state transitions, or material behavior not covered by the existing review and regression evidence, or when required by the user/project. Fix its scope to the repair and affected contracts; expand only for a concrete broader impact. Do not re-review every commit or unchanged branch scope.
 - If another round finds the same root cause or a repair-induced defect, stop the mechanical patch/review loop and reassess the cause, direct callers, and repair boundary. Continue a complete repair within existing authorization; ask only for a changed requirement, scope expansion, or missing permission. Do not automatically split off a new requirement or offer a known blocking defect as deliverable. If a prerequisite cannot be supplied, preserve state and report the blocker. Do not force approval after a fixed number of rounds.
 
@@ -63,7 +63,7 @@ Maintain one compact record of reviewed scope/revision, valid verification, and 
 
 Repair in the target branch's existing checkout, preserving unrelated work. If it has no checkout, create one directly on that branch under the environment's worktree rules. Add a temporary repair checkout only for conflicting concurrent edits or an explicit isolation requirement, stating why. Commit/integrate only as authorized and confirm the target contains the repairs before claiming delivery. Clean up only task-created temporary resources with no uncommitted or untransferred work; otherwise retain and report their location and reason.
 
-Track available startup, review, and handoff timings in the existing record when diagnosing latency. Treat elapsed time as an efficiency signal, not a fixed quality deadline. If unexpectedly slow, inspect supported progress once for scope expansion, duplicate work, stalled calls, or unintended verification, then address the cause. Do not blindly poll, restart, raise effort, or expand scope. Report incomplete coverage honestly. Follow the selected runtime's completion, cancellation, and cleanup protocol; preserve unrelated or user-owned sessions and services.
+When assessing workflow duration, record available verification, initial review, repair/recheck, handoff, and total elapsed times in the existing record, keeping compared scopes clear. Treat elapsed time as an efficiency signal, not a fixed quality deadline. If unexpectedly slow, inspect supported progress once for scope expansion, duplicate work, stalled calls, or unintended verification, then address the cause. Do not blindly poll, restart, raise effort, or expand scope. Report incomplete coverage honestly. Follow the selected runtime's completion, cancellation, and cleanup protocol; preserve unrelated or user-owned sessions and services.
 
 ## Key Rules
 

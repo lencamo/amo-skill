@@ -2,7 +2,7 @@
 name: amo-implement
 description: Use when the user asks to implement an already defined proposal and verify the result, balancing code efficiency, concision, readability, and maintainability while keeping changes focused, comments useful, and frontend content free of conversation or implementation notes. Do not use for solution design, proposal explanation, or standalone code review.
 metadata:
-  version: '0.8.0'
+  version: '0.9.0'
 ---
 
 # Amo Implement
@@ -56,6 +56,20 @@ For a complete deliverable, prefix its first line inline with `🔨 [amo-impleme
 
 - Show only the requested business content. Do not turn conversation, proposal explanations, development history, technical limitations, or precautionary advice into unsolicited UI elements; keep explanations in the chat.
 - Preserve existing UI states and initial values unless the proposal requires changing them.
+
+### Stateful Behavior Verification
+
+For changed writes or recovery flows, define the user outcome and data that must survive failure before implementing. Select reachable cases by the actual risks below; use the existing task record for the expected/observed outcome and verification method.
+
+| Trigger | Relevant cases | Required outcome |
+| :--- | :--- | :--- |
+| Async saves or uploads | Pending work, failure, and late success/error after closing, reopening the same object, or changing account/scope | Only the owning operation may consume the response; current edits and unsaved data survive. |
+| Local/cloud persistence or recovery | Different client/server identifiers, partial persistence, and stale or unfinished restored progress | Resolve the authoritative record and preserve completed work without reopening it for conflicting submission. |
+| Authenticated writes | Expired login, network failure, retry, and an old session's late failure | Failures cannot masquerade as confirmed saves; intended local/pending modes stay explicit, and old failures cannot clear a replacement session. |
+
+For UI recovery, check the complete action: visibility, enabled state, handler, persistence/navigation, and final feedback. A locked form must still allow its intended recovery action, including when restored fields are empty.
+
+For nontrivial state logic, add focused regression coverage. For repairs, establish baseline failure and repaired success when feasible; state why baseline execution was unavailable otherwise. Assert user outcomes and preserved data rather than only internal flags or call counts. Test totals summarize execution, not behavioral coverage.
 
 ### Runtime Acceptance
 
