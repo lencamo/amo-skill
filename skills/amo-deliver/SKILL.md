@@ -2,7 +2,7 @@
 name: amo-deliver
 description: Use when completed feature or branch work needs final acceptance and closeout, internal or external review feedback rounds, or delivery of a reviewed branch. Automate independent final reviews and verified repairs through convergence. Not for mid-development review, single-feedback verification, or coordination from requirements onward.
 metadata:
-  version: '0.15.0'
+  version: '0.16.0'
 ---
 
 # Amo Deliver
@@ -31,7 +31,7 @@ When the user only asks to push an existing branch, confirm its identity, remote
 
 ## Workflow
 
-1. Resolve the target, project rules, existing authorization, acceptance progress, and available verification. Reuse valid decisions and evidence. Offer the applicable running entry for user acceptance without adding an approval prerequisite to an already authorized commit/push. Investigate only unresolved behavior before routing to amo-improve or amo-fix.
+1. Resolve the target, project rules, existing authorization, acceptance progress, and available verification. Reuse valid decisions and evidence. For UI acceptance, read and apply amo-implement's UI Acceptance Handoff section, reusing any still-valid handoff. Do not add an approval prerequisite to an already authorized commit/push. Investigate only unresolved behavior before routing to amo-improve or amo-fix.
 2. Reuse completed independent review that still covers the target code, requirements, and acceptance scope. Otherwise select the review path below and arrange at most one independent reviewer for the initial scoped review. The implementer's self-check is not independent review. Record the target's review disposition: completed with reviewer and coverage, not applicable with the exemption basis, or outstanding with the gap. A stage transition or commit alone does not require another session.
 3. Evaluate returned feedback using amo-check in the coordinating session. Verify candidate findings and disputed evidence, not the entire diff again; do not start another review or require a separate verification report for this step. Deduplicate by trigger, violated contract, and consequence. Judge severity by verified impact rather than incoming labels. Retain confirmed unmet requirements/acceptance criteria and Critical/High/Medium defects; discard non-blocking Low suggestions and false positives without a rejection appendix. Leave unverified claims as gaps.
 4. Repair confirmed defects within existing authorization. Identify the introducing revision and affected contract, then use amo-implement to inspect its direct callers and make the smallest complete repair. Add a focused regression test where useful and establish failure before the fix and success afterward. Reuse unaffected checks; run tests/builds in this verification step, not in the reviewer. Apply the repair-recheck rules below.

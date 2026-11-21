@@ -2,7 +2,7 @@
 name: amo-workflow
 description: Coordinate feature delivery or resume active work, choosing a lightweight or staged process by scope and risk. Not for standalone questions or isolated implementation, design, diagnosis, or review requests without delivery coordination.
 metadata:
-  version: '0.10.0'
+  version: '0.11.0'
 ---
 
 # Amo Workflow
@@ -36,7 +36,7 @@ Honor the user's requested scope and verification limits. New evidence can requi
 4. Select and read the relevant installed skill by name for each piece of work: feature/improve for proposals, preview for interactive UI proposals with entry guidance and key interactions (honor static-image requests directly without requiring interactive HTML), best/detail/research when needed, implement for code, review for review standards or standalone functional review, check for supplied feedback, fix for unresolved diagnosis, draft for content, and deliver for delivery's independent review and final closeout. Preserve their responsibilities and output contracts. If a required skill is unavailable, state the coverage gap rather than claiming it ran.
 5. Repair verified defects within the approved implementation scope and repeat affected checks. Reopen design decisions only when new evidence changes the agreed behavior or scope. Review-only and feedback-verification requests remain read-only unless repair is also authorized.
 6. Refresh the delivery record at stage transitions, material decisions, interruptions, and handoff. On resume, compare it with current code, configuration, and environment; recheck only evidence invalidated by changes. Apply local corrections to the affected decision and retain the other confirmed decisions. When a correction conflicts with another decision, explain the changed user-visible outcome and resolve that conflict before dependent work. Answer side questions and then resume the active stage unless the user stops or redirects it.
-7. At final acceptance and closeout, read and use amo-deliver without requiring another invocation from the user. Pass the target, current evidence, delivery preferences, authorization, and pending steps; let it coordinate experience, independent final review, repairs, and acceptance. Keep the existing delivery record and record only actual authorized closeout results. Follow the user’s explicit commit/push ordering; user acceptance remains a separate status rather than an extra prerequisite for an already authorized earlier commit.
+7. At final acceptance and closeout, read and use amo-deliver without requiring another invocation from the user. Pass the target, current evidence, any existing UI acceptance handoff, delivery preferences, authorization, and pending steps; let it coordinate experience, independent final review, repairs, and acceptance. Keep the existing delivery record and record only actual authorized closeout results. Follow the user’s explicit commit/push ordering; user acceptance remains a separate status rather than an extra prerequisite for an already authorized earlier commit.
 
 ## Key Rules
 

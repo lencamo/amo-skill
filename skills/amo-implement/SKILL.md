@@ -2,7 +2,7 @@
 name: amo-implement
 description: Use when the user asks to implement an already defined proposal and verify the result, balancing code efficiency, concision, readability, and maintainability while keeping changes focused, comments useful, and frontend content free of conversation or implementation notes. Do not use for solution design, proposal explanation, or standalone code review.
 metadata:
-  version: '0.11.0'
+  version: '0.12.0'
 ---
 
 # Amo Implement
@@ -82,6 +82,13 @@ For nontrivial state logic, reuse adequate regression coverage or add a focused 
 - For shared UI changes, group callers by materially different host structures, such as overlays, button wrappers, or drawers, and verify a representative of each affected group. Check rendered dimensions or computed styles when sizing or selector matching changes.
 - After implementation, provide the running page and inspect the changed state when available. Record checked entries/actions, expected and observed outcomes, verification methods, and uncovered host groups in the existing record or concise report. Distinguish compile/type checks, browser verification, and user acceptance. If data, login, or runtime access is unavailable, state the gap and provide the usable entry without claiming visual verification.
 - Complete applicable checks before committing by default. Follow an explicit user instruction to commit before manual acceptance, retaining the pending acceptance status.
+
+### UI Acceptance Handoff
+
+- When UI implementation is ready for user inspection, a visible or interactive repair needs reinspection, or final delivery retains a usable UI environment, include a concise handoff in the applicable verification/acceptance section of the existing report. Omit it for Git-only, documentation, or backend tasks without UI changes.
+- Link the actual reachable acceptance page and give the shortest necessary tab/dialog path and what to inspect. Tie the entry to the checked worktree and implementation state. Identify prototype or sample-data views; when access is unavailable, provide the usable artifact/entry and the specific gap without claiming a working page.
+- Attach one representative current screenshot by default, inline when the host supports it; add a key hover/dialog state only when needed to judge the change. Reuse captures that still match the checked state; report capture limitations instead of placeholders or stale evidence.
+- Where project and runtime lifecycle rules permit, leave the task-owned browser at the acceptance page/state and retain the task-owned development services needed for inspection. Report the actual browser position and service state, with useful port details. Reuse a valid handoff during closeout; do not start/restart services or repeat captures merely to fill the report. Providing an entry or screenshot does not establish user acceptance.
 
 ### Implementation Scope
 
