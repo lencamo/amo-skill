@@ -83,7 +83,7 @@ Default to target-state best when no constraint is stated. Do not invent compati
 
 ## Chaining
 
-Individual skills do not automatically chain. During a delivery selected through `amo-workflow`, that coordinator advances applicable stages under the confirmed plan, checkpoints, and authorization. Outside that context, use the standalone routing below.
+Individual skills do not automatically advance unrelated stages. During a delivery selected through `amo-workflow`, that coordinator advances applicable stages under the confirmed plan, checkpoints, and authorization. When a standalone implementation task reaches its first delivery closeout, follow amo-implement's handoff to `amo-deliver`; other standalone requests keep the routing below.
 
 Typical manual chain:
 

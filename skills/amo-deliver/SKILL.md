@@ -2,7 +2,7 @@
 name: amo-deliver
 description: Use when completed feature or branch work needs final acceptance and closeout, internal or external review feedback rounds, or delivery of a reviewed branch. Automate independent final reviews and verified repairs through convergence. Not for mid-development review, single-feedback verification, or coordination from requirements onward.
 metadata:
-  version: '0.14.0'
+  version: '0.15.0'
 ---
 
 # Amo Deliver
@@ -32,7 +32,7 @@ When the user only asks to push an existing branch, confirm its identity, remote
 ## Workflow
 
 1. Resolve the target, project rules, existing authorization, acceptance progress, and available verification. Reuse valid decisions and evidence. Offer the applicable running entry for user acceptance without adding an approval prerequisite to an already authorized commit/push. Investigate only unresolved behavior before routing to amo-improve or amo-fix.
-2. Reuse completed independent review that still covers the target code, requirements, and acceptance scope. Otherwise select the review path below and arrange at most one independent reviewer for the initial scoped review. The implementer's self-check is not independent review. A stage transition or commit alone does not require another session.
+2. Reuse completed independent review that still covers the target code, requirements, and acceptance scope. Otherwise select the review path below and arrange at most one independent reviewer for the initial scoped review. The implementer's self-check is not independent review. Record the target's review disposition: completed with reviewer and coverage, not applicable with the exemption basis, or outstanding with the gap. A stage transition or commit alone does not require another session.
 3. Evaluate returned feedback using amo-check in the coordinating session. Verify candidate findings and disputed evidence, not the entire diff again; do not start another review or require a separate verification report for this step. Deduplicate by trigger, violated contract, and consequence. Judge severity by verified impact rather than incoming labels. Retain confirmed unmet requirements/acceptance criteria and Critical/High/Medium defects; discard non-blocking Low suggestions and false positives without a rejection appendix. Leave unverified claims as gaps.
 4. Repair confirmed defects within existing authorization. Identify the introducing revision and affected contract, then use amo-implement to inspect its direct callers and make the smallest complete repair. Add a focused regression test where useful and establish failure before the fix and success afterward. Reuse unaffected checks; run tests/builds in this verification step, not in the reviewer. Apply the repair-recheck rules below.
 5. Deliver when required defects are resolved and applicable evidence covers the target. Limit the verdict to the reviewed baseline/target and covered flows; distinguish static checks, automated/component tests, simulated failures, real-interface verification, and user acceptance. State material gaps or remaining risks for the user's decision; elapsed time, round count, test totals, or an empty findings list alone cannot establish readiness. Report each completed repair round proactively with one sentence on changes and one on actual self-test results. Present actual commit/push status and acceptance needs without a full report per stage.
@@ -41,9 +41,11 @@ When the user only asks to push an existing branch, confirm its identity, remote
 
 Apply amo-review's risk criteria by behavior and consequences, not file count:
 
+Treat new interaction triggers and component/root replacements that change host event or selector contracts as behavior changes, even when the patch is mostly CSS or existing handlers are unchanged.
+
 | Change | Default review |
 | :--- | :--- |
-| Display text, comments, non-executable prose, or bounded presentation-only changes | Reuse implementation self-checks and applicable page verification; record independent review as not applicable unless explicitly requested or required by project rules. Confirm event semantics, link targets, requests, persistence, permissions, and business rules are unchanged. |
+| Display text, comments, non-executable prose, or bounded presentation-only changes | Reuse implementation self-checks and applicable page verification; record independent review as not applicable unless explicitly requested or required by project rules. Confirm user-input reachability, event semantics, link targets, requests, persistence, permissions, and business rules are unchanged. |
 | Bounded logic changes or local repairs | One independent reviewer inspects the diff and directly affected contracts using amo-review. Trace data-loss and other critical failure paths even in a small patch. |
 | Permissions, money, tenant isolation, migrations, or complex concurrency and business flows | Independent in-depth review of the relevant protections and connected paths. Select dimensions for the concrete risks rather than running every checklist. |
 

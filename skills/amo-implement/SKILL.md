@@ -2,7 +2,7 @@
 name: amo-implement
 description: Use when the user asks to implement an already defined proposal and verify the result, balancing code efficiency, concision, readability, and maintainability while keeping changes focused, comments useful, and frontend content free of conversation or implementation notes. Do not use for solution design, proposal explanation, or standalone code review.
 metadata:
-  version: '0.9.0'
+  version: '0.10.0'
 ---
 
 # Amo Implement
@@ -34,6 +34,7 @@ For a complete deliverable, prefix its first line inline with `🔨 [amo-impleme
 4. Check requirement completion, preserved behavior, scope, and code quality in the diff; correct issues introduced by this task. Include this requirement check in implementation self-checks rather than scheduling another review for it.
 5. Select verification by changed behavior and acceptance criteria. For display-only text, comments, or non-executable prose, check the diff, replacement coverage, and unintended changes; do not default to business tests or a full build. Treat selectors, protocol values, interpolation, and executable instructions by their behavioral impact. For presentation-only layout or displayed-field moves, inspect the resulting page and affected bindings; select compilation or type checks only as needed, without defaulting to new tests or a full suite. For logic changes, run the smallest checks that exercise the changed behavior and important regressions; editing a spec does not require running every test in that file. Honor mandatory project checks and surface conflicts rather than silently waiving them. Use one-shot commands, confirm the runner honors the scope and options, and preserve actual exit status and complete failure output. Retain the tested revision, relevant uncommitted state, command, scope, environment, results, and available logs in the existing record. Mark interrupted checks as unverified; investigate unrelated failures separately without automatically rerunning or expanding the checks.
 6. Report actual changes, verification results, and unfinished work. For background checks or development services started by this task, include their runtime handles, purpose, and any need to remain available for user acceptance.
+7. When the same implementation task proceeds to its first delivery closeout, read and use `amo-deliver`, even if `amo-workflow` was not the entry point. Carry forward the target, verification evidence and gaps, existing review coverage, and authorization; honor the user's scope and operation order.
 
 ## Key Rules
 
@@ -74,7 +75,9 @@ For nontrivial state logic, add focused regression coverage. For repairs, establ
 ### Runtime Acceptance
 
 - For UI changes, prepare enough representative data to judge the changed state. Reuse permitted data or an agreed local fixture and identify its source; an empty page does not verify a populated layout. Keep environment overrides local to the worktree and follow project authorization for production access.
-- After implementation, provide the running page and inspect the changed state when available. Distinguish compile/type checks, browser verification, and user acceptance. If data, login, or runtime access is unavailable, state the gap and provide the usable entry without claiming visual verification.
+- Exercise changed UI interactions from the rendered user entry with real pointer or keyboard input. Programmatic event dispatch and component tests do not establish hit testing, event reachability, or layout correctness.
+- For shared UI changes, group callers by materially different host structures, such as overlays, button wrappers, or drawers, and verify a representative of each affected group. Check rendered dimensions or computed styles when sizing or selector matching changes.
+- After implementation, provide the running page and inspect the changed state when available. Record checked entries/actions, expected and observed outcomes, verification methods, and uncovered host groups in the existing record or concise report. Distinguish compile/type checks, browser verification, and user acceptance. If data, login, or runtime access is unavailable, state the gap and provide the usable entry without claiming visual verification.
 - Complete applicable checks before committing by default. Follow an explicit user instruction to commit before manual acceptance, retaining the pending acceptance status.
 
 ### Implementation Scope

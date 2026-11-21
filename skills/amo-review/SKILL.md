@@ -2,7 +2,7 @@
 name: amo-review
 description: Review implemented functionality with risk-proportionate static checks for requirement gaps, logic errors, and bugs across workspace changes, specified commits, or a feature branch. Use when the user asks whether an implementation is correct or ready to merge. Not for code-style-only reviews, solution design, or diagnosing a known failure to choose a fix.
 metadata:
-  version: '0.8.0'
+  version: '0.9.0'
 ---
 
 # Amo Review
