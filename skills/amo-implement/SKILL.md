@@ -2,7 +2,7 @@
 name: amo-implement
 description: Use when the user asks to implement an already defined proposal and verify the result, balancing code efficiency, concision, readability, and maintainability while keeping changes focused, comments useful, and frontend content free of conversation or implementation notes. Do not use for solution design, proposal explanation, or standalone code review.
 metadata:
-  version: '0.10.0'
+  version: '0.11.0'
 ---
 
 # Amo Implement
@@ -68,9 +68,12 @@ For changed writes or recovery flows, define the user outcome and data that must
 | Local/cloud persistence or recovery | Different client/server identifiers, partial persistence, and stale or unfinished restored progress | Resolve the authoritative record and preserve completed work without reopening it for conflicting submission. |
 | Authenticated writes | Expired login, network failure, retry, and an old session's late failure | Failures cannot masquerade as confirmed saves; intended local/pending modes stay explicit, and old failures cannot clear a replacement session. |
 
+- When a write or cleanup depends on persisted data, require its read to succeed and its shape to be valid; an empty fallback after a read or parse failure must not overwrite or delete the original data.
+- Check asynchronous response ownership immediately before applying UI or cache effects, including refresh helpers that write indirectly.
+
 For UI recovery, check the complete action: visibility, enabled state, handler, persistence/navigation, and final feedback. A locked form must still allow its intended recovery action, including when restored fields are empty.
 
-For nontrivial state logic, add focused regression coverage. For repairs, establish baseline failure and repaired success when feasible; state why baseline execution was unavailable otherwise. Assert user outcomes and preserved data rather than only internal flags or call counts. Test totals summarize execution, not behavioral coverage.
+For nontrivial state logic, reuse adequate regression coverage or add a focused test for an uncovered outcome. Add fault injection only when a concrete path risks irreversible data loss or unauthorized writes and existing evidence cannot establish the protection. For repairs, establish baseline failure and repaired success when feasible; state why baseline execution was unavailable otherwise. Assert user outcomes and preserved data rather than only internal flags or call counts. Test totals summarize execution, not behavioral coverage.
 
 ### Runtime Acceptance
 

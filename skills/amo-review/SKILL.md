@@ -2,7 +2,7 @@
 name: amo-review
 description: Review implemented functionality with risk-proportionate static checks for requirement gaps, logic errors, and bugs across workspace changes, specified commits, or a feature branch. Use when the user asks whether an implementation is correct or ready to merge. Not for code-style-only reviews, solution design, or diagnosing a known failure to choose a fix.
 metadata:
-  version: '0.9.0'
+  version: '0.10.0'
 ---
 
 # Amo Review
@@ -48,7 +48,7 @@ Use read-only Git inspection and preserve the worktree and index. Missing refs o
 ## Workflow
 
 1. Resolve the scope, expected behavior, and applicable project rules. Reuse shared context and distinguish requirements from inference. Carry forward confirmed constraints and prior finding decisions with their basis; reopen only when new evidence changes that basis. Check for omissions, off-target behavior, and unrelated changes.
-2. Read the scoped diff in bounded batches. Group repeated replacements and check their coverage; read callers, dependencies, history, or configuration only to understand changed behavior or resolve a concrete concern. Check deleted behavior as well as additions.
+2. Read the scoped diff in bounded batches. Group repeated replacements and check their coverage; read callers, dependencies, history, or configuration only to understand changed behavior or resolve a concrete concern. Check deleted behavior as well as additions. For persistence, trace failed reads through subsequent writes or cleanup; an empty fallback must not erase unread originals. For asynchronous responses, verify ownership at the actual UI/cache effect, including indirect refresh writes.
 3. Verify candidate defects against reachable inputs, existing guards, and observable consequences. Deterministic code evidence is sufficient; a runtime reproduction is not a prerequisite for every finding. Reject unsupported candidates and keep conclusion-changing uncertainties as gaps.
 4. Reuse available verification evidence when relevant code, tests, configuration, and environment are unchanged; a commit-message change alone does not invalidate it. Default to no test or build execution during review. If a concrete concern needs runtime evidence, identify the focused check for a separate verification step. Follow explicit user or project verification requirements without silently broadening them, and distinguish static reasoning, reused results, and missing evidence.
 5. Report confirmed findings, the actual reviewed scope, and material exclusions or gaps. Refresh affected evidence if the target changes. Finish when the scoped checks and candidate findings are settled; an empty findings list is a valid outcome. Do not reopen unchanged scope to seek more comments or to reach an arbitrary duration. Return the existing evidence directly rather than performing another full pass to write a report.
